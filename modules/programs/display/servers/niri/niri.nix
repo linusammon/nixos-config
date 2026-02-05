@@ -148,6 +148,8 @@
             "Mod+Shift+9".action.move-column-to-workspace = 9;
             "Mod+Shift+0".action.move-column-to-workspace = 10;
           };
+
+          xwayland-satellite.enable = true;
         };
       };
     };
