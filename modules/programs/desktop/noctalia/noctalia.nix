@@ -468,10 +468,6 @@
               enabled = true;
               id = "kitty";
             }
-            {
-              enabled = true;
-              id = "gtk";
-            }
           ];
           enableUserTheming = false;
         };
