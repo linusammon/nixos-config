@@ -5,7 +5,7 @@
       lfs.enable = true;
       settings = {
         user = {
-          name  = "Linus Ammon";
+          name = "Linus Ammon";
           email = "linus@example.com";
         };
         init.defaultBranch = "main";
