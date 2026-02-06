@@ -97,6 +97,8 @@
             }
           ];
 
+          hotkey-overlay.skip-at-startup = true;
+
           binds = {
             "Mod+Space".action.spawn-sh = "noctalia-shell ipc call launcher toggle";
             "Mod+B".action.spawn-sh = "noctalia-shell ipc call wallpaper toggle";
