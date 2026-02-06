@@ -32,6 +32,7 @@ in
 
             starship
             fastfetch
+            clock
             btop
             zoxide
             eza
