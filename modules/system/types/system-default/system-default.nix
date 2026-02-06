@@ -13,7 +13,7 @@
   };
 
   flake.modules.homeManager.system-default = {
-    imports = with self.modules.nixos; [
+    imports = with self.modules.homeManager; [
       system-minimal
     ];
   };

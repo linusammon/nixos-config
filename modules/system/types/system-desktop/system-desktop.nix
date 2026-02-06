@@ -10,7 +10,7 @@
   };
 
   flake.modules.homeManager.system-desktop = {
-    imports = with self.modules.nixos; [
+    imports = with self.modules.homeManager; [
       system-default
     ];
   };
