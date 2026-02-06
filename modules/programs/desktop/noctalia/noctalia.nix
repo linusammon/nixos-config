@@ -468,6 +468,10 @@
               enabled = true;
               id = "kitty";
             }
+            {
+              enabled = true;
+              id = "btop";
+            }
           ];
           enableUserTheming = false;
         };
