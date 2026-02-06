@@ -29,7 +29,7 @@
       homeManager."${username}" = {
         home = {
           username = "${username}";
-          stateVersion = "26.05";
+          homeDirectory = "${directory}";
         };
       };
     };

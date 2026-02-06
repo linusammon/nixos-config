@@ -7,14 +7,9 @@
 
   flake.modules.nixos.desktop = {
     imports = with self.modules.nixos; [
-      system-default
-      boot
-      firmware
-      local
-      sddm
-      niri
+      system-desktop
     ];
 
-    programs.steam.enable = true;
+    programs.steam.enable = true; # Needs to be enabled system wide; TODO: Refactor this into a separate module
   };
 }

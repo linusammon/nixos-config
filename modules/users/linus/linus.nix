@@ -16,6 +16,8 @@ in
         { pkgs, ... }:
         {
           imports = with self.modules.homeManager; [
+            system-desktop
+
             noctalia
 
             nixcord
