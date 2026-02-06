@@ -34,10 +34,6 @@ in
             fastfetch
             btop
             eza
-
-            git
-            fmt
-            nh
           ];
 
           home.packages = with pkgs; [

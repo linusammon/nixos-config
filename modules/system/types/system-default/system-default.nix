@@ -15,6 +15,10 @@
   flake.modules.homeManager.system-default = {
     imports = with self.modules.homeManager; [
       system-minimal
+
+      git
+      fmt
+      nh
     ];
   };
 }
