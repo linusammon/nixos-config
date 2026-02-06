@@ -472,6 +472,10 @@
               enabled = true;
               id = "btop";
             }
+            {
+              enabled = true;
+              id = "cava";
+            }
           ];
           enableUserTheming = false;
         };

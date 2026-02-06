@@ -32,6 +32,7 @@ in
 
             starship
             fastfetch
+            cava
             clock
             btop
             zoxide
