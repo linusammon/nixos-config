@@ -5,6 +5,7 @@
       shellAliases = {
         cd = "z";
         lt = "eza -T";
+        clock = "tty-clock -D -c";
       };
       interactiveShellInit = ''
         set -U fish_greeting
