@@ -5,7 +5,7 @@
       system-minimal
 
       home-manager
-      
+
       boot
       firmware
       local
