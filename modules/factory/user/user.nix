@@ -12,7 +12,10 @@
           users.users."${username}" = {
             isNormalUser = true;
             home = "${directory}";
-            extraGroups = [ "wheel" ];
+            extraGroups = [
+              "wheel"
+              "networkmanager"
+            ];
             shell = pkgs.fish;
           };
 
