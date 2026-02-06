@@ -33,6 +33,7 @@ in
             starship
             fastfetch
             btop
+            zoxide
             eza
           ];
 
