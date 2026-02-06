@@ -35,6 +35,7 @@ in
             btop
             zoxide
             eza
+            fzf
           ];
 
           home.packages = with pkgs; [
