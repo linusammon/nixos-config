@@ -1,10 +1,9 @@
 {
-  flake.modules.homeManager.fmt =
+  flake.modules.homeManager.treefmt =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
         treefmt
-        nixfmt
       ];
     };
 }

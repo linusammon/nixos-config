@@ -17,7 +17,8 @@
       system-minimal
 
       git
-      fmt
+      treefmt
+      nix
       nh
     ];
   };
