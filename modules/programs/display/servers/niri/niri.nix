@@ -73,7 +73,6 @@
 
             shadow = {
               enable = true;
-              draw-behind-window = true;
               color = "#000000";
               inactive-color = "#000000";
               softness = 10;
