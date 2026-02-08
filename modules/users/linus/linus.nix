@@ -37,6 +37,7 @@ in
           eza
           fzf
 
+          idea
           vscode
         ];
       };
