@@ -9,8 +9,7 @@
     imports = with self.modules.nixos; [
       system-desktop
       docker
+      steam
     ];
-
-    programs.steam.enable = true; # Needs to be enabled system wide; TODO: Refactor this into a separate module
   };
 }
