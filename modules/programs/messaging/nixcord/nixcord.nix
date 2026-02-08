@@ -10,7 +10,7 @@
       discord.vencord.enable = false;
       discord.equicord.enable = true;
 
-      config= {
+      config = {
         plugins = {
           accountPanelServerProfile.enable = true;
           alwaysExpandProfiles.enable = true;
