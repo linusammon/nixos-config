@@ -38,9 +38,7 @@ in
             zoxide
             eza
             fzf
-          ];
 
-          home.packages = with pkgs; [
             vscode
           ];
         };
