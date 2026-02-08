@@ -12,36 +12,34 @@ in
   flake.modules = lib.mkMerge [
     (self.factory.user "${username}")
     {
-      homeManager."${username}" =
-        { pkgs, ... }:
-        {
-          imports = with self.modules.homeManager; [
-            system-desktop
+      homeManager."${username}" = {
+        imports = with self.modules.homeManager; [
+          system-desktop
 
-            noctalia
+          noctalia
 
-            nixcord
-            nautilus
-            obsidian
-            thunderbird
-            firefox
+          nixcord
+          nautilus
+          obsidian
+          thunderbird
+          firefox
 
-            kitty
+          kitty
 
-            fish
+          fish
 
-            starship
-            fastfetch
-            cava
-            clock
-            btop
-            zoxide
-            eza
-            fzf
+          starship
+          fastfetch
+          cava
+          clock
+          btop
+          zoxide
+          eza
+          fzf
 
-            vscode
-          ];
-        };
+          vscode
+        ];
+      };
     }
   ];
 }
