@@ -41,6 +41,8 @@ in
           vscode
 
           cliphist
+
+          gimp
         ];
       };
     }
