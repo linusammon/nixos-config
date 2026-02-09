@@ -112,6 +112,7 @@
           hotkey-overlay.skip-at-startup = true;
 
           binds = {
+            # App launcher
             "Mod+Space".action.spawn = [
               "noctalia-shell"
               "ipc"
@@ -120,6 +121,7 @@
               "toggle"
             ];
 
+            # Wallpaper selector
             "Mod+W".action.spawn = [
               "noctalia-shell"
               "ipc"
@@ -128,52 +130,69 @@
               "toggle"
             ];
 
+            # Terminal
             "Mod+Return".action.spawn = "kitty";
 
+            # Apps
             "Mod+Shift+B".action.spawn = "firefox";
             "Mod+Shift+D".action.spawn = "discord";
             "Mod+Shift+M".action.spawn = "thunderbird";
 
+            # Close windows
             "Mod+Q".action.close-window = [ ];
+
+            # Toggle overview
             "Mod+O".action.toggle-overview = [ ];
 
+            # Screenshots
             "Mod+P".action.screenshot = [ ];
             "Mod+Shift+P".action.screenshot-screen = [ ];
             "Mod+Ctrl+P".action.screenshot-window = [ ];
 
+            # Fullscreen windows
             "Mod+F".action.fullscreen-window = [ ];
 
+            # Window width presets and maximization
             "Mod+R".action.switch-preset-column-width = [ ];
             "Mod+Shift+R".action.maximize-column = [ ];
 
+            # Adjust window width
             "Mod+Plus".action.set-column-width = "+10%";
             "Mod+Minus".action.set-column-width = "-10%";
 
+            # Adjust window height
             "Mod+Shift+Plus".action.set-window-height = "+10%";
             "Mod+Shift+Minus".action.set-window-height = "-10%";
 
+            # Center windows
             "Mod+C".action.center-column = [ ];
             "Mod+Shift+C".action.center-visible-columns = [ ];
 
+            # Floating windows
             "Mod+V".action.toggle-window-floating = [ ];
             "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = [ ];
 
+            # Move focus with arrow keys
             "Mod+Up".action.focus-window-up = [ ];
             "Mod+Down".action.focus-window-down = [ ];
             "Mod+Right".action.focus-column-right = [ ];
             "Mod+Left".action.focus-column-left = [ ];
 
+            # Move focus with mouse wheel
+            "Mod+WheelScrollUp".action.focus-column-left = [ ];
+            "Mod+WheelScrollDown".action.focus-column-right = [ ];
+
+            # Move windows with arrow keys
             "Mod+Shift+Up".action.move-window-up = [ ];
             "Mod+Shift+Down".action.move-window-down = [ ];
             "Mod+Shift+Right".action.move-column-right = [ ];
             "Mod+Shift+Left".action.move-column-left = [ ];
 
-            "Mod+WheelScrollUp".action.focus-column-left = [ ];
-            "Mod+WheelScrollDown".action.focus-column-right = [ ];
-
+            # Move windows with mouse wheel
             "Mod+Shift+WheelScrollUp".action.move-column-left = [ ];
             "Mod+Shift+WheelScrollDown".action.move-column-right = [ ];
 
+            # Switch workspaces
             "Mod+1".action.focus-workspace = 1;
             "Mod+2".action.focus-workspace = 2;
             "Mod+3".action.focus-workspace = 3;
@@ -185,6 +204,7 @@
             "Mod+9".action.focus-workspace = 9;
             "Mod+0".action.focus-workspace = 10;
 
+            # Move windows to workspaces
             "Mod+Shift+1".action.move-column-to-workspace = 1;
             "Mod+Shift+2".action.move-column-to-workspace = 2;
             "Mod+Shift+3".action.move-column-to-workspace = 3;
@@ -196,13 +216,13 @@
             "Mod+Shift+9".action.move-column-to-workspace = 9;
             "Mod+Shift+0".action.move-column-to-workspace = 10;
 
+            # Volume control
             "XF86AudioRaiseVolume".action.spawn = [
               "wpctl"
               "set-volume"
               "@DEFAULT_AUDIO_SINK@"
               "0.05+"
             ];
-
             "XF86AudioLowerVolume".action.spawn = [
               "wpctl"
               "set-volume"
