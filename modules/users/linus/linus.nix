@@ -40,8 +40,6 @@ in
           idea
           vscode
 
-          cliphist
-
           gimp
           vlc
           obs

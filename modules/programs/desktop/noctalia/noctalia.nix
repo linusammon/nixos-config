@@ -1,7 +1,10 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 {
   flake.modules.homeManager.noctalia = {
-    imports = [ inputs.noctalia.homeModules.default ];
+    imports = [
+      inputs.noctalia.homeModules.default
+      self.modules.homeManager.cliphist
+    ];
 
     programs.noctalia-shell = {
       enable = true;
