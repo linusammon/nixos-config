@@ -39,6 +39,8 @@ in
 
           idea
           vscode
+
+          cliphist
         ];
       };
     }
