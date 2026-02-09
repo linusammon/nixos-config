@@ -1,0 +1,3 @@
+[submodule "assets/wallpapers"]
+	path = assets/wallpapers
+	url = git@github.com:linusammon/wallpapers.git
