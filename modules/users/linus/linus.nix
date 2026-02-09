@@ -44,6 +44,7 @@ in
 
           gimp
           vlc
+          obs
           kdenlive
         ];
       };
