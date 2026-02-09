@@ -479,6 +479,10 @@
               enabled = true;
               id = "cava";
             }
+            {
+              enabled = true;
+              id = "gtk";
+            }
           ];
           enableUserTheming = false;
         };
