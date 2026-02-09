@@ -112,17 +112,51 @@
           hotkey-overlay.skip-at-startup = true;
 
           binds = {
-            "Mod+Space".action.spawn-sh = "noctalia-shell ipc call launcher toggle";
-            "Mod+B".action.spawn-sh = "noctalia-shell ipc call wallpaper toggle";
+            "Mod+Space".action.spawn = [
+              "noctalia-shell"
+              "ipc"
+              "call"
+              "launcher"
+              "toggle"
+            ];
+
+            "Mod+W".action.spawn = [
+              "noctalia-shell"
+              "ipc"
+              "call"
+              "wallpaper"
+              "toggle"
+            ];
 
             "Mod+Return".action.spawn = "kitty";
+
             "Mod+Shift+B".action.spawn = "firefox";
+            "Mod+Shift+D".action.spawn = "discord";
+            "Mod+Shift+M".action.spawn = "thunderbird";
 
             "Mod+Q".action.close-window = [ ];
             "Mod+O".action.toggle-overview = [ ];
-            "Mod+F".action.maximize-column = [ ];
-            "Mod+Shift+F".action.fullscreen-window = [ ];
+
+            "Mod+P".action.screenshot = [ ];
+            "Mod+Shift+P".action.screenshot-screen = [ ];
+            "Mod+Ctrl+P".action.screenshot-window = [ ];
+
+            "Mod+F".action.fullscreen-window = [ ];
+
             "Mod+R".action.switch-preset-column-width = [ ];
+            "Mod+Shift+R".action.maximize-column = [ ];
+
+            "Mod+Plus".action.set-column-width = "+10%";
+            "Mod+Minus".action.set-column-width = "-10%";
+
+            "Mod+Shift+Plus".action.set-window-height = "+10%";
+            "Mod+Shift+Minus".action.set-window-height = "-10%";
+
+            "Mod+C".action.center-column = [ ];
+            "Mod+Shift+C".action.center-visible-columns = [ ];
+
+            "Mod+V".action.toggle-window-floating = [ ];
+            "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = [ ];
 
             "Mod+Up".action.focus-window-up = [ ];
             "Mod+Down".action.focus-window-down = [ ];
@@ -161,6 +195,20 @@
             "Mod+Shift+8".action.move-column-to-workspace = 8;
             "Mod+Shift+9".action.move-column-to-workspace = 9;
             "Mod+Shift+0".action.move-column-to-workspace = 10;
+
+            "XF86AudioRaiseVolume".action.spawn = [
+              "wpctl"
+              "set-volume"
+              "@DEFAULT_AUDIO_SINK@"
+              "0.05+"
+            ];
+
+            "XF86AudioLowerVolume".action.spawn = [
+              "wpctl"
+              "set-volume"
+              "@DEFAULT_AUDIO_SINK@"
+              "0.05-"
+            ];
           };
 
           xwayland-satellite.enable = true;
