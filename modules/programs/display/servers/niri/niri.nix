@@ -112,7 +112,7 @@
           hotkey-overlay.skip-at-startup = true;
 
           binds = {
-            # App launcher
+            # Toggle app launcher
             "Mod+Space".action.spawn = [
               "noctalia-shell"
               "ipc"
@@ -121,12 +121,30 @@
               "toggle"
             ];
 
-            # Wallpaper selector
+            # Toggle wallpaper selector
             "Mod+W".action.spawn = [
               "noctalia-shell"
               "ipc"
               "call"
               "wallpaper"
+              "toggle"
+            ];
+
+            # Toggle system monitor
+            "Mod+M".action.spawn = [
+              "noctalia-shell"
+              "ipc"
+              "call"
+              "systemMonitor"
+              "toggle"
+            ];
+
+            # Toggle session menu
+            "Mod+Escape".action.spawn = [
+              "noctalia-shell"
+              "ipc"
+              "call"
+              "sessionMenu"
               "toggle"
             ];
 
