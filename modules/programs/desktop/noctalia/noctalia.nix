@@ -41,7 +41,7 @@
           customLaunchPrefix = "";
           customLaunchPrefixEnabled = false;
           enableClipPreview = true;
-          enableClipboardHistory = false;
+          enableClipboardHistory = true;
           enableSettingsSearch = false;
           enableWindowsSearch = true;
           iconMode = "tabler";
