@@ -43,6 +43,7 @@ in
           cliphist
 
           gimp
+          vlc
         ];
       };
     }
