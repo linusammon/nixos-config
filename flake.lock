@@ -264,7 +264,8 @@
         ],
         "noctalia": "noctalia",
         "silentSDDM": "silentSDDM",
-        "systems": "systems"
+        "systems": "systems",
+        "wallpapers": "wallpapers"
       }
     },
     "silentSDDM": {
@@ -299,6 +300,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770650455,
+        "narHash": "sha256-5fMaOVmZCJBDWi1jjdPxrch/tkqVH4bxUw0SDPjv38I=",
+        "owner": "linusammon",
+        "repo": "wallpapers",
+        "rev": "ba85e22f85ea124a2691e1964b0b189877b2a465",
+        "type": "github"
+      },
+      "original": {
+        "owner": "linusammon",
+        "repo": "wallpapers",
         "type": "github"
       }
     },

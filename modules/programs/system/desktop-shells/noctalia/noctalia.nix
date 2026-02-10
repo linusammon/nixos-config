@@ -505,7 +505,7 @@
 
         wallpaper = {
           automationEnabled = false;
-          directory = "~/nixos-config/assets/wallpapers";
+          directory = inputs.wallpapers;
           enableMultiMonitorDirectories = false;
           enabled = true;
           fillColor = "#000000";

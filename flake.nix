@@ -34,6 +34,10 @@
       url = "github:uiriansan/SilentSDDM";
     };
     systems.url = "github:nix-systems/default";
+    wallpapers = {
+      flake = false;
+      url = "github:linusammon/wallpapers";
+    };
   };
 
 }
