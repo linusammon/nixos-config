@@ -405,6 +405,18 @@
               enabled = true;
             }
             {
+              action = "logout";
+              command = "";
+              countdownEnabled = true;
+              enabled = true;
+            }
+            {
+              action = "shutdown";
+              command = "";
+              countdownEnabled = true;
+              enabled = true;
+            }
+            {
               action = "suspend";
               command = "";
               countdownEnabled = true;
@@ -418,18 +430,6 @@
             }
             {
               action = "reboot";
-              command = "";
-              countdownEnabled = true;
-              enabled = true;
-            }
-            {
-              action = "logout";
-              command = "";
-              countdownEnabled = true;
-              enabled = true;
-            }
-            {
-              action = "shutdown";
               command = "";
               countdownEnabled = true;
               enabled = true;
