@@ -18,7 +18,6 @@
 
       git
       treefmt
-      nix
       nh
     ];
   };
