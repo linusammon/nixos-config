@@ -511,16 +511,15 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1769348032,
-        "narHash": "sha256-Fy5dre1KS7xxGX2v5HxZSe++S4I0XXd7qCRUImEnrRM=",
-        "owner": "make-42",
+        "lastModified": 1770762554,
+        "narHash": "sha256-YDUgaXixsEP0t4sCDxo9Pf17XN5NYx5VtlbgeKKBqpg=",
+        "owner": "linusammon",
         "repo": "stylix",
-        "rev": "89d5e0bffe49c3fa285e93556159be5e27fd600a",
+        "rev": "038848ff1bee8421702ddd4c2b116022c7b9855e",
         "type": "github"
       },
       "original": {
-        "owner": "make-42",
-        "ref": "matugen",
+        "owner": "linusammon",
         "repo": "stylix",
         "type": "github"
       }

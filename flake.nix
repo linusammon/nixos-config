@@ -35,7 +35,7 @@
     };
     stylix = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:make-42/stylix/matugen";
+      url = "github:linusammon/stylix";
     };
     systems.url = "github:nix-systems/default";
     wallpapers = {

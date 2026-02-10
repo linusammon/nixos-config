@@ -1,7 +1,7 @@
 {
   flake-file.inputs = {
     stylix = {
-      url = "github:make-42/stylix/matugen";
+      url = "github:linusammon/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
