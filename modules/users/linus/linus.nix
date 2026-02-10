@@ -18,6 +18,8 @@ in
 
           noctalia
 
+          stylix
+
           nixcord
           nautilus
           obsidian

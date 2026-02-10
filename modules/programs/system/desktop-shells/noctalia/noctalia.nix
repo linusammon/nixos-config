@@ -73,9 +73,7 @@
         bar = {
           autoHideDelay = 500;
           autoShowDelay = 150;
-          backgroundOpacity = 0;
           barType = "simple";
-          capsuleOpacity = 1;
           density = "default";
           displayMode = "always_visible";
           floating = false;
@@ -258,7 +256,6 @@
 
         dock = {
           animationSpeed = 1;
-          backgroundOpacity = 1;
           colorizeIcons = false;
           deadOpacity = 0.6;
           displayMode = "auto_hide";
@@ -350,7 +347,6 @@
         };
 
         notifications = {
-          backgroundOpacity = 1;
           criticalUrgencyDuration = 15;
           enableKeyboardLayoutToast = true;
           enableMediaToast = false;
@@ -379,7 +375,6 @@
 
         osd = {
           autoHideMs = 2000;
-          backgroundOpacity = 1;
           enabled = true;
           enabledTypes = [
             0
@@ -466,24 +461,7 @@
         };
 
         templates = {
-          activeTemplates = [
-            {
-              enabled = true;
-              id = "kitty";
-            }
-            {
-              enabled = true;
-              id = "btop";
-            }
-            {
-              enabled = true;
-              id = "cava";
-            }
-            {
-              enabled = true;
-              id = "gtk";
-            }
-          ];
+          activeTemplates = [ ];
           enableUserTheming = false;
         };
 
@@ -496,7 +474,6 @@
           fontFixed = "DejaVu Sans Mono";
           fontFixedScale = 1;
           networkPanelView = "wifi";
-          panelBackgroundOpacity = 0.93;
           panelsAttachedToBar = true;
           settingsPanelMode = "window";
           tooltipsEnabled = true;

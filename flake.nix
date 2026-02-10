@@ -33,6 +33,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:uiriansan/SilentSDDM";
     };
+    stylix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:make-42/stylix/matugen";
+    };
     systems.url = "github:nix-systems/default";
     wallpapers = {
       flake = false;

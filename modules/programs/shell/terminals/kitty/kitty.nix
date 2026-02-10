@@ -15,7 +15,6 @@
       };
 
       extraConfig = ''
-        include ./themes/noctalia.conf
         window_padding_width 0 20
       '';
     };
