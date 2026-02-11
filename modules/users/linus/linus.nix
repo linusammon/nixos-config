@@ -14,7 +14,7 @@ in
     {
       homeManager."${username}" = {
         imports = with self.modules.homeManager; [
-          system-desktop
+          system-default
           noctalia
           stylix
 

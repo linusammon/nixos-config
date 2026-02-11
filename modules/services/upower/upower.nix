@@ -3,4 +3,3 @@
     services.upower.enable = true;
   };
 }
-

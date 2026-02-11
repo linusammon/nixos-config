@@ -7,11 +7,7 @@
 
   flake.modules.nixos.zenbook = {
     imports = with self.modules.nixos; [
-      system-desktop
-      networking
-      bluetooth
-      upower
-      tuned
+      system-laptop
       docker
     ];
   };
