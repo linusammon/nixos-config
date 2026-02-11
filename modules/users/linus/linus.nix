@@ -15,37 +15,33 @@ in
       homeManager."${username}" = {
         imports = with self.modules.homeManager; [
           system-desktop
-
           noctalia
-
           stylix
 
-          nixcord
-          nautilus
-          obsidian
-          thunderbird
-          firefox
-
-          kitty
-
           fish
-
+          kitty
           starship
-          fastfetch
-          cava
-          clock
           btop
-          zoxide
+          fastfetch
           eza
           fzf
+          zoxide
+          cava
+          clock
+
+          nixcord
+          thunderbird
+          nautilus
+          obsidian
+          firefox
 
           idea
           vscode
 
           gimp
-          vlc
-          obs
           kdenlive
+          obs
+          vlc
         ];
       };
     }
