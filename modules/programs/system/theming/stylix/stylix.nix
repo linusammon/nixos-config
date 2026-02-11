@@ -5,7 +5,7 @@
 
     stylix = {
       enable = true;
-      image = "${inputs.wallpapers}/001.jpg";
+      image = ./../wallpapers/001.png;
       opacity.desktop = 0.97;
       colorGeneration = {
         polarity = "dark";
