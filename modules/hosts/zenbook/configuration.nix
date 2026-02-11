@@ -10,10 +10,9 @@
       system-desktop
       networking
       bluetooth
+      upower
+      tuned
       docker
     ];
-
-    services.tuned.enable = true;
-    services.upower.enable = true;
   };
 }
