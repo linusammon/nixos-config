@@ -7,14 +7,14 @@
       enable = true;
       theme = "default";
       backgrounds = {
-        "001.jpg" = "${inputs.wallpapers}/001.jpg";
+        "001.png" = ./../../theming/wallpapers/001.png;
       };
       settings = {
         "LoginScreen" = {
-          background = "001.jpg";
+          background = "001.png";
         };
         "LockScreen" = {
-          background = "001.jpg";
+          background = "001.png";
         };
       };
     };

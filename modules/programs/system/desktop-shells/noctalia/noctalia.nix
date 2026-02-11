@@ -212,7 +212,7 @@
           monitorForColors = "";
           predefinedScheme = "Noctalia (default)";
           schedulingMode = "off";
-          useWallpaperColors = true;
+          useWallpaperColors = false;
         };
 
         controlCenter = {
@@ -482,7 +482,7 @@
 
         wallpaper = {
           automationEnabled = false;
-          directory = inputs.wallpapers;
+          directory = ./../../theming/wallpapers;
           enableMultiMonitorDirectories = false;
           enabled = true;
           fillColor = "#000000";
