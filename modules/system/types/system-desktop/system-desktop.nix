@@ -8,10 +8,4 @@
       niri
     ];
   };
-
-  flake.modules.homeManager.system-desktop = {
-    imports = with self.modules.homeManager; [
-      system-default
-    ];
-  };
 }
