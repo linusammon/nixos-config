@@ -86,6 +86,7 @@
               unified-extensions-area = [ ];
               widget-overflow-fixed-list = [ ];
               nav-bar = [
+                "sidebar-button"
                 "back-button"
                 "forward-button"
                 "vertical-spacer"
