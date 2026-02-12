@@ -93,9 +93,6 @@
                 "stop-reload-button"
                 "urlbar-container"
                 "downloads-button"
-                "ublock0_raymondhill_net-browser-action"
-                "_testpilot-containers-browser-action"
-                "reset-pbm-toolbar-button"
                 "unified-extensions-button"
               ];
               toolbar-menubar = [ "menubar-items" ];
