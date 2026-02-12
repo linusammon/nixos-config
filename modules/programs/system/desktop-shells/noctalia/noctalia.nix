@@ -398,14 +398,14 @@
               command = "";
               countdownEnabled = true;
               enabled = true;
-              keybind = "1"; 
+              keybind = "1";
             }
             {
               action = "logout";
               command = "";
               countdownEnabled = true;
               enabled = true;
-              keybind = "2"; 
+              keybind = "2";
             }
             {
               action = "shutdown";
@@ -419,21 +419,21 @@
               command = "";
               countdownEnabled = true;
               enabled = true;
-              keybind = "4"; 
+              keybind = "4";
             }
             {
               action = "hibernate";
               command = "";
               countdownEnabled = true;
               enabled = true;
-              keybind = "5"; 
+              keybind = "5";
             }
             {
               action = "reboot";
               command = "";
               countdownEnabled = true;
               enabled = true;
-              keybind = "6";            
+              keybind = "6";
             }
           ];
           showHeader = true;
