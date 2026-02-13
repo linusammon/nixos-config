@@ -1,3 +1,4 @@
+{ inputs, ... }:
 {
   flake.modules.homeManager.firefox =
     { pkgs, ... }:
@@ -121,71 +122,81 @@
               newElementCount = 10;
             };
           };
-        };
 
-        search = {
-          force = true;
+          search = {
+            force = true;
 
-          default = "ddg";
-          privateDefault = "ddg";
+            default = "ddg";
+            privateDefault = "ddg";
 
-          order = [
-            "ddg"
-            "google"
-            "wikipedia"
-            "Nix Packages"
-            "Nix Options"
-            "Home Manager Options"
-          ];
+            order = [
+              "ddg"
+              "google"
+              "wikipedia"
+              "Nix Packages"
+              "Nix Options"
+              "Home Manager Options"
+            ];
 
-          engines = {
-            "Nix Packages" = {
-              definedAliases = [ "@np" ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              urls = [
-                {
-                  template = "https://search.nixos.org/packages";
-                  params = [
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
+            engines = {
+              "Nix Packages" = {
+                definedAliases = [ "@np" ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                urls = [
+                  {
+                    template = "https://search.nixos.org/packages";
+                    params = [
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+              };
+
+              "Nix Options" = {
+                definedAliases = [ "@no" ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                urls = [
+                  {
+                    template = "https://search.nixos.org/options";
+                    params = [
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+              };
+
+              "Home Manager Options" = {
+                definedAliases = [ "@ho" ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                urls = [
+                  {
+                    template = "https://home-manager-options.extranix.com/";
+                    params = [
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+              };
             };
+          };
 
-            "Nix Options" = {
-              definedAliases = [ "@no" ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              urls = [
-                {
-                  template = "https://search.nixos.org/options";
-                  params = [
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
-            };
+          extensions = {
+            force = true;
 
-            "Home Manager Options" = {
-              definedAliases = [ "@ho" ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              urls = [
-                {
-                  template = "https://home-manager-options.extranix.com/";
-                  params = [
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
-            };
+            packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+              adaptive-tab-bar-colour
+              ublock-origin
+              bitwarden
+            ];
           };
         };
       };
