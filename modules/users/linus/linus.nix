@@ -26,6 +26,7 @@ in
           eza
           fzf
           zoxide
+          tar
           wget
           cava
           clock
