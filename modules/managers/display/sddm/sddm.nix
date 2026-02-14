@@ -7,7 +7,7 @@
       enable = true;
       theme = "default";
       backgrounds = {
-        "001.png" = ./../../theming/wallpapers/001.png;
+        "001.png" = ./../../../programs/desktop/theming/wallpapers/001.png;
       };
       settings = {
         "LoginScreen" = {
