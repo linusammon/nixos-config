@@ -110,7 +110,7 @@
               left = [
                 {
                   colorizeDistroLogo = true;
-                  colorizeSystemIcon = "secondary";
+                  colorizeSystemIcon = "tertiary";
                   customIconPath = "";
                   enableColorization = true;
                   icon = "noctalia";
