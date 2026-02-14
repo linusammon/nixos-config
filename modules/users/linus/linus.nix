@@ -27,6 +27,7 @@ in
           fzf
           zoxide
           tar
+          zip
           wget
 
           nixcord
