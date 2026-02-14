@@ -7,6 +7,7 @@
 
     programs.fish.shellAliases = {
       cd = "z";
+      cdi = "zi";
     };
   };
 }
