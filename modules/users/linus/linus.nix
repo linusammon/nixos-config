@@ -28,8 +28,6 @@ in
           zoxide
           tar
           wget
-          cava
-          clock
 
           nixcord
           thunderbird
