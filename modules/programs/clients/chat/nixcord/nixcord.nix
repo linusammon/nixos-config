@@ -13,7 +13,6 @@
       config = {
         plugins = {
           accountPanelServerProfile.enable = true;
-          alwaysExpandProfiles.enable = true;
           alwaysExpandRoles.enable = true;
           alwaysTrust.enable = true;
           anammox.enable = true;
@@ -46,7 +45,6 @@
           customFolderIcons.enable = true;
           customTimestamps.enable = true;
           devCompanion.enable = true;
-          discordDevBanner.enable = true;
           dontFilterMe.enable = true;
           dontRoundMyTimestamps.enable = true;
           equicordHelper.enable = true;
@@ -55,7 +53,6 @@
           exportMessages.enable = true;
           expressionCloner.enable = true;
           f8Break.enable = true;
-          fakeNitro.enable = true;
           fastDeleteChannels.enable = true;
           favoriteEmojiFirst.enable = true;
           favoriteGifSearch.enable = true;
@@ -95,20 +92,15 @@
           mentionAvatars.enable = true;
           messageBurst.enable = true;
           messageClickActions.enable = true;
-          messageFetchTimer.enable = true;
-          messageLatency.enable = true;
           messageLinkEmbeds.enable = true;
           messageLogger.enable = true;
           messageTags.enable = true;
-          moreCommands.enable = true;
           moreKaomoji.enable = true;
           moreQuickReactions.enable = true;
           neverPausePreviews.enable = true;
           noBlockedMessages.enable = true;
           noBulletPoints.enable = true;
           noDevtoolsWarning.enable = true;
-          noF1.enable = true;
-          noModalAnimation.enable = true;
           noNitroUpsell.enable = true;
           noOnboarding.enable = true;
           noUnblockToJump.enable = true;
@@ -123,11 +115,9 @@
           previewMessage.enable = true;
           quickMention.enable = true;
           quickReply.enable = true;
-          quoter.enable = true;
           relationshipNotifier.enable = true;
           replyTimestamp.enable = true;
           reverseImageSearch.enable = true;
-          screenRecorder.enable = true;
           sendTimestamps.enable = true;
           serverInfo.enable = true;
           serverSearch.enable = true;
@@ -143,7 +133,6 @@
           typingIndicator.enable = true;
           typingTweaks.enable = true;
           unindent.enable = true;
-          unitConverter.enable = true;
           universalMention.enable = true;
           unlimitedAccounts.enable = true;
           userMessagesPronouns.enable = true;
@@ -152,7 +141,6 @@
           viewIcons.enable = true;
           viewRaw.enable = true;
           viewRawVariant.enable = true;
-          voiceButtons.enable = true;
           voiceChannelLog.enable = true;
           voiceChatUtilities.enable = true;
           volumeBooster.enable = true;
