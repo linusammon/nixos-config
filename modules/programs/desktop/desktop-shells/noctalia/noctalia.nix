@@ -1,10 +1,12 @@
 { inputs, self, ... }:
 {
-  flake.modules.homeManager.noctalia = {
+  flake.modules.homeManager.noctalia = {pkgs, ... }: {
     imports = [
       inputs.noctalia.homeModules.default
       self.modules.homeManager.cliphist
     ];
+
+    home.packages = with pkgs; [ wtype ];
 
     programs.noctalia-shell = {
       enable = true;
@@ -37,7 +39,7 @@
 
       settings = {
         appLauncher = {
-          autoPasteClipboard = false;
+          autoPasteClipboard = true;
           clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
           clipboardWatchTextCommand = "wl-paste --type text --watch cliphist store";
           clipboardWrapText = true;
