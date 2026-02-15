@@ -29,6 +29,7 @@ in
           tar
           zip
           wget
+          yq
 
           nixcord
           thunderbird
