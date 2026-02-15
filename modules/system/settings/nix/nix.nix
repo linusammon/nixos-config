@@ -30,5 +30,7 @@
       warn-dirty = false
       keep-outputs = true
     '';
+
+    documentation.nixos.enable = false;
   };
 }
