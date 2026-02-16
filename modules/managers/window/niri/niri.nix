@@ -28,6 +28,10 @@
           input = {
             keyboard.xkb.layout = "de";
             focus-follows-mouse.enable = true;
+            mouse = {
+              accel-profile = "flat";
+              accel-speed = 0;
+            };
           };
 
           outputs = {
