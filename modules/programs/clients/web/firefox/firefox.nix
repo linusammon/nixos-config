@@ -199,6 +199,7 @@
               adaptive-tab-bar-colour
               ublock-origin
               bitwarden
+              darkreader
             ];
           };
         };
