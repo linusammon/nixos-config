@@ -10,7 +10,8 @@
           isDefault = true;
 
           settings = {
-            "browser.startup.homepage" = "about:home";
+            # Restore previous tabs and windows
+            "browser.startup.page" = 3;
 
             # Automatically enable extensions
             "extensions.autoDisableScopes" = 0;
