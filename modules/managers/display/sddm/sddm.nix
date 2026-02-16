@@ -2,7 +2,7 @@
 {
   flake.modules.nixos.sddm =
     let
-      wallpaper = "004.png";
+      wallpaper = "001.png";
     in
     {
       imports = [ inputs.silentSDDM.nixosModules.default ];
