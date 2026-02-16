@@ -1,22 +1,26 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.sddm = {
-    imports = [ inputs.silentSDDM.nixosModules.default ];
+  flake.modules.nixos.sddm =
+    let
+      wallpaper = "004.png";
+    in
+    {
+      imports = [ inputs.silentSDDM.nixosModules.default ];
 
-    programs.silentSDDM = {
-      enable = true;
-      theme = "default";
-      backgrounds = {
-        "001.png" = ./../../../programs/desktop/theming/wallpapers/001.png;
-      };
-      settings = {
-        "LoginScreen" = {
-          background = "001.png";
+      programs.silentSDDM = {
+        enable = true;
+        theme = "default";
+        backgrounds = {
+          "${wallpaper}" = "${inputs.wallpapers}/${wallpaper}";
         };
-        "LockScreen" = {
-          background = "001.png";
+        settings = {
+          "LoginScreen" = {
+            background = "${wallpaper}";
+          };
+          "LockScreen" = {
+            background = "${wallpaper}";
+          };
         };
       };
     };
-  };
 }

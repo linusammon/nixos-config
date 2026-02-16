@@ -366,18 +366,15 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1770843696,
-        "narHash": "sha256-LovWTGDwXhkfCOmbgLVA10bvsi/P8eDDpRudgk68HA8=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "2343bbb58f99267223bc2aac4fc9ea301a155a16",
-        "type": "github"
+        "lastModified": 1771177547,
+        "narHash": "sha256-erxy9meNKMaKpKQpl8KfhZsVY4EtR4eaHT94jY98Ty0=",
+        "rev": "ac055f38c798b0d87695240c7b761b82fc7e5bc2",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre946843.ac055f38c798/nixexprs.tar.xz"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz"
       }
     },
     "nixpkgs-lib": {
@@ -488,7 +485,8 @@
         "noctalia": "noctalia",
         "silentSDDM": "silentSDDM",
         "stylix": "stylix",
-        "systems": "systems_3"
+        "systems": "systems_3",
+        "wallpapers": "wallpapers"
       }
     },
     "silentSDDM": {
@@ -669,6 +667,22 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
+        "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1771243577,
+        "narHash": "sha256-8C8GjbXb75o5Lc0JQ+pSpHOhxQ0DVrRxzoOIbHNSGds=",
+        "owner": "linusammon",
+        "repo": "wallpapers",
+        "rev": "f5f4efe6d4af3441dd86716373df333fb4c2d6aa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "linusammon",
+        "repo": "wallpapers",
         "type": "github"
       }
     },

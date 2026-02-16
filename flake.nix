@@ -27,7 +27,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:FlameFlag/nixcord";
     };
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     nixpkgs-lib.follows = "nixpkgs";
     noctalia = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,6 +42,10 @@
       url = "github:linusammon/stylix";
     };
     systems.url = "github:nix-systems/default";
+    wallpapers = {
+      flake = false;
+      url = "github:linusammon/wallpapers";
+    };
   };
 
 }
