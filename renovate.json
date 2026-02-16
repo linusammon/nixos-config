@@ -1,6 +1,23 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
-  ]
+    "config:recommended",
+    ":rebaseStalePrs",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "schedule": [
+    "0 6,18 * * *"
+  ],
+  "automergeSchedule": [
+    "0 6,18 * * *"
+  ],
+  "automergeType": "pr",
+  "timezone": "Europe/Zurich",
+  "nix": {
+    "enabled": true
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "commitMessageAction": "update flake.lock"
+  }
 }
