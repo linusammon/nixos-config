@@ -95,7 +95,9 @@
                   "forward-button"
                   "vertical-spacer"
                   "stop-reload-button"
+                  "customizableui-special-spring12"
                   "urlbar-container"
+                  "customizableui-special-spring13"
                   "downloads-button"
                   "unified-extensions-button"
                 ];
@@ -120,7 +122,7 @@
                 "vertical-tabs"
               ];
               currentVersion = 23;
-              newElementCount = 10;
+              newElementCount = 13;
             };
           };
 
