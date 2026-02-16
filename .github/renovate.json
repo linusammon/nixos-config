@@ -6,10 +6,10 @@
     ":semanticCommitTypeAll(chore)"
   ],
   "schedule": [
-    "0 6,18 * * *"
+    "* 6,18 * * *"
   ],
   "automergeSchedule": [
-    "0 6,18 * * *"
+    "* 6,18 * * *"
   ],
   "automergeType": "pr",
   "timezone": "Europe/Zurich",
