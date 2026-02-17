@@ -41,8 +41,6 @@ in
           vscode
           helix
 
-          nix
-
           gimp
           kdenlive
           obs
