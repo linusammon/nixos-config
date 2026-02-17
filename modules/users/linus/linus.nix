@@ -39,6 +39,9 @@ in
 
           idea
           vscode
+          helix
+
+          nix
 
           gimp
           kdenlive
