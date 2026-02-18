@@ -492,7 +492,7 @@
 
           wallpaper = {
             automationEnabled = false;
-            directory = ./../../theming/wallpapers;
+            directory = "";
             enableMultiMonitorDirectories = false;
             enabled = true;
             fillColor = "#000000";
