@@ -14,7 +14,7 @@
   },
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": [ "* 6,18 * *" ], 
+    "schedule": [ "* 6,18 * * *" ], 
     "commitMessageAction": "update flake.lock"
   }
 }
