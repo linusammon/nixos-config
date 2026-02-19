@@ -76,11 +76,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1771301023,
-        "narHash": "sha256-0XauSmXBLOqn8SYHRWOL7Z9O7m5qtF0Yw6rqXVHkEnw=",
+        "lastModified": 1771454908,
+        "narHash": "sha256-OSI19l74+0DhZDW+18+IGV3tMfxP0aqmJ9oyMOWLTSM=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "1cf8b4f42720573ef35dcd7d2ba0fd80e40954e9",
+        "rev": "d886ec737b921c11f849babdbfa314d0012c004a",
         "type": "gitlab"
       },
       "original": {
@@ -236,11 +236,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771422582,
-        "narHash": "sha256-xK5kl3OBZaF1VwziVMX+SZ2LT9Fbu5o8vRDt78uR7no=",
+        "lastModified": 1771471179,
+        "narHash": "sha256-XuP8HPzvt4+m9aKVeL9GdGNlTeyeDn3zEeUuorvrw88=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b3ccd4bb262f4e6d3248b46cede92b90c4a42094",
+        "rev": "2dedeb55b2c140d9a123ae931588e8903fe202ef",
         "type": "github"
       },
       "original": {
@@ -296,11 +296,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1771308899,
-        "narHash": "sha256-kb/4oSHB261GOLhVGgrzTOqo/ImeCi/WS25q2ujtHGc=",
+        "lastModified": 1771443511,
+        "narHash": "sha256-0vp2Se/SEnQ2EOIyeHkbfDwrcBBRwSQ779KHJY05CmE=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "f3e98ba073bd7e2717a07d622f9b737c461a97b9",
+        "rev": "480118b7c3c01ae99be390bafd0050d9d0726b9f",
         "type": "github"
       },
       "original": {
@@ -366,11 +366,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1771177547,
-        "narHash": "sha256-erxy9meNKMaKpKQpl8KfhZsVY4EtR4eaHT94jY98Ty0=",
-        "rev": "ac055f38c798b0d87695240c7b761b82fc7e5bc2",
+        "lastModified": 1771207753,
+        "narHash": "sha256-7o+iRF++GO/gGrgrRMlnld2V/3QIzpdwMKViVkHtMEQ=",
+        "rev": "d1c15b7d5806069da59e819999d70e1cec0760bf",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre946843.ac055f38c798/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre946960.d1c15b7d5806/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -431,11 +431,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771434371,
-        "narHash": "sha256-1ivy5+FBZMSojnduPnG6K8w5EFxyP61vthmLXzfGwco=",
+        "lastModified": 1771444048,
+        "narHash": "sha256-li7Pd9wOtiYuFq+u+lMbbaoNySBz7fVTeYTxOSLcBTI=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "04589a4f58c7315b035633a274d1fc820d34c31a",
+        "rev": "cb77a08243a5956ebed2d0960f161d0644295f83",
         "type": "github"
       },
       "original": {
