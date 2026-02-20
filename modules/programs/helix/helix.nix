@@ -2,6 +2,11 @@
   flake.modules.homeManager.helix =
     { pkgs, ... }:
     {
+      home.packages = with pkgs; [
+        nil
+        nixd
+      ];
+
       programs.helix = {
         enable = true;
         defaultEditor = true;
@@ -48,7 +53,7 @@
             {
               name = "nix";
               auto-format = true;
-              formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
+              formatter.command = "nix fmt";
             }
           ];
         };
