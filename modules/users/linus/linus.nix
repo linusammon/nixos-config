@@ -32,7 +32,6 @@ in
           nixcord
           thunderbird
           nautilus
-          obsidian
           firefox
 
           idea
