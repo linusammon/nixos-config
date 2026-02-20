@@ -26,8 +26,7 @@ in
           eza
           fzf
           zoxide
-          tar
-          zip
+          archive
           wget
           yq
 
