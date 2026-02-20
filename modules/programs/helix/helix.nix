@@ -3,8 +3,11 @@
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        nil
+        # Nix
         nixd
+
+        # Markdown
+        markdown-oxide
       ];
 
       programs.helix = {
