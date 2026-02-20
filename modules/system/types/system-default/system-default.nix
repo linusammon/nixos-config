@@ -17,7 +17,6 @@
       system-minimal
 
       git
-      treefmt
       nh
     ];
   };

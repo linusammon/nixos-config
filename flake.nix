@@ -42,6 +42,10 @@
       url = "github:linusammon/stylix";
     };
     systems.url = "github:nix-systems/default";
+    treefmt-nix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:numtide/treefmt-nix";
+    };
     wallpapers = {
       flake = false;
       url = "github:linusammon/wallpapers";

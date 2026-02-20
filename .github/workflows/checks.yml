@@ -20,4 +20,4 @@ jobs:
     - uses: cachix/install-nix-action@v31
       with:
         nix_path: nixpkgs=channel:nixos-unstable
-    - run: nix-shell -p treefmt nixfmt --run "treefmt --fail-on-change"
+    - run: nix fmt -- --verbose --ci
