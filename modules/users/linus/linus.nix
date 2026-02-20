@@ -28,7 +28,6 @@ in
           zoxide
           archive
           wget
-          yq
 
           nixcord
           thunderbird
