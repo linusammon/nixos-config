@@ -106,6 +106,21 @@
         "type": "github"
       }
     },
+    "firefox-webapps": {
+      "locked": {
+        "lastModified": 1771658654,
+        "narHash": "sha256-Ig55BOrwrp2/ZYRE7D4Kg+RnuFxv6aHCcyFUsa5Bw+0=",
+        "owner": "linusammon",
+        "repo": "nixos-firefox-webapps",
+        "rev": "b5a158f8f834bdf8e6fdd4ef654e45875c6819a1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "linusammon",
+        "repo": "nixos-firefox-webapps",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1733328505,
@@ -472,6 +487,7 @@
     "root": {
       "inputs": {
         "firefox-addons": "firefox-addons",
+        "firefox-webapps": "firefox-webapps",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
