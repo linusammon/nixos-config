@@ -33,6 +33,7 @@ in
           thunderbird
           nautilus
           firefox
+          webapps
 
           idea
           vscode
