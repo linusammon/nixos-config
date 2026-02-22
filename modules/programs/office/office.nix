@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.office = {
+  flake.modules.homeManager.webapp-office = {
     programs.firefox-webapps.webApps = [
       {
         name = "M365 Copilot";

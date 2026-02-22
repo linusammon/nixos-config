@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.windows =
+  flake.modules.homeManager.webapp-windows =
     { config, ... }:
     {
       home.file.".windows/docker-compose.yml" = {
