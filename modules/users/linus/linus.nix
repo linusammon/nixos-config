@@ -33,6 +33,9 @@ in
           thunderbird
           nautilus
           firefox
+          
+          webapps
+          office
           windows
 
           idea
