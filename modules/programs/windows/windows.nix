@@ -1,29 +1,7 @@
-{ self, ... }:
 {
   flake.modules.homeManager.windows =
     { config, ... }:
     {
-      imports = [
-        self.modules.homeManager.webapps
-      ];
-
-      programs.firefox-webapps.webApps = [
-        {
-          name = "Windows";
-          url = "localhost:8006";
-          icon = ./files/windows.png;
-          comment = "Windows VM via Docker";
-          preLaunch = ''
-            cd ${config.home.homeDirectory}/.windows/
-            docker compose up --detach
-          '';
-          postExit = ''
-            cd ${config.home.homeDirectory}/.windows/
-            docker compose down
-          '';
-        }
-      ];
-
       home.file.".windows/docker-compose.yml" = {
         text = ''
           services:
@@ -53,5 +31,22 @@
               driver: bridge
         '';
       };
+
+      programs.firefox-webapps.webApps = [
+        {
+          name = "Windows";
+          url = "localhost:8006";
+          icon = ./files/windows.png;
+          comment = "Windows VM via Docker";
+          preLaunch = ''
+            cd ${config.home.homeDirectory}/.windows/
+            docker compose up --detach
+          '';
+          postExit = ''
+            cd ${config.home.homeDirectory}/.windows/
+            docker compose down
+          '';
+        }
+      ];
     };
 }
