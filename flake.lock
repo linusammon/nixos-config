@@ -108,11 +108,11 @@
     },
     "firefox-webapps": {
       "locked": {
-        "lastModified": 1771758472,
-        "narHash": "sha256-GON+PssEcolDN1ShmlggHLCy9QJMFVIKGNfzWB09XaU=",
+        "lastModified": 1771779769,
+        "narHash": "sha256-MS+rLhfp615+KIMutTZRAwN0NtF0VyV822IXll5qDh8=",
         "owner": "linusammon",
         "repo": "nixos-firefox-webapps",
-        "rev": "5afefb9d9d7e4d225725ae55a9cac16d1ca89aea",
+        "rev": "fe2d7dd76bb79771aa90c53c72e7155f410d58ac",
         "type": "github"
       },
       "original": {
@@ -446,11 +446,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771756937,
-        "narHash": "sha256-eeF+rEdWTvlNBdSBnVpnIcKUoRtdgvQtG9RCJCbuq9Q=",
+        "lastModified": 1771775931,
+        "narHash": "sha256-Mdqz6JNwbAmCmV3wpa4lgDV+UadYtMCS/0GoMQKxdNE=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "76a58bcd611264d107c575df610bd34b68c5498f",
+        "rev": "243d408019be7153cbb92d4f2a776d2d5c3da856",
         "type": "github"
       },
       "original": {
