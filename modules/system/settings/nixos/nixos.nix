@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.nix = {
+  flake.modules.nixos.nixos = {
     nix.settings = {
       auto-optimise-store = true;
 
@@ -15,5 +15,7 @@
         "@wheel"
       ];
     };
+
+    nixpkgs.config.allowUnfree = true;
   };
 }

@@ -5,8 +5,7 @@ in
 {
   flake.modules.nixos.system-minimal = {
     imports = with self.modules.nixos; [
-      nix
-      nixpkgs
+      nixos
     ];
 
     system.stateVersion = "${stateVersion}";
