@@ -1,5 +1,7 @@
 {
   flake.modules.nixos.nixos = {
+    documentation.nixos.enable = false;
+
     nix.settings = {
       auto-optimise-store = true;
 
