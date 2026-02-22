@@ -35,8 +35,8 @@ in
           firefox
 
           webapps
-          office
-          windows
+          webapp-office
+          webapp-windows
 
           idea
           vscode
