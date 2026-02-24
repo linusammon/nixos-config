@@ -9,7 +9,7 @@
     imports = with self.modules.nixos; [
       system-desktop
       docker
-      steam
+      gaming
     ];
   };
 }
