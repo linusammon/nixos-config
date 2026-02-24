@@ -1,53 +1,29 @@
-{
-  self,
-  lib,
-  ...
-}:
+{ self, lib, ... }:
 let
-  username = "linus";
+  name = "linus";
 in
 {
-  flake.homeConfigurations = lib.mkHomeManager { username = "${username}"; };
+  flake.homeConfigurations = lib.mkHomeManager { inherit name; };
 
   flake.modules = lib.mkMerge [
-    (self.factory.user "${username}")
+    (self.factory.user name)
     {
-      homeManager."${username}" = {
-        imports = with self.modules.homeManager; [
-          system-default
-          noctalia
-          stylix
+      homeManager.${name} =
+        { pkgs, ... }:
+        {
+          imports = with self.modules.homeManager; [
+            
+          ];
 
-          fish
-          kitty
-          starship
-          btop
-          fastfetch
-          eza
-          fzf
-          zoxide
-          archive
-          wget
-
-          nixcord
-          thunderbird
-          nautilus
-          firefox
-
-          webapps
-          webapp-office
-          webapp-windows
-
-          idea
-          vscode
-          helix
-
-          gimp
-          kdenlive
-          obs
-          vlc
-        ];
-      };
+          home.packages = with pkgs; [
+            
+          ];
+            
+          programs.git.settings.user = {
+            name = "Linus Ammon";
+            email = "235536459+linusammon@users.noreply.github.com";
+          };
+        };
     }
   ];
 }

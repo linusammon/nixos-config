@@ -6,12 +6,12 @@
       directory = "/home/${username}";
     in
     {
-      nixos."${username}" =
+      nixos.${username} =
         { pkgs, ... }:
         {
-          users.users."${username}" = {
+          users.users.${username} = {
             isNormalUser = true;
-            home = "${directory}";
+            home = directory;
             extraGroups = [
               "wheel"
               "networkmanager"
@@ -22,15 +22,15 @@
 
           programs.fish.enable = true;
 
-          home-manager.users."${username}" = {
-            imports = [ self.modules.homeManager."${username}" ];
+          home-manager.users.${username} = {
+            imports = [ self.modules.homeManager.${username} ];
           };
         };
 
-      homeManager."${username}" = {
+      homeManager.${username} = {
         home = {
-          username = "${username}";
-          homeDirectory = "${directory}";
+          username = username;
+          homeDirectory = directory;
         };
       };
     };

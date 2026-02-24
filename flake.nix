@@ -38,6 +38,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:uiriansan/SilentSDDM";
     };
+    impermanence.url = "github:nix-community/impermanence";
+    disko.url = "github:nix-community/disko";
     stylix = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:linusammon/stylix";
