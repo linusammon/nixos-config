@@ -24,6 +24,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:sodiboo/niri-flake";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak/";
     nixcord = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:FlameFlag/nixcord";
