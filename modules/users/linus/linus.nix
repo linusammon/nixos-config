@@ -13,6 +13,7 @@ in
         {
           imports = with self.modules.homeManager; [
             kitty
+            noctalia
           ];
 
           home.packages = with pkgs; [
