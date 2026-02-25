@@ -3,7 +3,7 @@
     users.users.root = {
       initialPassword = "changeme";
     };
-    
+
     documentation.nixos.enable = false;
 
     nix.settings = {
@@ -23,5 +23,9 @@
     };
 
     nixpkgs.config.allowUnfree = true;
+
+    environment.persistence."/persistent".directories = [
+      "/var/lib/nixos"
+    ];
   };
 }
