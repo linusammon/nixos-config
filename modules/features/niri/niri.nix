@@ -5,12 +5,9 @@
 
     home-manager.sharedModules = [ self.modules.homeManager.niri ];
 
-    environment.persistence."/persist" = {
-    directories = [
-      # ... your other persisted directories
-      "/usr/share/wayland-sessions"  # Add this
+    environment.persistence."/persist".directories = [
+      "/usr/share/wayland-sessions"
     ];
-  };
   };
 
   flake.modules.homeManager.niri =
