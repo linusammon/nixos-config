@@ -39,12 +39,12 @@
       # TODO: Look into a better way of doing this
       fileSystems."/home".neededForBoot = true;
 
-      networking = { inherit hostId; };
+      networking.hostId = hostId;
 
       disko.devices = {
         disk = {
           main = {
-            inherit device;
+            device = device;
             type = "disk";
             content = {
               type = "gpt";
