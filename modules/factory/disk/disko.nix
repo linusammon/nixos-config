@@ -1,13 +1,49 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.disko = {
-    imports = [
-      inputs.disko.nixosModules.disko
-    ];
+  config.flake.factory.disko =
+    {
+      device,
+      hostId,
+      swap ? null,
+    }:
+    let
+      swapDataset =
+        if swap != null then
+          {
+            "local/swap" = {
+              type = "zfs_volume";
+              size = swap;
+              content = {
+                type = "swap";
+                resumeDevice = true;
+              };
+              options = {
+                volblocksize = "4096";
+                compression = "zle";
+                logbias = "throughput";
+                sync = "always";
+                primarycache = "metadata";
+                secondarycache = "none";
+                "com.sun:auto-snapshot" = "false";
+              };
+            };
+          }
+        else
+          { };
+    in
+    {
+      imports = [
+        inputs.disko.nixosModules.disko
+      ];
 
-    disko.devices = {
-      disk = {
-        main = {
+      # TODO: Look into a better way of doing this
+      fileSystems."/home".neededForBoot = true;
+
+      networking = { inherit hostId; };
+
+      disko.devices = {
+        disk.main = {
+          inherit device;
           type = "disk";
           content = {
             type = "gpt";
@@ -32,9 +68,8 @@
             };
           };
         };
-      };
-      zpool = {
-        zroot = {
+
+        zpool.zroot = {
           type = "zpool";
           rootFsOptions = {
             # https://wiki.archlinux.org/title/Install_Arch_Linux_on_ZFS
@@ -73,9 +108,9 @@
               options."com.sun:auto-snapshot" = "false";
               postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot/local/root@blank$' || zfs snapshot zroot/local/root@blank && zfs hold nixos-impermanence zroot/local/root@blank";
             };
-          };
+          }
+          // swapDataset;
         };
       };
     };
-  };
 }

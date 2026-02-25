@@ -1,5 +1,9 @@
 {
   flake.modules.nixos.nixos = {
+    users.users.root = {
+      initialPassword = "changeme";
+    };
+    
     documentation.nixos.enable = false;
 
     nix.settings = {

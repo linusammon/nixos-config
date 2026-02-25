@@ -1,10 +1,12 @@
 { self, ... }:
 {
   flake.modules.nixos.desktop = {
-    imports = with self.modules.nixos; [
-      disko
+    imports = [
+      (self.factory.disko {
+        device = "/dev/nvme0n1";
+        hostId = "deadbeef";
+        swap = "96G";
+      })
     ];
-
-    disko.devices.disk.main.device = "/dev/nvme0n1";
   };
 }

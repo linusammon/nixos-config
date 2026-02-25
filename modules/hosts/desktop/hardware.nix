@@ -12,7 +12,7 @@
       ];
       boot.kernelModules = [ "kvm-intel" ];
 
-      # TODO: find a better place to put these 
+      # TODO: find a better place to put these
       boot.loader.systemd-boot.enable = true;
       boot.loader.efi.canTouchEfiVariables = true;
 

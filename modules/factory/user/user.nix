@@ -1,16 +1,19 @@
 { self, ... }:
 {
   config.flake.factory.user =
-    username:
+    {
+      name,
+    }:
     let
-      directory = "/home/${username}";
+      directory = "/home/${name}";
     in
     {
-      nixos.${username} =
+      nixos.${name} =
         { pkgs, ... }:
         {
-          users.users.${username} = {
+          users.users.${name} = {
             isNormalUser = true;
+            initialPassword = "changeme";
             home = directory;
             extraGroups = [
               "wheel"
@@ -22,14 +25,14 @@
 
           programs.fish.enable = true;
 
-          home-manager.users.${username} = {
-            imports = [ self.modules.homeManager.${username} ];
+          home-manager.users.${name} = {
+            imports = [ self.modules.homeManager.${name} ];
           };
         };
 
-      homeManager.${username} = {
+      homeManager.${name} = {
         home = {
-          username = username;
+          username = name;
           homeDirectory = directory;
         };
       };

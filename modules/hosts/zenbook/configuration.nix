@@ -1,7 +1,7 @@
 { self, ... }:
 {
   flake.nixosConfigurations = self.lib.mkNixos {
-    hostName = "zenbook";
+    name = "zenbook";
     system = "x86_64-linux";
     timeZone = "Europa/Zurich";
   };
