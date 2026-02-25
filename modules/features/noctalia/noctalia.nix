@@ -5,7 +5,7 @@
     {
       imports = [
         inputs.noctalia.homeModules.default
-        self.modules.homeManager.cliphist
+        # self.modules.homeManager.cliphist
       ];
 
       home.packages = with pkgs; [ wtype ];
