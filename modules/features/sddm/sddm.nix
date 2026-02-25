@@ -22,9 +22,5 @@
           };
         };
       };
-
-      environment.persistence."/persist".files = [
-        "/etc/sddm.conf"
-      ];
     };
 }
