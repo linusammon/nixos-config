@@ -3,84 +3,76 @@
   config.flake.factory.disko =
     {
       device,
-      hostId,
-      swap ? null,
+      swap ? "0G"
     }:
     {
       imports = [
         inputs.disko.nixosModules.disko
       ];
 
-      # TODO: Look into a better way of doing this
-      fileSystems."/persist".neededForBoot = true;
-
-      networking.hostId = hostId;
-
       disko.devices = {
         disk = {
           main = {
-            inherit device;
             type = "disk";
+            device = device;
             content = {
               type = "gpt";
               partitions = {
                 ESP = {
-                  size = "1G";
+                  priority = 1;
+                  name = "ESP";
+                  start = "1M";
+                  end = "512M";
                   type = "EF00";
                   content = {
                     type = "filesystem";
                     format = "vfat";
                     mountpoint = "/boot";
-                    mountOptions = [ "umask=0077" ];
+                    mountOptions = ["umask=0077"];
                   };
                 };
-                zfs = {
+                root = {
                   size = "100%";
                   content = {
-                    type = "zfs";
-                    pool = "zroot";
+                    type = "btrfs";
+                    extraArgs = ["-f"];
+                    subvolumes = {
+                      "/root" = {
+                        mountpoint = "/";
+                        mountOptions = ["subvol=root" "compress=zstd" "noatime"];
+                      };
+                      "/nix" = {
+                        mountOptions = ["subvol=nix""compress=zstd""noatime"];
+                        mountpoint = "/nix";
+                      };
+                      "/nix/persist" = {
+                        mountpoint = "/nix/persist";
+                        mountOptions = ["subvol=persist" "compress=zstd" "noatime"];
+                      };
+                      "/var/log" = {
+                        mountpoint = "/var/log";
+                        mountOptions = ["subvol=log" "compress=zstd" "noatime"];
+                      };
+                      "/var/lib" = {
+                        mountpoint = "/var/lib";
+                        mountOptions = ["subvol=lib" "compress=zstd" "noatime"];
+                      };
+                      "/swap" = {
+                        mountpoint = "/persist/swap";
+                        mountOptions = ["subvol=swap" "noatime" "nodatacow" "compress=no"];
+                        swap.swapfile.size = swap;
+                      };
+                    };
                   };
                 };
               };
             };
           };
         };
-
-        zpool.zroot = {
-          type = "zpool";
-          rootFsOptions = {
-            # https://wiki.archlinux.org/title/Install_Arch_Linux_on_ZFS
-            acltype = "posixacl";
-            atime = "off";
-            compression = "zstd";
-            mountpoint = "none";
-            xattr = "sa";
-          };
-          options.ashift = "12";
-
-          datasets = {
-            "local" = {
-              type = "zfs_fs";
-              options.mountpoint = "none";
-            };
-            "local/persist" = {
-              type = "zfs_fs";
-              mountpoint = "/persist";
-              options."com.sun:auto-snapshot" = "true";
-            };
-            "local/nix" = {
-              type = "zfs_fs";
-              mountpoint = "/nix";
-              options."com.sun:auto-snapshot" = "false";
-            };
-            "local/root" = {
-              type = "zfs_fs";
-              mountpoint = "/";
-              options."com.sun:auto-snapshot" = "false";
-              postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot/local/root@blank$' || zfs snapshot zroot/local/root@blank && zfs hold nixos-impermanence zroot/local/root@blank";
-            };
-          };
-        };
       };
+
+      fileSystems."/nix/persist".neededForBoot = true;
+      fileSystems."/var/log".neededForBoot = true;
+      fileSystems."/var/lib".neededForBoot = true;
     };
 }

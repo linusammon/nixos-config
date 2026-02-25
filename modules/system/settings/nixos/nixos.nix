@@ -23,9 +23,5 @@
     };
 
     nixpkgs.config.allowUnfree = true;
-
-    environment.persistence."/persist".directories = [
-      "/var/lib/nixos"
-    ];
   };
 }
