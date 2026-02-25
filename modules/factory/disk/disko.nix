@@ -41,6 +41,15 @@
 
       networking.hostId = hostId;
 
+      # If using swap, ensure it's properly configured
+      swapDevices =
+        if swap != null then
+          [
+            { device = "/dev/zvol/zroot/local/swap"; }
+          ]
+        else
+          [ ];
+
       disko.devices = {
         disk = {
           main = {
