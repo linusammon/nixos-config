@@ -38,6 +38,7 @@
 
       # TODO: Look into a better way of doing this
       fileSystems."/home".neededForBoot = true;
+      fileSystems."/persist".neededForBoot = true;
 
       networking.hostId = hostId;
 
