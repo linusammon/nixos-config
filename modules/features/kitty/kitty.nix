@@ -19,7 +19,7 @@
       '';
     };
 
-    home.persistence."/persistent".directories = [
+    home.persistence."/persist".directories = [
       ".config/kitty"
     ];
   };

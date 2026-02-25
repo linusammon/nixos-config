@@ -548,8 +548,7 @@
       };
 
       home.persistence."/persist".directories = [
-        ".config/niri"
-        ".local/share/niri"
+        ".config/noctalia"
       ];
     };
 }
