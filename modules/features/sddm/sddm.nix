@@ -23,7 +23,7 @@
         };
       };
 
-      environment.persistence."/persistent".directories = [
+      environment.persistence."/persist".directories = [
         "/etc/sddm.conf"
       ];
     };

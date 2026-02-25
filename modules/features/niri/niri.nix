@@ -4,6 +4,13 @@
     programs.niri.enable = true;
 
     home-manager.sharedModules = [ self.modules.homeManager.niri ];
+
+    environment.persistence."/persist" = {
+    directories = [
+      # ... your other persisted directories
+      "/usr/share/wayland-sessions"  # Add this
+    ];
+  };
   };
 
   flake.modules.homeManager.niri =
@@ -221,8 +228,9 @@
         };
       };
 
-      home.persistence."/persistent".directories = [
+      home.persistence."/persist".directories = [
         ".config/niri"
+        ".local/share/niri"
       ];
     };
 }

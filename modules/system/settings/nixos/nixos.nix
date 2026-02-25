@@ -24,7 +24,7 @@
 
     nixpkgs.config.allowUnfree = true;
 
-    environment.persistence."/persistent".directories = [
+    environment.persistence."/persist".directories = [
       "/var/lib/nixos"
     ];
   };

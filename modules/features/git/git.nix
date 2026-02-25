@@ -6,7 +6,7 @@
       settings.init.defaultBranch = "main";
     };
 
-    home.persistence."/persistent".directories = [
+    home.persistence."/persist".directories = [
       ".config/git"
     ];
   };
