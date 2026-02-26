@@ -5,6 +5,8 @@
       nixos
       home-manager
       impermanence
+      disko
+      boot
     ];
 
     system.stateVersion = "26.05";

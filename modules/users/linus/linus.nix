@@ -14,6 +14,7 @@ in
           imports = with self.modules.homeManager; [
             kitty
             noctalia
+            userdirs
           ];
 
           home.packages = with pkgs; [
