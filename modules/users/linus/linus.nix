@@ -16,6 +16,7 @@ in
             stylix
             noctalia
             userdirs
+            firefox
           ];
 
           home.packages = with pkgs; [
