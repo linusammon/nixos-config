@@ -13,6 +13,7 @@ in
         {
           imports = with self.modules.homeManager; [
             kitty
+            stylix
             noctalia
             userdirs
           ];
