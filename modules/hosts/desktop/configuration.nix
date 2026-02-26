@@ -9,6 +9,7 @@
   flake.modules.nixos.desktop = {
     imports = with self.modules.nixos; [
       system-graphical
+      gaming
     ];
   };
 }
