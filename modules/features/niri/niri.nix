@@ -3,17 +3,17 @@
   flake.modules.nixos.niri = {
     programs.niri.enable = true;
 
-    home-manager.sharedModules = [ self.modules.homeManager.niri ];
-
-    environment.persistence."/persist".directories = [
-      "/usr/share/wayland-sessions"
+    home-manager.sharedModules = [
+      self.modules.homeManager.niri
     ];
   };
 
   flake.modules.homeManager.niri =
     { pkgs, ... }:
     {
-      imports = [ inputs.niri.homeModules.niri ];
+      imports = [
+        inputs.niri.homeModules.niri
+      ];
 
       home.packages = with pkgs; [
         bibata-cursors
@@ -24,6 +24,8 @@
         enable = true;
         package = pkgs.niri;
         settings = {
+          screenshot-path = "~/pictures/screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png";
+
           cursor = {
             theme = "Bibata-Modern-Ice";
             size = 22;
