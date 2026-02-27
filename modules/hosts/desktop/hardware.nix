@@ -1,22 +1,18 @@
+{ self, ... }:
 {
-  flake.modules.nixos.desktop =
-    {
-      config,
-      lib,
-      ...
-    }:
-    {
-      boot.initrd.availableKernelModules = [
-        "xhci_pci"
-        "ahci"
-        "nvme"
-        "usbhid"
-        "usb_storage"
-        "sd_mod"
-      ];
-      boot.kernelModules = [ "kvm-intel" ];
+  flake.modules.nixos.desktop = {
+    imports = with self.modules.nixos; [
+      cpu-intel
+      gpu-amd
+    ];
 
-      services.xserver.videoDrivers = [ "amdgpu" ];
-      hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    };
+    boot.initrd.availableKernelModules = [
+      "xhci_pci"
+      "ahci"
+      "nvme"
+      "usbhid"
+      "usb_storage"
+      "sd_mod"
+    ];
+  };
 }

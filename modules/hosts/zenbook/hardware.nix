@@ -1,21 +1,18 @@
+{ self, ... }:
 {
-  flake.modules.nixos.zenbook =
-    {
-      config,
-      lib,
-      ...
-    }:
-    {
-      boot.initrd.availableKernelModules = [
-        "xhci_pci"
-        "thunderbolt"
-        "vmd"
-        "nvme"
-        "usb_storage"
-        "sd_mod"
-      ];
-      boot.kernelModules = [ "kvm-intel" ];
+  flake.modules.nixos.zenbook = {
+    imports = with self.modules.nixos; [
+      cpu-intel
+      gpu-amd
+    ];
 
-      hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    };
+    boot.initrd.availableKernelModules = [
+      "xhci_pci"
+      "thunderbolt"
+      "vmd"
+      "nvme"
+      "usb_storage"
+      "sd_mod"
+    ];
+  };
 }
