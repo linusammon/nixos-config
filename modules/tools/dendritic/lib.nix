@@ -13,26 +13,32 @@
   config.flake.lib = {
     mkNixos =
       {
-        hostName,
+        name,
         system ? "x86_64-linux",
+        timeZone ? "Europe/Zurich",
       }:
       {
-        ${hostName} = inputs.nixpkgs.lib.nixosSystem {
+        ${name} = inputs.nixpkgs.lib.nixosSystem {
           modules = [
-            self.modules.nixos.${hostName}
+            self.modules.nixos.${name}
             {
-              networking.hostName = "${hostName}";
-              nixpkgs.hostPlatform = lib.mkDefault "${system}";
+              nixpkgs.hostPlatform = lib.mkDefault system;
+              networking.hostName = name;
+              time.timeZone = timeZone;
             }
           ];
         };
       };
 
     mkHomeManager =
-      { username }:
       {
-        ${username} = inputs.home-manager.lib.homeManagerConfiguration {
-          modules = [ inputs.self.modules.homeManager.${username} ];
+        name,
+        system ? "x86_64-linux",
+      }:
+      {
+        ${name} = inputs.home-manager.lib.homeManagerConfiguration {
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
+          modules = [ self.modules.homeManager.${name} ];
         };
       };
   };

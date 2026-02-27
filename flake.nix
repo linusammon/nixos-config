@@ -5,11 +5,11 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
+    disko.url = "github:nix-community/disko";
     firefox-addons = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     };
-    firefox-webapps.url = "github:linusammon/nixos-firefox-webapps";
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
       inputs.nixpkgs-lib.follows = "nixpkgs-lib";
@@ -19,12 +19,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/master";
     };
+    impermanence = {
+      inputs = {
+        home-manager.follows = "";
+        nixpkgs.follows = "";
+      };
+      url = "github:nix-community/impermanence";
+    };
     import-tree.url = "github:vic/import-tree";
     niri = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:sodiboo/niri-flake";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak/";
+    nix-yazi-plugins = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:lordkekz/nix-yazi-plugins";
+    };
     nixcord = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:FlameFlag/nixcord";
@@ -43,7 +53,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:linusammon/stylix";
     };
-    systems.url = "github:nix-systems/default";
     treefmt-nix = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/treefmt-nix";
