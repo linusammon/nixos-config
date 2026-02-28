@@ -1,3 +1,4 @@
+{ self, ... }:
 {
   flake.modules.nixos.gaming = {
     programs = {
@@ -5,7 +6,13 @@
       gamescope.enable = true;
     };
 
-    environment.persistence."/persistent".directories = [
+    home-manager.sharedModules = [
+      self.modules.homeManager.gaming
+    ];
+  };
+
+  flake.modules.homeManager.gaming = {
+    home.persistence."/persistent".directories = [
       ".local/share/Steam"
     ];
   };
