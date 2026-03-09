@@ -17,7 +17,6 @@ in
           firefox
           fish
           fzf
-          idea
           kitty
           nixcord
           noctalia

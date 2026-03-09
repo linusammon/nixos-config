@@ -15,8 +15,6 @@
   flake.modules.homeManager.system-default = {
     imports = with self.modules.homeManager; [
       git
-      helix
-      yazi
       nh
     ];
   };
