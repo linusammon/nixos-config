@@ -81,7 +81,7 @@
             {
               "clockColor" = "none";
               "customFont" = "DejaVu Sans Mono";
-              "formatHorizontal" = "dddd hh =mm";
+              "formatHorizontal" = "dddd hh:mm";
               "formatVertical" = "HH mm - dd MM";
               "id" = "Clock";
               "tooltipFormat" = "HH =mm ddd; MMM dd";
