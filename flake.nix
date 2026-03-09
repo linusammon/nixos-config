@@ -31,10 +31,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:sodiboo/niri-flake";
     };
-    nix-yazi-plugins = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:lordkekz/nix-yazi-plugins";
-    };
     nixcord = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:FlameFlag/nixcord";
