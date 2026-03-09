@@ -24,6 +24,10 @@
         enable = true;
         package = pkgs.niri;
         settings = {
+          spawn-at-startup = [
+            { argv = [ "noctalia-shell" ]; }
+          ];
+
           screenshot-path = "~/desktop/pictures/screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png";
 
           cursor = {
