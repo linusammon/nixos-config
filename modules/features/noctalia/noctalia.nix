@@ -10,10 +10,7 @@
 
       home.packages = with pkgs; [ wtype ];
 
-      programs.noctalia-shell = {
-        enable = true;
-        systemd.enable = true;
-      };
+      programs.noctalia-shell.enable = true;
 
       programs.niri.settings.binds = {
         # Toggle app launcher
