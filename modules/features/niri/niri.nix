@@ -83,8 +83,6 @@
             focus-ring.enable = false;
             tab-indicator.enable = false;
 
-            background-color = "transparent";
-
             shadow = {
               enable = true;
               color = "#000000";
@@ -111,6 +109,9 @@
 
           layer-rules = [
             {
+              matches = [
+                { namespace = "^noctalia-overview*"; }
+              ];
               place-within-backdrop = true;
             }
           ];
