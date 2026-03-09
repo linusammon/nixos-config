@@ -26,6 +26,7 @@ in
           thunderbird
           userdirs
           wget
+          zed
           zoxide
         ];
 
