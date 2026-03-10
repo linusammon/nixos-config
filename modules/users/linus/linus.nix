@@ -20,13 +20,14 @@ in
           kitty
           nixcord
           noctalia
+          media
           ssh
           starship
           stylix
           thunderbird
-          userdirs
           wget
           zed
+          xdg
           zoxide
         ];
 
