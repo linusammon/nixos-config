@@ -130,20 +130,12 @@
             # Terminal
             "Mod+Return".action.spawn = "kitty";
 
-            # TUI
-            "Mod+Shift+E".action.spawn = [
-              "kitty"
-              "hx"
-            ];
-            "Mod+Shift+Y".action.spawn = [
-              "kitty"
-              "yazi"
-            ];
-
             # Apps
             "Mod+Shift+B".action.spawn = "firefox";
             "Mod+Shift+D".action.spawn = "discord";
             "Mod+Shift+M".action.spawn = "thunderbird";
+            "Mod+Shift+F".action.spawn = "nautilus";
+            "Mod+Shift+E".action.spawn = "zeditor";
 
             # Close windows
             "Mod+Q".action.close-window = [ ];
