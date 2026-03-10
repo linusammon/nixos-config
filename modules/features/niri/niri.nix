@@ -28,7 +28,7 @@
             { argv = [ "noctalia-shell" ]; }
           ];
 
-          screenshot-path = "~/desktop/pictures/screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png";
+          screenshot-path = "~/pictures/screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png";
 
           cursor = {
             theme = "Bibata-Modern-Ice";

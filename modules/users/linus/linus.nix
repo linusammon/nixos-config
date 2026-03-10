@@ -18,6 +18,7 @@ in
           fish
           fzf
           kitty
+          nautilus
           nixcord
           noctalia
           media
