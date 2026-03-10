@@ -6,6 +6,7 @@
       home.packages = with pkgs; [
         showtime
         loupe
+        evince
       ];
 
       xdg = {
@@ -20,12 +21,18 @@
             exec = "${lib.getExe pkgs.loupe} %F";
             noDisplay = true;
           };
+          "org.gnome.Evince" = {
+            name = "Document Viewer";
+            exec = "${lib.getExe pkgs.evince} %U";
+            noDisplay = true;
+          };
         };
 
         mimeApps.defaultApplications =
           let
             showtime = "org.gnome.Showtime.desktop";
             loupe = "org.gnome.Loupe.desktop";
+            evince = "org.gnome.Evince.desktop";
 
             videoTypes = [
               "video/3gp"
@@ -96,8 +103,19 @@
               "image/x-xbitmap"
               "image/x-xpixmap"
             ];
+
+            documentTypes = [
+              "application/pdf"
+              "application/postscript"
+              "application/x-dvi"
+              "application/vnd.ms-xpsdocument"
+              "image/vnd.djvu"
+              "image/tiff"
+            ];
           in
-          (lib.genAttrs imageTypes (_: [ loupe ])) // (lib.genAttrs videoTypes (_: [ showtime ]));
+          (lib.genAttrs imageTypes (_: [ loupe ]))
+          // (lib.genAttrs videoTypes (_: [ showtime ]))
+          // (lib.genAttrs documentTypes (_: [ evince ]));
       };
     };
 }
