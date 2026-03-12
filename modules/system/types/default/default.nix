@@ -5,6 +5,8 @@
       system-minimal
 
       firmware
+      networking
+      bluetooth
     ];
 
     home-manager.sharedModules = [
