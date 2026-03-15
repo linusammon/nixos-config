@@ -15,7 +15,6 @@
           accountPanelServerProfile.enable = true;
           alwaysExpandRoles.enable = true;
           alwaysTrust.enable = true;
-          anammox.enable = true;
           betterAudioPlayer.enable = true;
           betterBanReasons.enable = true;
           betterBlockedUsers.enable = true;
@@ -25,7 +24,6 @@
           betterInvites.enable = true;
           betterNotesBox.enable = true;
           betterPlusReacts.enable = true;
-          betterQuickReact.enable = true;
           betterRoleContext.enable = true;
           betterRoleDot.enable = true;
           betterSessions.enable = true;
@@ -45,7 +43,6 @@
           customFolderIcons.enable = true;
           customTimestamps.enable = true;
           devCompanion.enable = true;
-          dontFilterMe.enable = true;
           dontRoundMyTimestamps.enable = true;
           equicordHelper.enable = true;
           equicordToolbox.enable = true;
@@ -76,11 +73,9 @@
           homeTyping.enable = true;
           iLoveSpam.enable = true;
           ignoreCalls.enable = true;
-          ignoreTerms.enable = true;
           imageFilename.enable = true;
           imageLink.enable = true;
           imageZoom.enable = true;
-          imgToGif.enable = true;
           implicitRelationships.enable = true;
           inRole.enable = true;
           jumpTo.enable = true;
@@ -95,14 +90,11 @@
           messageLinkEmbeds.enable = true;
           messageLogger.enable = true;
           messageTags.enable = true;
-          moreKaomoji.enable = true;
           moreQuickReactions.enable = true;
           neverPausePreviews.enable = true;
           noBlockedMessages.enable = true;
-          noBulletPoints.enable = true;
           noDevtoolsWarning.enable = true;
           noNitroUpsell.enable = true;
-          noOnboarding.enable = true;
           noUnblockToJump.enable = true;
           normalizeMessageLinks.enable = true;
           openInApp.enable = true;
@@ -127,7 +119,6 @@
           showTimeoutDuration.enable = true;
           silentMessageToggle.enable = true;
           silentTyping.enable = true;
-          sortFriendRequests.enable = true;
           splitLargeMessages.enable = true;
           translate.enable = true;
           typingIndicator.enable = true;
