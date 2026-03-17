@@ -1,62 +1,64 @@
 # DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
 # Use `nix run .#write-flake` to regenerate it.
 {
-
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
     disko.url = "github:nix-community/disko";
     firefox-addons = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
-      inputs.nixpkgs-lib.follows = "nixpkgs-lib";
       url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs-lib";
     };
     home-manager = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence = {
+      url = "github:nix-community/impermanence";
       inputs = {
         home-manager.follows = "";
         nixpkgs.follows = "";
       };
-      url = "github:nix-community/impermanence";
     };
     import-tree.url = "github:vic/import-tree";
     niri = {
+      url = "github:niri-wm/niri?rev=92c168f56d6653c4899222c235fdd6467c1c351b";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    niri-hm = {
       url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:FlameFlag/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     nixpkgs-lib.follows = "nixpkgs";
     noctalia = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     silentSDDM = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:uiriansan/SilentSDDM";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:linusammon/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     treefmt-nix = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     wallpapers = {
-      flake = false;
       url = "github:linusammon/wallpapers";
+      flake = false;
     };
   };
-
 }

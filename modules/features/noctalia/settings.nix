@@ -42,10 +42,8 @@
       "bar" = {
         "autoHideDelay" = 500;
         "autoShowDelay" = 150;
-        "backgroundOpacity" = 0.97;
         "barType" = "simple";
         "capsuleColorKey" = "none";
-        "capsuleOpacity" = 0.97;
         "contentPadding" = 2;
         "density" = "default";
         "displayMode" = "always_visible";
@@ -257,7 +255,6 @@
       };
       "dock" = {
         "animationSpeed" = 1;
-        "backgroundOpacity" = 0.97;
         "colorizeIcons" = false;
         "deadOpacity" = 0.6;
         "displayMode" = "auto_hide";
@@ -566,7 +563,6 @@
         "fontDefaultScale" = 1;
         "fontFixed" = "DejaVu Sans Mono";
         "fontFixedScale" = 1;
-        "panelBackgroundOpacity" = 0.97;
         "panelsAttachedToBar" = true;
         "settingsPanelMode" = "window";
         "settingsPanelSideBarCardStyle" = false;
