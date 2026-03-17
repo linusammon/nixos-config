@@ -1,0 +1,182 @@
+input {
+    keyboard {
+        xkb {
+            layout "de"
+            model ""
+            rules ""
+            variant ""
+        }
+        repeat-delay 600
+        repeat-rate 25
+        track-layout "global"
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+    mouse {
+        accel-speed 0
+        accel-profile "flat"
+    }
+    focus-follows-mouse
+}
+output "DP-1" {
+    transform "normal"
+    position x=1920 y=0
+    mode "1920x1080"
+}
+output "DP-2" {
+    transform "normal"
+    position x=0 y=0
+    mode "1920x1080"
+}
+output "HDMI-A-1" {
+    transform "normal"
+    position x=3840 y=0
+    mode "1920x1080"
+}
+screenshot-path "~/pictures/screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png"
+prefer-no-csd
+layout {
+    gaps 16
+    struts {
+        left 0
+        right 0
+        top 0
+        bottom 0
+    }
+    focus-ring { off; }
+    border { off; }
+    shadow {
+        on
+        offset x=2 y=2
+        softness 10
+        spread 1
+        draw-behind-window false
+        color "#000000"
+        inactive-color "#000000"
+    }
+    tab-indicator { off; }
+    default-column-width { proportion 0.500000; }
+    preset-column-widths {
+        proportion 0.333333
+        proportion 0.500000
+        proportion 0.666667
+        proportion 1.000000
+    }
+    center-focused-column "never"
+}
+cursor {
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 22
+}
+hotkey-overlay { skip-at-startup; }
+binds {
+    // Noctalia
+    Mod+Escape { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+    Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+
+    // Apps
+    Mod+Return { spawn "kitty"; }
+    Mod+Shift+B { spawn "firefox"; }
+    Mod+Shift+D { spawn "discord"; }
+    Mod+Shift+E { spawn "zeditor"; }
+    Mod+Shift+F { spawn "nautilus"; }
+    Mod+Shift+M { spawn "thunderbird"; }
+
+    // Close windows
+    Mod+Q { close-window; }
+
+    // Toggle overview
+    Mod+O { toggle-overview; }
+
+    // Screenshots
+    Mod+P { screenshot; }
+    Mod+Shift+P { screenshot-screen; }
+    Mod+Ctrl+P { screenshot-window; }
+
+    // Fullscreen
+    Mod+F { fullscreen-window; }
+
+    // Window width presets
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { maximize-column; }
+
+    // Adjust window width
+    Mod+Plus { set-column-width "+10%"; }
+    Mod+Minus { set-column-width "-10%"; }
+
+    // Adjust window height
+    Mod+Shift+Plus { set-window-height "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+
+    // Center windows
+    Mod+C { center-column; }
+    Mod+Shift+C { center-visible-columns; }
+
+    // Floating windows
+    Mod+V { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    // Move focus with arrow keys
+    Mod+Up { focus-window-up; }
+    Mod+Down { focus-window-down; }
+    Mod+Right { focus-column-right; }
+    Mod+Left { focus-column-left; }
+
+    // Move focus with mouse wheel
+    Mod+WheelScrollUp { focus-column-left; }
+    Mod+WheelScrollDown { focus-column-right; }
+
+    // Move windows with arrow keys
+    Mod+Shift+Up { move-window-up; }
+    Mod+Shift+Down { move-window-down; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Left { move-column-left; }
+
+    // Move windows with mouse wheel
+    Mod+Shift+WheelScrollUp { move-column-left; }
+    Mod+Shift+WheelScrollDown { move-column-right; }
+
+    // Switch workspaces
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+
+    // Move windows to workspaces
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Shift+0 { move-column-to-workspace 10; }
+
+    // Volume control
+    XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
+    XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
+}
+spawn-at-startup "noctalia-shell"
+window-rule {
+    open-fullscreen false
+    clip-to-geometry true
+    opacity 0.900000
+    background-effect {
+        blur true
+        xray false
+    }
+}
+layer-rule {
+    match namespace="^noctalia-overview*"
+    place-within-backdrop true
+}
