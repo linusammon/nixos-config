@@ -71,7 +71,6 @@
       };
       "title_bar" = {
         "show_onboarding_banner" = false;
-        "show_sign_in" = false;
       };
       "toolbar" = {
         "breadcrumbs" = false;
