@@ -6,15 +6,23 @@
     stylix = {
       enable = true;
 
-      image = "${inputs.wallpapers}/001.png";
+      image = "${inputs.wallpapers}/008.png";
 
       colorGeneration = {
         polarity = "dark";
-        lightness.dark = 0.02;
         scheme = "content"; # "content", "expressive", "fidelity", "fruit-salad", "monochrome", "neutral", "rainbow", "tonal-spot", "vibrant"
       };
 
-      opacity.desktop = 0.97;
+      opacity =
+        let
+          opacity = 0.9;
+        in
+        {
+          applications = opacity;
+          desktop = opacity;
+          terminal = opacity;
+          popups = opacity;
+        };
 
       targets.firefox.profileNames = [ "default" ];
     };
