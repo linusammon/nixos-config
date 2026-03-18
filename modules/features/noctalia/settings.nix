@@ -99,7 +99,7 @@
             {
               "characterCount" = 2;
               "colorizeIcons" = false;
-              "emptyColor" = "tertiary";
+              "emptyColor" = "primary";
               "enableScrollWheel" = true;
               "focusedColor" = "primary";
               "followFocusedScreen" = false;
@@ -109,7 +109,7 @@
               "iconScale" = 0.8;
               "id" = "Workspace";
               "labelMode" = "index";
-              "occupiedColor" = "secondary";
+              "occupiedColor" = "primary";
               "pillSize" = 0.6;
               "showApplications" = true;
               "showBadge" = true;
@@ -567,6 +567,7 @@
         "settingsPanelMode" = "window";
         "settingsPanelSideBarCardStyle" = false;
         "tooltipsEnabled" = true;
+        "translucentWidgets" = true;
       };
       "wallpaper" = {
         "automationEnabled" = false;
@@ -587,7 +588,7 @@
         "randomIntervalSec" = 300;
         "setWallpaperOnAllMonitors" = true;
         "showHiddenFiles" = false;
-        "skipStartupTransition" = false;
+        "skipStartupTransition" = true;
         "solidColor" = "#1a1a2e";
         "sortOrder" = "name";
         "transitionDuration" = 1500;
