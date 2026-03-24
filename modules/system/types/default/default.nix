@@ -6,7 +6,6 @@
 
       firmware
       networking
-      bluetooth
     ];
 
     home-manager.sharedModules = [
