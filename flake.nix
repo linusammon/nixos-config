@@ -30,10 +30,6 @@
       url = "github:niri-wm/niri?rev=92c168f56d6653c4899222c235fdd6467c1c351b";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri-hm = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixcord = {
       url = "github:FlameFlag/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
