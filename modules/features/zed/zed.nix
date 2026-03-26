@@ -31,6 +31,7 @@
           "helix_mode" = true;
           "icon_theme" = {
             "dark" = "Colored Zed Icons Theme Dark";
+            "light" = "Colored Zed Icons Theme Light";
             "mode" = "dark";
           };
           "project_panel" = {
