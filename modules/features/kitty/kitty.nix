@@ -18,9 +18,5 @@
         window_padding_width 0 20
       '';
     };
-
-    home.persistence."/persistent".directories = [
-      ".config/kitty"
-    ];
   };
 }
