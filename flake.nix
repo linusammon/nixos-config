@@ -27,7 +27,7 @@
     };
     import-tree.url = "github:vic/import-tree";
     niri = {
-      url = "github:niri-wm/niri?rev=d06dd4b9e60fa07120c217aa095f3ed8caac99f2";
+      url = "github:niri-wm/niri?rev=92c168f56d6653c4899222c235fdd6467c1c351b";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord = {
@@ -51,10 +51,6 @@
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    wallpapers = {
-      url = "github:linusammon/wallpapers";
-      flake = false;
     };
   };
 }

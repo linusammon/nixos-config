@@ -329,17 +329,17 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1774190104,
-        "narHash": "sha256-L/Ldq9G41Mj8WjWTuC+rePvWIx1A/tHdFpLbQmtrMSA=",
+        "lastModified": 1773559367,
+        "narHash": "sha256-q3NwYzd/qxcCr2m37uQCnc5BHvC3hsJ4fK5KN5aNSGc=",
         "owner": "niri-wm",
         "repo": "niri",
-        "rev": "d06dd4b9e60fa07120c217aa095f3ed8caac99f2",
+        "rev": "92c168f56d6653c4899222c235fdd6467c1c351b",
         "type": "github"
       },
       "original": {
         "owner": "niri-wm",
         "repo": "niri",
-        "rev": "d06dd4b9e60fa07120c217aa095f3ed8caac99f2",
+        "rev": "92c168f56d6653c4899222c235fdd6467c1c351b",
         "type": "github"
       }
     },
@@ -545,8 +545,7 @@
         "noctalia": "noctalia",
         "silentSDDM": "silentSDDM",
         "stylix": "stylix",
-        "treefmt-nix": "treefmt-nix_2",
-        "wallpapers": "wallpapers"
+        "treefmt-nix": "treefmt-nix_2"
       }
     },
     "rust-overlay": {
@@ -786,22 +785,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "wallpapers": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1771243577,
-        "narHash": "sha256-8C8GjbXb75o5Lc0JQ+pSpHOhxQ0DVrRxzoOIbHNSGds=",
-        "owner": "linusammon",
-        "repo": "wallpapers",
-        "rev": "f5f4efe6d4af3441dd86716373df333fb4c2d6aa",
-        "type": "github"
-      },
-      "original": {
-        "owner": "linusammon",
-        "repo": "wallpapers",
         "type": "github"
       }
     }

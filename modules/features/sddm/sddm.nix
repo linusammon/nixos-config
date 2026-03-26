@@ -2,7 +2,7 @@
 {
   flake.modules.nixos.sddm =
     let
-      wallpaper = "008.png";
+      wallpaper = "001.png";
     in
     {
       imports = [ inputs.silentSDDM.nixosModules.default ];
@@ -11,7 +11,7 @@
         enable = true;
         theme = "default";
         backgrounds = {
-          "${wallpaper}" = "${inputs.wallpapers}/${wallpaper}";
+          "${wallpaper}" = ./../../../wallpapers + "/${wallpaper}";
         };
         settings = {
           "LoginScreen" = {
