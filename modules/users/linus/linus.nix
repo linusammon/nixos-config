@@ -31,11 +31,6 @@ in
           xdg
           zoxide
         ];
-
-        programs.git.settings.user = {
-          name = "Linus Ammon";
-          email = "235536459+linusammon@users.noreply.github.com";
-        };
       };
     }
   ];
