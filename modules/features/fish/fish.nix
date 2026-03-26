@@ -8,7 +8,7 @@
     };
 
     home.persistence."/persistent".directories = [
-      ".config/fish"
+      ".local/share/fish"
     ];
   };
 }
