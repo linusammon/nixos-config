@@ -27,7 +27,7 @@
     };
     import-tree.url = "github:vic/import-tree";
     niri = {
-      url = "github:niri-wm/niri?rev=92c168f56d6653c4899222c235fdd6467c1c351b";
+      url = "github:niri-wm/niri?ref=wip/branch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord = {
