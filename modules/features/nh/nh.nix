@@ -1,12 +1,14 @@
 {
-  flake.modules.homeManager.nh = {
-    programs.nh = {
-      enable = true;
-
-      clean = {
+  flake.modules.homeManager.nh =
+    { config, ... }:
+    {
+      programs.nh = {
         enable = true;
-        extraArgs = "--keep-since 3d --keep 3";
+        flake = "${config.home.homeDirectory}/projects/nixos-config";
+        clean = {
+          enable = true;
+          extraArgs = "--keep-since 3d --keep 3";
+        };
       };
     };
-  };
 }
