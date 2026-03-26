@@ -3,11 +3,13 @@
     programs.git = {
       enable = true;
       lfs.enable = true;
-      settings.init.defaultBranch = "main";
+      settings = {
+        user = {
+          name = "Linus Ammon";
+          email = "235536459+linusammon@users.noreply.github.com";
+        };
+        init.defaultBranch = "main";
+      };
     };
-
-    home.persistence."/persistent".directories = [
-      ".config/git"
-    ];
   };
 }
