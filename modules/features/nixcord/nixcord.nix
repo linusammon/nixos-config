@@ -89,7 +89,6 @@
           messageClickActions.enable = true;
           messageLinkEmbeds.enable = true;
           messageLogger.enable = true;
-          messageTags.enable = true;
           moreQuickReactions.enable = true;
           neverPausePreviews.enable = true;
           noBlockedMessages.enable = true;
