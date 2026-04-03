@@ -11,7 +11,7 @@
         enable = true;
         theme = "default";
         backgrounds = {
-          "${wallpaper}" = ./../../../wallpapers + "/${wallpaper}";
+          "${wallpaper}" = ./../../../.wallpapers + "/${wallpaper}";
         };
         settings = {
           "LoginScreen" = {
