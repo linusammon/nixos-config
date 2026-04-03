@@ -6,7 +6,7 @@
     stylix = {
       enable = true;
 
-      image = ./../../../wallpapers/001.png;
+      image = ./../../../.wallpapers/001.png;
 
       colorGeneration = {
         polarity = "dark";
