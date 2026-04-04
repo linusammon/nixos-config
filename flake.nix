@@ -1,56 +1,19 @@
-# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
-# Use `nix run .#write-flake` to regenerate it.
 {
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
-
   inputs = {
     disko.url = "github:nix-community/disko";
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    flake-file.url = "github:vic/flake-file";
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs-lib";
-    };
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    impermanence = {
-      url = "github:nix-community/impermanence";
-      inputs = {
-        home-manager.follows = "";
-        nixpkgs.follows = "";
-      };
-    };
+    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    home-manager.url = "github:nix-community/home-manager/master";
+    impermanence.url = "github:nix-community/impermanence";
     import-tree.url = "github:vic/import-tree";
-    niri = {
-      url = "github:niri-wm/niri?ref=wip/branch";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixcord = {
-      url = "github:FlameFlag/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
-    nixpkgs-lib.follows = "nixpkgs";
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    silentSDDM = {
-      url = "github:uiriansan/SilentSDDM";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    stylix = {
-      url = "github:linusammon/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    niri.url = "github:niri-wm/niri?ref=wip/branch";
+    nixcord.url = "github:FlameFlag/nixcord";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    silentSDDM.url = "github:uiriansan/SilentSDDM";
+    stylix.url = "github:linusammon/stylix";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
+
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
