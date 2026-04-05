@@ -5,7 +5,6 @@
       nixos
       home-manager
       impermanence
-      disko
       boot
     ];
 

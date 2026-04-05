@@ -8,6 +8,10 @@
 
   flake.modules.nixos.zenbook = {
     imports = with self.modules.nixos; [
+      (self.lib.mkDisko {
+        device = "/dev/nvme0n1";
+        swap = "32G";
+      })
       system-portable
     ];
   };
