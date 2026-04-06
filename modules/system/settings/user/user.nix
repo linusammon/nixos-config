@@ -58,7 +58,7 @@ in
       users.users.${name} = {
         isNormalUser = true;
         initialPassword = "changeme";
-        home = home;
+        inherit home;
         extraGroups = [
           "wheel"
           "networkmanager"
