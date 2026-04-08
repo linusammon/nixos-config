@@ -29,17 +29,5 @@
           ];
         };
       };
-
-    mkHomeManager =
-      {
-        name,
-        system ? "x86_64-linux",
-      }:
-      {
-        ${name} = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
-          modules = [ self.modules.homeManager.${name} ];
-        };
-      };
   };
 }
