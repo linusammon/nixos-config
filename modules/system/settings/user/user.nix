@@ -44,7 +44,7 @@ in
             noctalia
             media
             ssh
-            starship
+            # starship
             stylix
             thunderbird
             wget
