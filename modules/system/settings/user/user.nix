@@ -39,7 +39,7 @@ in
             git
             kitty
             nautilus
-            nh
+            # nh
             nixcord
             noctalia
             media
