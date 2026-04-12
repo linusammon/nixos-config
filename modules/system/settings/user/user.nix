@@ -35,7 +35,7 @@ in
             fastfetch
             firefox
             fish
-            fzf
+            # fzf
             git
             kitty
             nautilus
