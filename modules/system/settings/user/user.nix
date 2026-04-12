@@ -50,7 +50,7 @@ in
             wget
             zed
             xdg
-            zoxide
+            # zoxide
           ];
         };
       };
