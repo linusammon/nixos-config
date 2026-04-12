@@ -31,7 +31,7 @@ in
             # TODO: Once migrated, they should be imported by profiles/types instead of here.
             archive
             btop
-            eza
+            # eza
             fastfetch
             firefox
             fish
