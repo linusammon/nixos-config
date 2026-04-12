@@ -11,6 +11,7 @@
       btop
       eza
       fzf
+      git
       nh
       starship
       zoxide

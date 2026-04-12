@@ -36,7 +36,7 @@ in
             firefox
             fish
             # fzf
-            git
+            # git
             kitty
             nautilus
             # nh
