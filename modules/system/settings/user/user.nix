@@ -29,10 +29,8 @@ in
             }
             # TODO: Migrate these to NixOS modules using nix-wrapper-modules and/or xdg.config.
             # TODO: Once migrated, they should be imported by profiles/types instead of here.
-            archive
             # btop
             # eza
-            fastfetch
             firefox
             fish
             # fzf
@@ -47,7 +45,6 @@ in
             # starship
             stylix
             thunderbird
-            wget
             zed
             xdg
             # zoxide
