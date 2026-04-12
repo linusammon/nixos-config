@@ -1,19 +1,10 @@
+{ self, ... }:
 {
-  flake.modules.homeManager.btop = {
-    programs.btop = {
-      enable = true;
-      settings = {
-        theme_background = false;
-        rounded_corners = false;
-        update_ms = 1000;
-      };
+  flake.modules.nixos.btop =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = [
+        self.packages.${pkgs.stdenv.hostPlatform.system}.btop
+      ];
     };
-
-    xdg.desktopEntries = {
-      "btop" = {
-        name = "btop++";
-        noDisplay = true;
-      };
-    };
-  };
 }
