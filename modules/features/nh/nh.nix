@@ -1,14 +1,13 @@
 {
-  flake.modules.homeManager.nh =
-    { config, ... }:
-    {
-      programs.nh = {
+  flake.modules.nixos.nh = {
+    programs.nh = {
+      enable = true;
+      flake = "/home/linus/projects/nixos-config"; # TODO: don't hardcode this
+      clean = {
         enable = true;
-        flake = "${config.home.homeDirectory}/projects/nixos-config";
-        clean = {
-          enable = true;
-          extraArgs = "--keep-since 3d --keep 3";
-        };
+        dates = "daily";
+        extraArgs = "--keep 5 --optimise";
       };
     };
+  };
 }

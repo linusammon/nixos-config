@@ -11,6 +11,7 @@
       btop
       eza
       fzf
+      nh
       starship
       zoxide
     ];
