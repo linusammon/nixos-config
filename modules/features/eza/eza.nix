@@ -1,14 +1,20 @@
+{ self, ... }:
 {
-  flake.modules.homeManager.eza = {
-    programs.eza = {
-      enable = true;
-      enableFishIntegration = true;
-      git = true;
-      icons = "auto";
-    };
+  flake.modules.nixos.eza =
+    { pkgs, ... }:
+    {
+      environment = {
+        systemPackages = [
+          self.packages.${pkgs.stdenv.hostPlatform.system}.eza
+        ];
 
-    programs.fish.shellAliases = {
-      lt = "eza -T";
+        shellAliases = {
+          ls = "eza";
+          ll = "eza -l";
+          la = "eza -a";
+          lla = "eza -la";
+          lt = "eza --tree";
+        };
+      };
     };
-  };
 }
