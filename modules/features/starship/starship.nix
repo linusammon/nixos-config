@@ -13,14 +13,12 @@
     in
     {
       programs = {
-        fish = {
-          promptInit = ''
-            if test "$TERM" != dumb
-              set -x STARSHIP_CONFIG ${conf}
-              ${exe} init fish | source
-            end
-          '';
-        };
+        fish.promptInit = ''
+          if test "$TERM" != dumb
+            set -x STARSHIP_CONFIG ${conf}
+            ${exe} init fish | source
+          end
+        '';
       };
     };
 }
