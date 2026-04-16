@@ -19,9 +19,7 @@ let
     base0F = "#f28534";
   };
 
-  stripHash = lib.removePrefix "#";
-
-  themeNoHash = builtins.mapAttrs (_: v: stripHash v) theme;
+  themeNoHash = builtins.mapAttrs (_: lib.removePrefix "#") theme;
 in
 {
   flake = {
