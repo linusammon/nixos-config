@@ -7,8 +7,8 @@
       '';
     };
 
-    environment.persistence."/persistent".users."linus".directories = [
-      ".local/share/fish"
+    persistence.user.files = [
+      ".local/share/fish/fish_history"
     ];
   };
 }
