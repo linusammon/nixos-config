@@ -15,6 +15,7 @@
       git
       kitty
       nh
+      noctalia
       starship
       zoxide
     ];

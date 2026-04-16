@@ -39,7 +39,7 @@ in
             nautilus
             # nh
             nixcord
-            noctalia
+            # noctalia
             media
             ssh
             # starship
