@@ -1,13 +1,13 @@
 {
-  flake.modules.homeManager.fish = {
+  flake.modules.nixos.fish = {
     programs.fish = {
       enable = true;
-      interactiveShellInit = ''
-        set -U fish_greeting
+      shellInit = ''
+        set fish_greeting
       '';
     };
 
-    home.persistence."/persistent".directories = [
+    environment.persistence."/persistent".users."linus".directories = [
       ".local/share/fish"
     ];
   };
