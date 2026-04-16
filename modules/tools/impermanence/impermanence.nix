@@ -1,11 +1,55 @@
 { inputs, ... }:
 {
   flake.modules.nixos.impermanence =
-    { lib, ... }:
+    { lib, config, ... }:
+    let
+      cfg = config.persistence;
+    in
     {
       imports = [
         inputs.impermanence.nixosModules.impermanence
       ];
+
+      options.persistence = {
+        directories = lib.mkOption {
+          type = lib.types.listOf lib.types.str;
+          default = [ ];
+        };
+
+        files = lib.mkOption {
+          type = lib.types.listOf lib.types.str;
+          default = [ ];
+        };
+
+        user = {
+          name = lib.mkOption {
+            type = lib.types.str;
+            default = "linus";
+          };
+
+          directories = lib.mkOption {
+            type = lib.types.listOf lib.types.str;
+            default = [ ];
+          };
+
+          files = lib.mkOption {
+            type = lib.types.listOf lib.types.str;
+            default = [ ];
+          };
+        };
+      };
+
+      environment.persistence = {
+        "/persistent/user".users."${cfg.user.name}" = {
+          directories = cfg.user.directories;
+          files = cfg.user.files;
+        };
+
+        "/persistent/system" = {
+          directories = cfg.directories;
+          files = cfg.files;
+        };
+      };
 
       boot.initrd.postResumeCommands = lib.mkAfter ''
         mkdir /btrfs_tmp
