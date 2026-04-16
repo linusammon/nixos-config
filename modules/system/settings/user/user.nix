@@ -32,7 +32,7 @@ in
             # btop
             # eza
             firefox
-            fish
+            # fish
             # fzf
             # git
             # kitty
@@ -62,7 +62,5 @@ in
         ];
         shell = pkgs.fish; # TODO: Don't hardcode this.
       };
-
-      programs.fish.enable = true; # TODO: Extract fish into its own module.
     };
 }
