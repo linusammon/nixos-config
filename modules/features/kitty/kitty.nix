@@ -1,22 +1,20 @@
+{ self, inputs, ... }:
 {
-  flake.modules.homeManager.kitty = {
-    programs.kitty = {
-      enable = true;
-      enableGitIntegration = true;
-      shellIntegration.enableFishIntegration = true;
-
-      settings = {
-        cursor_shape = "beam";
-        cursor_shape_unfocused = "beam";
-        cursor_trail = 1;
-        confirm_os_window_close = 0;
-        hide_window_decorations = true;
-        show_window_resize_notification = false;
-      };
-
-      extraConfig = ''
-        window_padding_width 0 20
-      '';
+  perSystem =
+    { pkgs, ... }:
+    {
+      packages.kitty =
+        (inputs.wrappers.wrappers.kitty.apply {
+          inherit pkgs;
+          settings = import ./_settings.nix { inherit self; };
+        }).wrapper;
     };
-  };
+
+  flake.modules.nixos.kitty =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = [
+        self.packages.${pkgs.stdenv.hostPlatform.system}.kitty
+      ];
+    };
 }

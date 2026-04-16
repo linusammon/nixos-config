@@ -12,6 +12,7 @@
       eza
       fzf
       git
+      kitty
       nh
       starship
       zoxide
