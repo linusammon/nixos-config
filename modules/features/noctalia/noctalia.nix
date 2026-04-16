@@ -1,20 +1,22 @@
-{ inputs, ... }:
+{ self, inputs, ... }:
 {
-  flake.modules.homeManager.noctalia =
+  perSystem =
     { pkgs, ... }:
     {
-      imports = [
-        inputs.noctalia.homeModules.default
-      ];
+      packages.noctalia =
+        (inputs.wrappers.wrappers.noctalia-shell.apply {
+          inherit pkgs;
+          package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+          settings = import ./_settings.nix;
+          colors = import ./_colors.nix { inherit self; };
+        }).wrapper;
+    };
 
-      programs.noctalia-shell.enable = true;
-
-      services.cliphist.enable = true;
-
-      home.packages = with pkgs; [ wtype ];
-
-      home.persistence."/persistent".directories = [
-        ".config/noctalia/plugins"
+  flake.modules.nixos.noctalia =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = [
+        self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia
       ];
     };
 }
