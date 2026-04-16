@@ -42,13 +42,13 @@
       config = {
         environment.persistence = {
           "/persistent/user".users."${cfg.user.name}" = {
-            directories = cfg.user.directories;
-            files = cfg.user.files;
+            inherit (cfg.user) directories;
+            inherit (cfg.user) files;
           };
 
           "/persistent/system" = {
-            directories = cfg.directories;
-            files = cfg.files;
+            inherit (cfg) directories;
+            inherit (cfg) files;
           };
         };
 
