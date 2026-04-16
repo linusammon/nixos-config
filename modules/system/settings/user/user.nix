@@ -35,7 +35,7 @@ in
             fish
             # fzf
             # git
-            kitty
+            # kitty
             nautilus
             # nh
             nixcord
