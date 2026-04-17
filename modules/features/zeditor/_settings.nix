@@ -67,6 +67,11 @@
       breadcrumbs = false;
     };
   };
+  theme = {
+    mode = "system";
+    dark = "Base16";
+    light = "Base16";
+  };
   title_bar = {
     show_onboarding_banner = false;
   };
