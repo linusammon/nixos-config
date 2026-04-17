@@ -1,4 +1,5 @@
-{ self, ... }: {
+{ self, ... }:
+{
   flake.modules.nixos.zeditor =
     { pkgs, ... }:
     {
