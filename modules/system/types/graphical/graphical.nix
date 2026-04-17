@@ -6,6 +6,7 @@
 
       sddm
       niri
+      hjem
 
       # TODO: After migrating all home-manager modules, refactor system/types to accommodate for them
       btop
