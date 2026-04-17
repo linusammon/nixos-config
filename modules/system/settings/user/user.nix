@@ -45,7 +45,7 @@ in
             # starship
             stylix
             thunderbird
-            zed
+            #zed
             xdg
             # zoxide
           ];
