@@ -18,6 +18,7 @@
       nh
       noctalia
       starship
+      zeditor
       zoxide
     ];
   };
