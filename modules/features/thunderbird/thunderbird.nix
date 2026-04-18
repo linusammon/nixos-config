@@ -1,13 +1,8 @@
 {
-  flake.modules.homeManager.thunderbird = {
-    programs.thunderbird = {
-      enable = true;
-      profiles.default = {
-        isDefault = true;
-      };
-    };
+  flake.modules.nixos.thunderbird = {
+    programs.thunderbird.enable = true;
 
-    home.persistence."/persistent".directories = [
+    persistence.user.directories = [
       ".thunderbird"
     ];
   };

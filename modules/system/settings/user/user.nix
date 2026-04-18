@@ -44,7 +44,7 @@ in
             ssh
             # starship
             stylix
-            thunderbird
+            #thunderbird
             #zed
             xdg
             # zoxide
