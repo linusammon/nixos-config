@@ -7,5 +7,6 @@
     ];
 
     config.hjem.clobberByDefault = true;
+    config.hjem.users.linus.systemd.enable = false;
   };
 }
