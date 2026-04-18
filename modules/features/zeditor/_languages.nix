@@ -4,7 +4,7 @@
     Nix = {
       language_servers = [
         "nixd"
-        "nil"
+        "!nil"
       ];
       formatter = {
         external = {
@@ -19,11 +19,12 @@
       binary = {
         path = lib.getExe pkgs.nixd;
       };
-    };
-
-    nil = {
-      binary = {
-        path = lib.getExe pkgs.nil;
+      settings = {
+        options = {
+          nixos = {
+            expr = "(builtins.getFlake \"github:linusammon/nixos-config\").nixosConfigurations.desktop.options";
+          };
+        };
       };
     };
   };
