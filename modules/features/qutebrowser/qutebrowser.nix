@@ -1,4 +1,4 @@
-{ self, inputs, ... }:
+{ self, ... }:
 {
   flake.modules.nixos.qutebrowser =
     { pkgs, ... }:
@@ -7,7 +7,7 @@
         pkgs.qutebrowser
       ];
 
-      hj.xdg.config.files."qutebrowser/config.py".text = (import ./_config.nix { inherit self; });
+      hj.xdg.config.files."qutebrowser/config.py".text = import ./_config.nix { inherit self; };
 
       persistence.user.directories = [
         ".config/qutebrowser"
