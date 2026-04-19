@@ -17,6 +17,7 @@
       kitty
       nh
       noctalia
+      qutebrowser
       starship
       thunderbird
       zeditor
