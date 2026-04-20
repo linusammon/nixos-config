@@ -41,7 +41,7 @@ in
             # nixcord
             # noctalia
             # media
-            ssh
+            # ssh
             # starship
             # stylix
             #thunderbird

@@ -19,6 +19,7 @@
       nixcord
       noctalia
       qutebrowser
+      ssh
       starship
       steam
       thunderbird
