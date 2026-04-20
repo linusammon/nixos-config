@@ -46,7 +46,7 @@ in
             # stylix
             #thunderbird
             #zed
-            xdg
+            # xdg
             # zoxide
           ];
         };
