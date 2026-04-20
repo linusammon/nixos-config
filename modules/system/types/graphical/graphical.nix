@@ -4,7 +4,7 @@
     imports = with self.modules.nixos; [
       system-default
 
-      sddm
+      autoLogin
       niri
       hjem
 
