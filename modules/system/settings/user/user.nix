@@ -38,7 +38,7 @@ in
             # kitty
             # nautilus
             # nh
-            nixcord
+            # nixcord
             # noctalia
             # media
             ssh

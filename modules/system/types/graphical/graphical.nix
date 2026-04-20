@@ -16,6 +16,7 @@
       git
       kitty
       nh
+      nixcord
       noctalia
       qutebrowser
       starship
