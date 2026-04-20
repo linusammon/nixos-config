@@ -19,6 +19,7 @@
       noctalia
       qutebrowser
       starship
+      steam
       thunderbird
       zeditor
       zoxide
