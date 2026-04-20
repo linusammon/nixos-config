@@ -13,7 +13,6 @@
         swap = "96G";
       })
       system-graphical
-      gaming
     ];
   };
 }
