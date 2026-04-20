@@ -8,7 +8,7 @@
     };
 
     persistence.user.directories = [
-      ".local/share/steam"
+      ".local/share/Steam"
     ];
   };
 }
