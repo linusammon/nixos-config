@@ -23,6 +23,7 @@
       thunderbird
       zeditor
       zoxide
+      xdg
     ];
   };
 }

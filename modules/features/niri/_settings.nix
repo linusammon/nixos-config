@@ -132,7 +132,7 @@
     "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+";
   };
 
-  screenshot-path = "~/pictures/screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png";
+  screenshot-path = "~/Pictures/screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png";
 
   prefer-no-csd = _: { };
 

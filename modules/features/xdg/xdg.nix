@@ -1,36 +1,31 @@
 {
-  flake.modules.homeManager.xdg =
-    { config, ... }:
+  flake.modules.nixos.xdg =
+    { pkgs, ... }:
     {
-      xdg = {
-        enable = true;
-        mimeApps.enable = true;
+      environment = {
+        systemPackages = with pkgs; [
+          xdg-user-dirs
+        ];
 
-        userDirs =
-          let
-            home = "${config.home.homeDirectory}";
-          in
-          {
-            createDirectories = true;
-
-            desktop = "${home}/projects";
-            documents = "${home}/documents";
-            download = "${home}/downloads";
-            pictures = "${home}/pictures";
-            videos = "${home}/videos";
-
-            music = null;
-            publicShare = null;
-            templates = null;
-          };
+        etc."xdg/user-dirs.defaults".text = ''
+          DOWNLOAD=Downloads
+          DOCUMENTS=Documents
+          PROJECTS=Projects
+          PICTURES=Pictures
+          VIDEOS=Videos
+          MUSIC=Music
+        '';
       };
 
-      home.persistence."/persistent".directories = [
-        "projects"
-        "documents"
-        "downloads"
-        "pictures"
-        "videos"
-      ];
+      persistence.user = {
+        directories = [
+          "Downloads"
+          "Documents"
+          "Projects"
+          "Pictures"
+          "Videos"
+          "Music"
+        ];
+      };
     };
 }
