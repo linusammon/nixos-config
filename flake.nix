@@ -39,14 +39,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix = {
-      url = "github:linusammon/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-      };
-    };
-
     niri = {
       url = "github:niri-wm/niri?ref=wip/branch";
       inputs.nixpkgs.follows = "nixpkgs";
