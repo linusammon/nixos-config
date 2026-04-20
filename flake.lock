@@ -139,27 +139,6 @@
         "type": "github"
       }
     },
-    "home-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1775457580,
-        "narHash": "sha256-ikws/ssAmG20AGrEwBuwspwPlkubJu34mB+Uz2fJBJs=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "5de7dbd151b0bd65d45785553d4a22d832733ffc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "ref": "master",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
     "impermanence": {
       "inputs": {
         "home-manager": [],
@@ -397,7 +376,6 @@
         "disko": "disko",
         "flake-parts": "flake-parts",
         "hjem": "hjem",
-        "home-manager": "home-manager",
         "impermanence": "impermanence",
         "niri": "niri",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
