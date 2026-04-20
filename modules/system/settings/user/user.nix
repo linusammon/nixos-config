@@ -36,14 +36,14 @@ in
             # fzf
             # git
             # kitty
-            nautilus
+            # nautilus
             # nh
             nixcord
             # noctalia
-            media
+            # media
             ssh
             # starship
-            stylix
+            # stylix
             #thunderbird
             #zed
             xdg
