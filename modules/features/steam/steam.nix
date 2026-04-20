@@ -7,7 +7,7 @@
       };
     };
 
-    persistence.user.files = [
+    persistence.user.directories = [
       ".local/share/steam"
     ];
   };
