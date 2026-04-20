@@ -1,6 +1,6 @@
 {
-  flake.modules.homeManager.ssh = {
-    home.persistence."/persistent".directories = [
+  flake.modules.nixos.ssh = {
+    persistence.user.directories = [
       ".ssh"
     ];
   };
