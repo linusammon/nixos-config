@@ -35,7 +35,7 @@
     };
 
     niri = {
-      url = "github:niri-wm/niri?ref=wip/branch";
+      url = "github:niri-wm/niri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
