@@ -12,5 +12,10 @@
         equicord.enable = true;
       };
     };
+
+    persistence.user.directories = [
+      ".config/discord"
+      ".config/Equicord"
+    ];
   };
 }
