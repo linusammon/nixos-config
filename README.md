@@ -4,14 +4,19 @@
 
 Boot from NixOS USB, then:
 
-Find your target disk with `lsblk`. Available hosts are in `modules/hosts/`.
+Add substituters to nix.conf
+```nix
+extra-substituters = https://attic.xuyh0120.win/lantian https://noctalia.cachix.org https://niri.cachix.org
+extra-trusted-public-keys = lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc= noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4= niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964=
+```
 
+Replace `your-host` as well as `your-disk` and then run this command.
 ```bash
-sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko/latest#disko-install -- --write-efi-boot-entries --flake github:linusammon/nixos-config#your-host --disk main /dev/your-disk
+sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko/latest#disko-install -- --write-efi-boot-entries --flake github:linusammon/nixos-config#your-host --disk your-disk /dev/your-disk
 ```
 
 Reboot when done.
 
 > [!IMPORTANT]  
-> Default passwords for ALL users (including root) are `changeme`. <br>
+> Default passwords for ALL users (including root) are `password`. <br>
 > Log in and change them <ins>immediately</ins> after first boot using `passwd`.

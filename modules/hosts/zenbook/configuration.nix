@@ -1,18 +1,19 @@
 { self, ... }:
 {
-  flake.nixosConfigurations = self.lib.mkNixos {
-    name = "zenbook";
-    system = "x86_64-linux";
-    timeZone = "Europa/Zurich";
-  };
+  flake.nixosConfigurations = self.lib.mkNixos "zenbook" { };
 
-  flake.modules.nixos.zenbook = {
+  flake.modules.nixos.host_zenbook = {
     imports = with self.modules.nixos; [
-      (self.lib.mkDisko {
-        device = "/dev/nvme0n1";
-        swap = "32G";
-      })
-      system-portable
+      programs_niri
+      programs_noctalia
+      programs_kitty
+      programs_zeditor
+      programs_qutebrowser
+      programs_discord
+
+      hardware_network
+      hardware_battery
+      hardware_bluetooth
     ];
   };
 }
