@@ -1,18 +1,22 @@
 { self, ... }:
 {
-  flake.nixosConfigurations = self.lib.mkNixos {
-    name = "desktop";
-    system = "x86_64-linux";
-    timeZone = "Europe/Zurich";
-  };
+  flake.nixosConfigurations = self.lib.mkNixos "desktop" { };
 
-  flake.modules.nixos.desktop = {
+  flake.modules.nixos.host_desktop = {
     imports = with self.modules.nixos; [
-      (self.lib.mkDisko {
-        device = "/dev/nvme0n1";
-        swap = "96G";
-      })
-      system-graphical
+      wm_niri
+
+      programs_noctalia
+      programs_nautilus
+      programs_kitty
+      programs_zeditor
+      programs_qutebrowser
+      programs_discord
+
+      specialisations_steam
+
+      hardware_network
+      hardware_keyboard
     ];
   };
 }
