@@ -14,19 +14,26 @@
     };
 
     nixpkgs.overlays = [
-      (_final: prev: {
-        libsForQt5 = prev.libsForQt5.overrideScope (
-          _qt5final: qt5prev: {
-            qt5ct = self.lib.stripDesktopFiles qt5prev.qt5ct;
-          }
-        );
-        qt6Packages = prev.qt6Packages.overrideScope (
-          _qt6final: qt6prev: {
-            qt6ct = self.lib.stripDesktopFiles qt6prev.qt6ct;
-          }
-        );
-        kvantum = self.lib.stripDesktopFiles prev.kvantum;
-      })
+      (
+        _final: prev:
+        let
+          strip = self.lib.stripDesktopFiles;
+        in
+        {
+          libsForQt5 = prev.libsForQt5.overrideScope (
+            _qt5final: qt5prev: {
+              qt5ct = strip qt5prev.qt5ct;
+              qtstyleplugin-kvantum = strip qt5prev.qtstyleplugin-kvantum;
+            }
+          );
+          qt6Packages = prev.qt6Packages.overrideScope (
+            _qt6final: qt6prev: {
+              qt6ct = strip qt6prev.qt6ct;
+              qtstyleplugin-kvantum = strip qt6prev.qtstyleplugin-kvantum;
+            }
+          );
+        }
+      )
     ];
   };
 }
