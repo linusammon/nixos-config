@@ -1,11 +1,33 @@
 { self }:
 {
+  edit_predictions = {
+    provider = "ollama";
+    ollama = {
+      prompt_format = "qwen";
+      model = "qwen3.6:latest";
+    };
+  };
+  agent = {
+    sidebar_side = "right";
+    dock = "right";
+    default_model = {
+      provider = "ollama";
+      model = "qwen3.6:latest";
+      enable_thinking = true;
+    };
+    flexible = true;
+    favorite_models = [ ];
+    model_parameters = [ ];
+  };
+  disable_ai = false;
   auto_install_extensions = {
     colored-zed-icons-theme = true;
     nix = true;
   };
   auto_update = false;
   base_keymap = "VSCode";
+  buffer_font_family = self.fonts.mono;
+  buffer_font_size = self.fonts.size * 4.0 / 3.0;
   collaboration_panel = {
     button = false;
   };
@@ -17,11 +39,13 @@
   debugger = {
     button = false;
   };
-  disable_ai = true;
   git = {
     inline_blame = {
       enabled = false;
     };
+  };
+  git_panel = {
+    dock = "left";
   };
   gutter = {
     breakpoints = false;
@@ -35,18 +59,12 @@
     light = "Colored Zed Icons Theme Light";
     mode = "dark";
   };
-  notification_panel = {
-    button = false;
-  };
   outline_panel = {
     button = false;
   };
-  git_panel = {
-    dock = "left";
-  };
   project_panel = {
-    dock = "left";
     auto_fold_dirs = false;
+    dock = "left";
     sticky_scroll = false;
   };
   relative_line_numbers = "enabled";
@@ -74,9 +92,9 @@
     };
   };
   theme = {
-    mode = "system";
     dark = "Base16";
     light = "Base16";
+    mode = "system";
   };
   title_bar = {
     show_onboarding_banner = false;
@@ -86,10 +104,8 @@
     quick_actions = false;
     selections_menu = true;
   };
-  vertical_scroll_margin = 5.0;
-  window_decorations = "server";
-  buffer_font_family = self.fonts.mono;
-  buffer_font_size = self.fonts.size * 4.0 / 3.0;
   ui_font_family = self.fonts.sans;
   ui_font_size = self.fonts.size * 4.0 / 3.0;
+  vertical_scroll_margin = 5.0;
+  window_decorations = "server";
 }
