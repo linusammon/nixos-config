@@ -16,6 +16,7 @@
       specialisations_steam
 
       hardware_network
+      hardware_graphics
       hardware_keyboard
     ];
   };

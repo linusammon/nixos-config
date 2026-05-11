@@ -14,6 +14,7 @@
       programs_discord
 
       hardware_network
+      hardware_graphics
       hardware_battery
       hardware_bluetooth
       hardware_keyboard
