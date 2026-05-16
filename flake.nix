@@ -1,14 +1,4 @@
 {
-  nixConfig = {
-    extra-substituters = [
-      "https://linusammon.cachix.org"
-    ];
-
-    extra-trusted-public-keys = [
-      "linusammon.cachix.org-1:g0X9oaHIZ5j48dsqfu8ZEdAp6HA2pH7Buv5Ye698qfc="
-    ];
-  };
-
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
 
