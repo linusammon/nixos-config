@@ -1,12 +1,15 @@
+{ inputs, ... }:
 {
-  flake.modules.nixos.common = {
-    programs = {
-      nix-index.enable = true;
-      command-not-found.enable = false;
-    };
+  flake.modules.nixos.common =
+    { lib, ... }:
+    {
+      imports = [
+        inputs.nix-index-database.nixosModules.default
+      ];
 
-    custom.persist.user.directories = [
-      ".cache/nix-index"
-    ];
-  };
+      programs = {
+        nix-index-database.comma.enable = true;
+        command-not-found.enable = lib.mkForce false;
+      };
+    };
 }
