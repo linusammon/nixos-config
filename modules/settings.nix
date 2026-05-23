@@ -4,7 +4,6 @@
     {
       config,
       pkgs,
-      lib,
       ...
     }:
     let
@@ -16,21 +15,6 @@
       console.keyMap = "de";
 
       time.timeZone = "Europe/Zurich";
-
-      i18n = {
-        defaultLocale = "en_US.UTF-8";
-        extraLocales = [ "de_CH.UTF-8/UTF-8" ];
-        extraLocaleSettings = lib.genAttrs [
-          "LC_TIME"
-          "LC_MONETARY"
-          "LC_MEASUREMENT"
-          "LC_NUMERIC"
-          "LC_PAPER"
-          "LC_ADDRESS"
-          "LC_TELEPHONE"
-          "LC_NAME"
-        ] (_: "de_CH.UTF-8");
-      };
 
       fonts = with self.fonts; {
         fontconfig.defaultFonts = {
