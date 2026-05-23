@@ -12,6 +12,7 @@
     end = [
       "tray"
       "notifications"
+      "screen_recorder"
       "nightlight"
       "caffeine"
       "volume"
@@ -71,6 +72,11 @@
 
     network = {
       show_label = false;
+    };
+
+    screen_recorder = {
+      script = "scripts/screen_recorder.lua";
+      type = "scripted";
     };
 
     taskbar = {

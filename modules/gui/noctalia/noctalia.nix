@@ -10,6 +10,7 @@
       packages.noctalia = inputs.wrappers.lib.wrapPackage {
         inherit pkgs;
         package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        runtimePkgs = [ pkgs.gpu-screen-recorder ];
         env.NOCTALIA_CONFIG_HOME = "${placeholder "out"}/";
         constructFiles = {
           settings = {
