@@ -12,6 +12,7 @@
       programs_zeditor
       programs_qutebrowser
       programs_thunderbird
+      programs_obsidian
       programs_discord
 
       specialisations_steam
