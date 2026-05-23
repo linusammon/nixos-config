@@ -152,7 +152,7 @@
 
   layer-rules = [
     {
-      matches = [ { namespace = "^noctalia-overview*"; } ];
+      matches = [ { namespace = "^noctalia-backdrop"; } ];
       place-within-backdrop = true;
     }
   ];

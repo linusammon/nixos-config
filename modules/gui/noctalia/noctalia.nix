@@ -5,13 +5,23 @@
 }:
 {
   perSystem =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
-      packages.noctalia = inputs.wrappers.wrappers.noctalia-shell.wrap {
+      packages.noctalia = inputs.wrappers.lib.wrapPackage {
         inherit pkgs;
         package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
-        settings = import ./_settings.nix { inherit self; };
-        colors = import ./_colors.nix { inherit self; };
+        env.NOCTALIA_CONFIG_HOME = "${placeholder "out"}/";
+        constructFiles = {
+          settings = {
+            relPath = "noctalia/config.toml";
+            content = builtins.toJSON (import ./_settings.nix { inherit self; });
+            builder = "${lib.getExe pkgs.remarshal} -f json -i \"$1\" -t toml -o \"$2\"";
+          };
+          pallete = {
+            relPath = "noctalia/palettes/palette.json";
+            content = builtins.toJSON (import ./_palette.nix { inherit self; });
+          };
+        };
       };
     };
 
@@ -24,27 +34,31 @@
     {
       environment.systemPackages = [ pkg ];
 
-      custom.autostart = [ exe ];
-
-      custom.keybinds = {
-        "Mod+Escape".spawn = [
-          exe
-          "ipc"
-          "call"
-          "sessionMenu"
-          "toggle"
-        ];
-        "Mod+Space".spawn = [
-          exe
-          "ipc"
-          "call"
-          "launcher"
-          "toggle"
-        ];
+      hj.systemd.services.noctalia = {
+        partOf = [ "graphical-session.target" ];
+        after = [ "graphical-session.target" ];
+        wantedBy = [ "graphical-session.target" ];
+        environment.PATH = lib.mkForce null;
+        restartTriggers = [ pkg ];
+        serviceConfig = {
+          ExecStart = exe;
+          Restart = "on-failure";
+        };
       };
 
-      custom.persist.user.directories = [
-        ".cache/noctalia"
-      ];
+      custom.keybinds = {
+        "Mod+Space".spawn = [
+          exe
+          "msg"
+          "panel-toggle"
+          "launcher"
+        ];
+        "Mod+Escape".spawn = [
+          exe
+          "msg"
+          "panel-toggle"
+          "session"
+        ];
+      };
     };
 }

@@ -20,7 +20,6 @@
     let
       niri' = self.packages.${pkgs.stdenv.hostPlatform.system}.niri.wrap {
         settings = {
-          spawn-sh-at-startup = config.custom.autostart;
           binds = config.custom.keybinds;
           cursor = with self.cursor; {
             xcursor-theme = theme;
