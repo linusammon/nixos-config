@@ -38,6 +38,7 @@
     font_family = self.fonts.sans;
     niri_overview_type_to_launch_enabled = true;
     settings_show_advanced = true;
+    launch_apps_as_systemd_services = true;
     telemetry_enabled = false;
 
     panel = {
