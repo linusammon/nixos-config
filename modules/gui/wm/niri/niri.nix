@@ -49,8 +49,9 @@
         (self.cursor.package pkgs)
       ];
 
-      custom.persist.user.files = [
-        ".config/niri/monitors.kdl"
-      ];
+      custom.persist.user = {
+        files = [ ".config/niri/monitors.kdl" ];
+        directories = [ ".local/share/keyrings" ];
+      };
     };
 }
