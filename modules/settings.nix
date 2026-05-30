@@ -5,6 +5,8 @@
       inherit (config.custom.constants) host;
     in
     {
+      networking.networkmanager.enable = true;
+
       networking.hostName = host;
 
       console.keyMap = "de";
