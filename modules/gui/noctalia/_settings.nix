@@ -5,6 +5,7 @@
   };
 
   bar.default = {
+    auto_hide = true;
     background_opacity = 0.9;
     center = [
       "clock"
@@ -25,7 +26,7 @@
     margin_ends = 0;
     padding = 10;
     radius = 0;
-    start = [ "workspaces" ];
+    start = [ "taskbar" ];
     widget_spacing = 10;
   };
 
@@ -38,12 +39,25 @@
     font_family = self.fonts.sans;
     niri_overview_type_to_launch_enabled = true;
     settings_show_advanced = true;
+    screen_time_enabled = true;
     launch_apps_as_systemd_services = true;
     telemetry_enabled = false;
 
     panel = {
       open_near_click_control_center = true;
       session_placement = "centered";
+      launcher_categories = false;
+      transparency_mode = "soft";
+    };
+
+    control_center = {
+      sidebar = "none";
+      shortcuts = [
+        "screen_time"
+        "wallpaper"
+        "sysmon"
+        "power_profile"
+      ];
     };
   };
 
@@ -93,11 +107,11 @@
       show_label = false;
     };
 
-    workspaces = {
-      capsule_radius = 0.0;
-      empty_color = "#FFFFFF";
-      focused_color = "#FFFFFF";
-      occupied_color = "#FFFFFF";
+    taskbar = {
+      hide_empty_workspaces = true;
+      inactive_opacity = 0.80000000000000004;
+      show_active_indicator = false;
+      workspace_group_capsule = false;
     };
   };
 }
