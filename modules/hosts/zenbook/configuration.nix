@@ -15,7 +15,6 @@
       programs_obsidian
       programs_discord
 
-      hardware_graphics
       hardware_battery
       hardware_bluetooth
       hardware_keyboard

@@ -14,10 +14,8 @@
       programs_thunderbird
       programs_obsidian
       programs_discord
+      programs_steam
 
-      specialisations_steam
-
-      hardware_graphics
       hardware_keyboard
     ];
   };
