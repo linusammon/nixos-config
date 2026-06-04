@@ -35,6 +35,7 @@
   };
 
   shell = {
+    setup_wizard_enabled = false;
     corner_radius_scale = 0.0;
     font_family = self.fonts.sans;
     niri_overview_type_to_launch_enabled = true;
