@@ -44,6 +44,8 @@
     launch_apps_as_systemd_services = true;
     telemetry_enabled = false;
 
+    screenshot.directory = "/home/linus/Pictures/screenshots";
+
     panel = {
       open_near_click_control_center = true;
       session_placement = "centered";

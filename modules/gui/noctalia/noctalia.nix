@@ -60,6 +60,16 @@
           "panel-toggle"
           "session"
         ];
+        "Mod+S".spawn = [
+          exe
+          "msg"
+          "screenshot-region"
+        ];
+        "Mod+Shift+S".spawn = [
+          exe
+          "msg"
+          "screenshot-fullscreen"
+        ];
       };
     };
 }

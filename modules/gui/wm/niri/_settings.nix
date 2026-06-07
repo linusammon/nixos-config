@@ -23,10 +23,6 @@
   };
 
   binds = {
-    "Mod+P".screenshot = _: { };
-    "Mod+Shift+P".screenshot-screen = _: { };
-    "Mod+Ctrl+P".screenshot-window = _: { };
-
     "Mod+O".toggle-overview = _: { };
 
     "Mod+Q".close-window = _: { };
@@ -88,8 +84,6 @@
     "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
     "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+";
   };
-
-  screenshot-path = "~/Pictures/screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png";
 
   prefer-no-csd = _: { };
 
