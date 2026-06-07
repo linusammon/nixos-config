@@ -34,7 +34,7 @@
         };
       };
 
-      custom.keybinds."Mod+Shift+D".spawn = "discord";
+      custom.keybinds."Mod+Shift+D".spawn = "discordptb";
 
       custom.persist.user.directories = [
         ".config/discordptb"
