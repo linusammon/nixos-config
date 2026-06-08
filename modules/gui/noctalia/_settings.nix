@@ -21,15 +21,12 @@
     telemetry_enabled = false;
   };
 
-  control_center = {
-    sidebar = "none";
-    shortcuts = [
-      "screen_time"
-      "wallpaper"
-      "sysmon"
-      "power_profile"
-    ];
-  };
+  control_center.shortcuts = [
+    { type = "power_profile"; }
+    { type = "system"; }
+    { type = "screen_recorder"; }
+    { type = "wallpaper"; }
+  ];
 
   location.auto_locate = true;
 
