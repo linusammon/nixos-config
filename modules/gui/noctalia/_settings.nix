@@ -46,15 +46,15 @@
   };
 
   bar.default = {
-    auto_hide = true;
     background_opacity = 0.9;
-    capsule_radius = 0;
+    scale = 1.1;
     font_weight = "bold";
     margin_edge = 0;
     margin_ends = 0;
     padding = 10;
-    radius = 0;
     widget_spacing = 10;
+    radius = 0;
+    capsule_radius = 0;
     start = [
       "taskbar"
     ];
@@ -64,7 +64,6 @@
     end = [
       "tray"
       "notifications"
-      "screen_recorder"
       "nightlight"
       "caffeine"
       "volume"
@@ -89,6 +88,7 @@
     };
 
     taskbar = {
+      scale = 1.1;
       group_by_workspace = true;
       hide_empty_workspaces = true;
       inactive_opacity = 0.8;
