@@ -6,6 +6,7 @@
 
   bar.default = {
     auto_hide = true;
+    capsule_radius = 0;
     background_opacity = 0.9;
     center = [
       "clock"
@@ -96,7 +97,6 @@
     };
 
     taskbar = {
-      capsule_radius = 1.0;
       group_by_workspace = true;
     };
 
