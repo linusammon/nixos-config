@@ -39,7 +39,7 @@
         partOf = [ "graphical-session.target" ];
         after = [ "graphical-session.target" ];
         wantedBy = [ "graphical-session.target" ];
-        environment.PATH = lib.mkForce null;
+        enableDefaultPath = false;
         restartTriggers = [ pkg ];
         serviceConfig = {
           ExecStart = exe;
