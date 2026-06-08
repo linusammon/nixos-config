@@ -79,9 +79,7 @@
     default.path = "/home/linus/Pictures/wp15769140-linkin-park-from-zero-wallpapers.png";
   };
 
-  weather = {
-    address = "Bern, Switzerland";
-  };
+  location.auto_locate = true;
 
   widget = {
     clock = {
