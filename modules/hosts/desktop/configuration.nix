@@ -11,6 +11,7 @@
       programs_kitty
       programs_zeditor
       programs_blender
+      programs_gimp
       programs_qutebrowser
       programs_thunderbird
       programs_obsidian
