@@ -1,37 +1,45 @@
 { self }:
 {
   shell = {
+    button_borders = false;
     corner_radius_scale = 0.0;
     font_family = self.fonts.sans;
-    screen_time_enabled = true;
+
     launch_apps_as_systemd_services = true;
     niri_overview_type_to_launch_enabled = true;
 
+    screen_time_enabled = true;
+    telemetry_enabled = true;
+    settings_show_advanced = true;
+    setup_wizard_enabled = false;
+
+    screenshot.directory = "/home/linus/Pictures/screenshots";
+
     panel = {
+      borders = false;
+      floating_offset = 5;
       launcher_categories = false;
       open_near_click_control_center = true;
       session_placement = "centered";
       transparency_mode = "soft";
     };
-
-    screenshot.directory = "/home/linus/Pictures/screenshots";
-
-    settings_show_advanced = true;
-    setup_wizard_enabled = false;
-    telemetry_enabled = false;
   };
 
-  control_center.shortcuts = [
-    { type = "power_profile"; }
-    { type = "system"; }
-    { type = "screen_recorder"; }
-    { type = "wallpaper"; }
-  ];
+  control_center = {
+    sidebar = "none";
+    sidebar_section = "none";
+
+    shortcuts = [
+      { type = "wifi"; }
+      { type = "bluetooth"; }
+      { type = "audio"; }
+      { type = "mic_mute"; }
+      { type = "system"; }
+      { type = "screen_time"; }
+    ];
+  };
 
   location.auto_locate = true;
-
-  backdrop.enabled = true;
-
   nightlight.enabled = true;
 
   theme = {
@@ -41,37 +49,51 @@
   };
 
   wallpaper = {
-    directory = "/home/linus/Pictures";
-    default.path = "/home/linus/Pictures/wp15769140-linkin-park-from-zero-wallpapers.png";
+    directory = "/home/linus";
+    default.path = ../../../.wallpaper.png;
   };
 
-  bar.default = {
-    background_opacity = 0.9;
-    scale = 1.1;
-    font_weight = "bold";
-    margin_edge = 0;
-    margin_ends = 0;
-    padding = 10;
-    widget_spacing = 10;
-    radius = 0;
-    capsule_radius = 0;
-    start = [
-      "taskbar"
-    ];
-    center = [
-      "clock"
-    ];
-    end = [
-      "tray"
-      "notifications"
-      "nightlight"
-      "caffeine"
-      "volume"
-      "bluetooth"
-      "network"
-      "battery"
-    ];
-  };
+  bar =
+    let
+      common = {
+        reserve_space = false;
+        background_opacity = 0.0;
+        scale = 1.1;
+        thickness = 30;
+        font_weight = "bold";
+        margin_edge = 3;
+        margin_ends = 0;
+        padding = 10;
+        widget_spacing = 10;
+        radius = 0;
+        capsule_radius = 0;
+      };
+    in
+    {
+      overlay = common // {
+        click_through = true;
+        layer = "overlay";
+        start = [ ];
+        center = [ "clock" ];
+        end = [ ];
+      };
+
+      default = common // {
+        layer = "top";
+        start = [ "taskbar" ];
+        center = [ ];
+        end = [
+          "tray"
+          "notifications"
+          "nightlight"
+          "caffeine"
+          "volume"
+          "bluetooth"
+          "network"
+          "battery"
+        ];
+      };
+    };
 
   widget = {
     clock.format = "{:%A  %H:%M}";
@@ -79,13 +101,7 @@
     tray.drawer = true;
 
     network.show_label = false;
-
     volume.show_label = false;
-
-    screen_recorder = {
-      script = "scripts/screen_recorder.lua";
-      type = "scripted";
-    };
 
     taskbar = {
       scale = 1.1;
