@@ -46,9 +46,9 @@
 
       services.gnome.gcr-ssh-agent.enable = false;
 
-      environment.systemPackages = [
-        pkgs.xwayland-satellite
-        (self.cursor.package pkgs)
+      environment.systemPackages = with pkgs; [
+        xwayland-satellite
+        bibata-cursors
       ];
 
       custom.persist.user = {
