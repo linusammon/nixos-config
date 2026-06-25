@@ -36,4 +36,5 @@ url = "github:flameflag/nixcord"
 url = "github:nix-community/nix-index-database"
 
 [inputs.noctalia]
-url = "github:noctalia-dev/noctalia"
+url = "github:noctalia-dev/noctalia/cachix"
+exclude_follow = [ "nixpkgs" ]
