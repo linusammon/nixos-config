@@ -81,9 +81,9 @@
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia",
-    "rev": "234c004b2eb9f10dfd52c7fee32d19cdac0cb4d9",
-    "narHash": "sha256-9uyTu1yPFHPAuIq/Eanekb3giM4XrZj+FZlrMNifESU=",
-    "lastModified": 1782416833
+    "rev": "b4b74ef9d83be43a5c22ce41286159703a19b13d",
+    "narHash": "sha256-+B1qeN/ducHvZxpFiMdj/Pojy9zvhRu0b7u4jjvfYfc=",
+    "lastModified": 1782419232
   },
   "sops-nix": {
     "type": "github",
