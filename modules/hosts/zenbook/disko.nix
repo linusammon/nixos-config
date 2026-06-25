@@ -1,6 +1,5 @@
-{ inputs, ... }:
-{
-  flake.modules.nixos.host_zenbook = {
+{ inputs, ... }: {
+  modules.nixos.hosts.zenbook = _: {
     imports = [ inputs.disko.nixosModules.disko ];
 
     disko.devices = {

@@ -1,5 +1,4 @@
-{ self }:
-''
+theme: with theme; ''
   [%General]
   author=Bluskript based on Catppuccin Frappe Mauve theme
   comment=base16-qt
@@ -75,25 +74,25 @@
   theme=Base16Kvantum
 
   [GeneralColors]
-  window.color=${self.theme.base01}
-  base.color=${self.theme.base00}
-  alt.base.color=${self.theme.base01}
-  button.color=${self.theme.base02}
-  light.color=${self.theme.base03}
-  mid.light.color=${self.theme.base03}
-  dark.color=${self.theme.base00}
-  mid.color=${self.theme.base00}
-  highlight.color=${self.theme.base0E}
-  inactive.highlight.color=${self.theme.base03}
-  tooltip.base.color=${self.theme.base00}
-  text.color=${self.theme.base05}
-  window.text.color=${self.theme.base05}
-  button.text.color=${self.theme.base05}
-  disabled.text.color=${self.theme.base04}
-  tooltip.text.color=${self.theme.base05}
-  highlight.text.color=${self.theme.base00}
-  link.color=${self.theme.base0D}
-  link.visited.color=${self.theme.base0E}
+  window.color=${colors.base01}
+  base.color=${colors.base00}
+  alt.base.color=${colors.base01}
+  button.color=${colors.base02}
+  light.color=${colors.base03}
+  mid.light.color=${colors.base03}
+  dark.color=${colors.base00}
+  mid.color=${colors.base00}
+  highlight.color=${colors.base0E}
+  inactive.highlight.color=${colors.base03}
+  tooltip.base.color=${colors.base00}
+  text.color=${colors.base05}
+  window.text.color=${colors.base05}
+  button.text.color=${colors.base05}
+  disabled.text.color=${colors.base04}
+  tooltip.text.color=${colors.base05}
+  highlight.text.color=${colors.base00}
+  link.color=${colors.base0D}
+  link.visited.color=${colors.base0E}
 
 
   [ItemView]
@@ -103,8 +102,8 @@
   frame=true
   interior=true
   text.iconspacing=3
-  text.press.color=${self.theme.base05}
-  text.toggle.color=${self.theme.base05}
+  text.press.color=${colors.base05}
+  text.toggle.color=${colors.base05}
 
   [RadioButton]
   inherits=PanelButtonCommand
@@ -131,10 +130,10 @@
   inherits=PanelButtonCommand
   interior.element=button
   frame.element=button
-  text.normal.color=${self.theme.base05}
-  text.focus.color=${self.theme.base05}
-  text.press.color=${self.theme.base05}
-  text.toggle.color=${self.theme.base05}
+  text.normal.color=${colors.base05}
+  text.focus.color=${colors.base05}
+  text.press.color=${colors.base05}
+  text.toggle.color=${colors.base05}
 
   [PanelButtonTool]
   inherits=PanelButtonCommand
@@ -237,10 +236,10 @@
   frame.right=3
   indicator.size=10
   ; TODO: we should have different shades of the same color
-  text.normal.color=${self.theme.base05}
-  text.focus.color=${self.theme.base05}
-  text.press.color=${self.theme.base05}
-  text.toggle.color=${self.theme.base05}
+  text.normal.color=${colors.base05}
+  text.focus.color=${colors.base05}
+  text.press.color=${colors.base05}
+  text.toggle.color=${colors.base05}
   focusFrame=true
 
   [TabBarFrame]
@@ -277,10 +276,10 @@
   frame.left=1
   frame.right=1
   frame.expansion=0
-  text.normal.color=${self.theme.base05}
-  text.focus.color=${self.theme.base05}
-  text.press.color=${self.theme.base05}
-  text.toggle.color=${self.theme.base05}
+  text.normal.color=${colors.base05}
+  text.focus.color=${colors.base05}
+  text.press.color=${colors.base05}
+  text.toggle.color=${colors.base05}
   indicator.element=harrow
 
   [SizeGrip]
@@ -298,10 +297,10 @@
   frame.bottom=4
   frame.left=4
   frame.right=4
-  text.normal.color=${self.theme.base05}
-  text.focus.color=${self.theme.base05}
-  text.press.color=${self.theme.base05}
-  text.toggle.color=${self.theme.base05}
+  text.normal.color=${colors.base05}
+  text.focus.color=${colors.base05}
+  text.press.color=${colors.base05}
+  text.toggle.color=${colors.base05}
   text.bold=false
 
   [MenuBar]
@@ -309,7 +308,7 @@
   frame.element=menubar
   interior.element=menubar
   frame.bottom=0
-  text.normal.color=${self.theme.base05}
+  text.normal.color=${colors.base05}
   frame.expansion=0
   text.bold=false
 
@@ -317,10 +316,10 @@
   frame.element=tbutton
   interior.element=tbutton
   indicator.element=arrow
-  text.normal.color=${self.theme.base05}
-  text.focus.color=${self.theme.base05}
-  text.press.color=${self.theme.base05}
-  text.toggle.color=${self.theme.base05}
+  text.normal.color=${colors.base05}
+  text.focus.color=${colors.base05}
+  text.press.color=${colors.base05}
+  text.toggle.color=${colors.base05}
   text.bold=false
 
   [ToolbarLineEdit]
@@ -366,10 +365,10 @@
   frame.left=2
   frame.right=2
   text.margin=0
-  text.normal.color=${self.theme.base05}
-  text.focus.color=${self.theme.base05}
-  text.press.color=${self.theme.base05}
-  text.toggle.color=${self.theme.base05}
+  text.normal.color=${colors.base05}
+  text.focus.color=${colors.base05}
+  text.press.color=${colors.base05}
+  text.toggle.color=${colors.base05}
   text.bold=false
   frame.expansion=18
 
@@ -380,8 +379,8 @@
   frame.element=menu
   interior.element=menu
   inherits=PanelButtonCommand
-  text.press.color=${self.theme.base05}
-  text.toggle.color=${self.theme.base05}
+  text.press.color=${colors.base05}
+  text.toggle.color=${colors.base05}
   text.bold=false
   frame.top=3
   frame.bottom=3
@@ -396,8 +395,8 @@
   frame.element=menuitem
   frame.right=10
   frame.left=10
-  text.focus.color=${self.theme.base05}
-  text.press.color=${self.theme.base05}
+  text.focus.color=${colors.base05}
+  text.press.color=${colors.base05}
 
   [MenuBarItem]
   inherits=PanelButtonCommand
@@ -412,7 +411,7 @@
   inherits=Toolbar
   frame.element=toolbar
   font.bold=true
-  text.normal.color=${self.theme.base05}
+  text.normal.color=${colors.base05}
   frame=true
   frame.top=0
   frame.bottom=0
@@ -437,14 +436,14 @@
   text.margin.bottom=1
   text.margin.left=3
   text.margin.right=3
-  text.press.color=${self.theme.base05}
-  text.toggle.color=${self.theme.base05}
+  text.press.color=${colors.base05}
+  text.toggle.color=${colors.base05}
 
   [ToolboxTab]
   inherits=PanelButtonCommand
-  text.normal.color=${self.theme.base05}
-  text.press.color=${self.theme.base05}
-  text.focus.color=${self.theme.base05}
+  text.normal.color=${colors.base05}
+  text.press.color=${colors.base05}
+  text.focus.color=${colors.base05}
 
   [Hacks]
   transparent_dolphin_view=false

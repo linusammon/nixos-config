@@ -1,0 +1,16 @@
+[
+  ".idea/"
+  "*.iml"
+  "*.iws"
+  "*.ipr"
+  ".vscode/*"
+  "*~"
+  "#*#"
+  ".#*"
+  "*.swp"
+  "*.swo"
+  "*.swn"
+  ".project"
+  ".classpath"
+  ".settings/"
+]

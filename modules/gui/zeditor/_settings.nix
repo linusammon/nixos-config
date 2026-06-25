@@ -1,5 +1,8 @@
-{ self }:
-{
+theme: with theme; {
+  ui_font_family = fonts.sans;
+  ui_font_size = fonts.size * 4.0 / 3.0;
+  buffer_font_family = fonts.mono;
+  buffer_font_size = fonts.size * 4.0 / 3.0;
   disable_ai = true;
   auto_install_extensions = {
     colored-zed-icons-theme = true;
@@ -7,8 +10,6 @@
   };
   auto_update = false;
   base_keymap = "VSCode";
-  buffer_font_family = self.fonts.mono;
-  buffer_font_size = self.fonts.size * 4.0 / 3.0;
   collaboration_panel = {
     button = false;
   };
@@ -85,8 +86,6 @@
     quick_actions = false;
     selections_menu = true;
   };
-  ui_font_family = self.fonts.sans;
-  ui_font_size = self.fonts.size * 4.0 / 3.0;
   vertical_scroll_margin = 5.0;
   window_decorations = "server";
 }

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.programs_steam = {
+  modules.nixos.gui.steam = _: {
     programs.steam.enable = true;
 
     custom.persist.user.directories = [

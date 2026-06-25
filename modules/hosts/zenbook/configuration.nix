@@ -1,23 +1,25 @@
-{ self, ... }:
-{
-  flake.nixosConfigurations = self.lib.mkNixos "zenbook" { };
+{ config, ... }: {
+  nixosConfigurations = config.lib.mkNixos "zenbook" { };
 
-  flake.modules.nixos.host_zenbook = {
-    imports = with self.modules.nixos; [
-      wm_niri
+  modules.nixos.hosts.zenbook = _: {
+    imports =
+      with config.modules.nixos;
+      with config.lib;
+      [
+        (collect gui { exclude = [ gui.steam ]; })
+        (collect cli { })
+        (collect system { })
 
-      programs_noctalia
-      programs_nautilus
-      programs_kitty
-      programs_zeditor
-      programs_qutebrowser
-      programs_thunderbird
-      programs_obsidian
-      programs_discord
-
-      hardware_battery
-      hardware_bluetooth
-      hardware_keyboard
-    ];
+        hardware.usb
+        hardware.thunderbolt
+        hardware.disk.nvme
+        hardware.cpu.intel
+        hardware.gpu.intel
+        hardware.firmware
+        hardware.networking
+        hardware.bluetooth
+        hardware.power
+        hardware.zsa
+      ];
   };
 }

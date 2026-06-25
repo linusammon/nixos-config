@@ -1,13 +1,11 @@
 {
-  flake.modules.nixos.programs_blender =
-    { pkgs, ... }:
-    {
-      environment.systemPackages = [
-        pkgs.blender
-      ];
+  modules.nixos.gui.blender = { pkgs, ... }: {
+    environment.systemPackages = [
+      pkgs.blender
+    ];
 
-      custom.persist.user.directories = [
-        ".config/blender"
-      ];
-    };
+    custom.persist.user.directories = [
+      ".config/blender"
+    ];
+  };
 }

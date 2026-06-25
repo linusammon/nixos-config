@@ -1,9 +1,8 @@
-{ self }:
-{
+config: with config.theme; {
   shell = {
     button_borders = false;
     corner_radius_scale = 0.0;
-    font_family = self.fonts.sans;
+    font_family = fonts.sans;
 
     launch_apps_as_systemd_services = true;
     niri_overview_type_to_launch_enabled = true;
@@ -46,11 +45,6 @@
     mode = "dark";
     source = "custom";
     custom_palette = "palette";
-  };
-
-  wallpaper = {
-    directory = "/home/linus";
-    default.path = ../../../.wallpaper.png;
   };
 
   bar =

@@ -1,5 +1,4 @@
-{ self }:
-{
+config: with config.theme; {
   window_padding_width = 14;
   hide_window_decorations = "yes";
   confirm_os_window_close = 0;
@@ -9,40 +8,40 @@
   cursor_blink_interval = 0;
   enable_audio_bell = "no";
 
-  background = self.theme.base00;
-  foreground = self.theme.base05;
-  selection_background = self.theme.base05;
-  selection_foreground = self.theme.base00;
-  url_color = self.theme.base0D;
-  cursor = self.theme.base0D;
-  cursor_text_color = self.theme.base00;
-  active_border_color = self.theme.base03;
-  inactive_border_color = self.theme.base01;
-  active_tab_background = self.theme.base00;
-  active_tab_foreground = self.theme.base05;
-  inactive_tab_background = self.theme.base01;
-  inactive_tab_foreground = self.theme.base04;
+  background = colors.base00;
+  foreground = colors.base05;
+  selection_background = colors.base05;
+  selection_foreground = colors.base00;
+  url_color = colors.base0D;
+  cursor = colors.base0D;
+  cursor_text_color = colors.base00;
+  active_border_color = colors.base03;
+  inactive_border_color = colors.base01;
+  active_tab_background = colors.base00;
+  active_tab_foreground = colors.base05;
+  inactive_tab_background = colors.base01;
+  inactive_tab_foreground = colors.base04;
 
-  color0 = self.theme.base00;
-  color1 = self.theme.base08;
-  color2 = self.theme.base0B;
-  color3 = self.theme.base0A;
-  color4 = self.theme.base0D;
-  color5 = self.theme.base0E;
-  color6 = self.theme.base0C;
-  color7 = self.theme.base05;
-  color8 = self.theme.base03;
-  color9 = self.theme.base08;
-  color10 = self.theme.base0B;
-  color11 = self.theme.base0A;
-  color12 = self.theme.base0D;
-  color13 = self.theme.base0E;
-  color14 = self.theme.base0C;
-  color15 = self.theme.base07;
-  color16 = self.theme.base09;
-  color17 = self.theme.base0F;
-  color18 = self.theme.base01;
-  color19 = self.theme.base02;
-  color20 = self.theme.base04;
-  color21 = self.theme.base06;
+  color0 = colors.base00;
+  color1 = colors.base08;
+  color2 = colors.base0B;
+  color3 = colors.base0A;
+  color4 = colors.base0D;
+  color5 = colors.base0E;
+  color6 = colors.base0C;
+  color7 = colors.base05;
+  color8 = colors.base03;
+  color9 = colors.base08;
+  color10 = colors.base0B;
+  color11 = colors.base0A;
+  color12 = colors.base0D;
+  color13 = colors.base0E;
+  color14 = colors.base0C;
+  color15 = colors.base07;
+  color16 = colors.base09;
+  color17 = colors.base0F;
+  color18 = colors.base01;
+  color19 = colors.base02;
+  color20 = colors.base04;
+  color21 = colors.base06;
 }

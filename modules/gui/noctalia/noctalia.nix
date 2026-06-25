@@ -1,39 +1,38 @@
 {
-  self,
   inputs,
+  config,
+  lib,
   ...
 }:
 {
-  perSystem =
-    { pkgs, lib, ... }:
-    {
-      packages.noctalia = inputs.wrappers.lib.wrapPackage {
-        inherit pkgs;
-        package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
-          patches = (old.patches or [ ]) ++ [
-            ./patches/0001-bar-add-click-through-option.patch
-            ./patches/0002-ui-add-button-borders-toggle.patch
-          ];
-        });
-        env.NOCTALIA_CONFIG_HOME = "${placeholder "out"}/";
-        constructFiles = {
-          settings = {
-            relPath = "noctalia/config.toml";
-            content = builtins.toJSON (import ./_settings.nix { inherit self; });
-            builder = "${lib.getExe pkgs.remarshal} -f json -i \"$1\" -t toml -o \"$2\"";
-          };
-          pallete = {
-            relPath = "noctalia/palettes/palette.json";
-            content = builtins.toJSON (import ./_palette.nix { inherit self; });
-          };
+  packages.noctalia =
+    pkgs:
+    inputs.nix-wrapper-modules.lib.wrapPackage {
+      inherit pkgs;
+      package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+        patches = (old.patches or [ ]) ++ [
+          ./patches/0001-bar-add-click-through-option.patch
+          ./patches/0002-ui-add-button-borders-toggle.patch
+        ];
+      });
+      env.NOCTALIA_CONFIG_HOME = "${placeholder "out"}/";
+      constructFiles = {
+        settings = {
+          relPath = "noctalia/config.toml";
+          content = builtins.toJSON (import ./_settings.nix config);
+          builder = "${lib.getExe pkgs.remarshal} -f json -i \"$1\" -t toml -o \"$2\"";
+        };
+        pallete = {
+          relPath = "noctalia/palettes/palette.json";
+          content = builtins.toJSON (import ./_palette.nix config);
         };
       };
     };
 
-  flake.modules.nixos.programs_noctalia =
+  modules.nixos.gui.noctalia =
     { pkgs, lib, ... }:
     let
-      pkg = self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia;
+      pkg = config.packages.noctalia pkgs;
       exe = lib.getExe pkg;
     in
     {
@@ -43,8 +42,8 @@
         partOf = [ "graphical-session.target" ];
         after = [ "graphical-session.target" ];
         wantedBy = [ "graphical-session.target" ];
-        enableDefaultPath = false;
         restartTriggers = [ pkg ];
+        enableDefaultPath = false;
         serviceConfig = {
           ExecStart = exe;
           Restart = "on-failure";
