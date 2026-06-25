@@ -43,9 +43,9 @@
     "type": "github",
     "owner": "xddxdd",
     "repo": "nix-cachyos-kernel",
-    "rev": "3ea1942599d8d0a124bdb9ec1304b3e6f63e8b1f",
-    "narHash": "sha256-UVOavLm7rSOXVlVaI4nlszpFPG109iQVxhIJ5UxXRCA=",
-    "lastModified": 1782328582
+    "rev": "1740ec90e7b07730c212a3a1ff5e71af08a5270b",
+    "narHash": "sha256-Qts73QQA+lADfxWjonL3Q1JcZssVZPsQI38L3qZyS0o=",
+    "lastModified": 1782415778
   },
   "nix-index-database": {
     "type": "github",
@@ -81,9 +81,17 @@
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia",
-    "rev": "88f34799fb15ba287c234f64a0e586ed10d2a7c7",
-    "narHash": "sha256-n2XBU942L6VJX3RXLQdkgPFg7dfoNy4q3lxmMHQB+dU=",
-    "lastModified": 1782413672
+    "rev": "234c004b2eb9f10dfd52c7fee32d19cdac0cb4d9",
+    "narHash": "sha256-9uyTu1yPFHPAuIq/Eanekb3giM4XrZj+FZlrMNifESU=",
+    "lastModified": 1782416833
+  },
+  "sops-nix": {
+    "type": "github",
+    "owner": "Mic92",
+    "repo": "sops-nix",
+    "rev": "56b24064fdcaedca53553b1a6d607fd23b613a24",
+    "narHash": "sha256-478kKQBvK6SYTOdN2h9jhKJv94nbXRbFMfuL1WshErg=",
+    "lastModified": 1782165805
   },
   "treefmt-nix": {
     "type": "github",

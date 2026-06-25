@@ -1,10 +1,10 @@
 {
-  modules.nixos.system.users = { user, ... }: {
+  modules.nixos.system.users = { config, user, ... }: {
     users.users = {
-      root.initialPassword = "password";
+      root.hashedPasswordFile = config.sops.secrets.user-password.path;
 
       ${user} = {
-        initialPassword = "password";
+        hashedPasswordFile = config.sops.secrets.user-password.path;
         isNormalUser = true;
         extraGroups = [ "wheel" ];
       };
