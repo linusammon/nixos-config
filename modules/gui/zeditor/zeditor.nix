@@ -4,6 +4,7 @@
       theme,
       pkgs,
       lib,
+      host,
       ...
     }:
     let
@@ -14,7 +15,7 @@
 
       hj.xdg.config.files = {
         "zed/settings.json".text = builtins.toJSON (
-          (import ./_settings.nix theme) // (import ./_languages.nix { inherit lib pkgs; })
+          (import ./_settings.nix theme) // (import ./_languages.nix { inherit lib pkgs host; })
         );
         "zed/themes/base16.json".text = builtins.toJSON (import ./_theme.nix theme);
       };

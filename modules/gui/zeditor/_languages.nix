@@ -1,4 +1,8 @@
-{ lib, pkgs }:
+{
+  lib,
+  pkgs,
+  host,
+}:
 {
   languages = {
     Nix = {
@@ -22,7 +26,7 @@
       settings = {
         options = {
           nixos = {
-            expr = "(builtins.getFlake \"github:linusammon/nixos-config\").nixosConfigurations.desktop.options";
+            expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.${host}.options";
           };
         };
       };
