@@ -19,9 +19,9 @@
     "type": "github",
     "owner": "feel-co",
     "repo": "hjem",
-    "rev": "3b110d0e7c07a5652019223bd7f7b872b86f06a4",
-    "narHash": "sha256-1cMArpPnPvjKYNMsMRwtAxQ6ngPnIg/Wt3ohS95fbwY=",
-    "lastModified": 1782071069
+    "rev": "dd0ba9e22fb46581f843e6121de33ca7a4a80224",
+    "narHash": "sha256-so1hIImuLtTKTVUokJ/6C2D2b2D4znCx+/PAjMSAnpw=",
+    "lastModified": 1782267080
   },
   "impermanence": {
     "type": "github",
@@ -43,9 +43,9 @@
     "type": "github",
     "owner": "xddxdd",
     "repo": "nix-cachyos-kernel",
-    "rev": "756ed060ca6adcdf3e65371e3725b89c58a1354d",
-    "narHash": "sha256-Vujeg1QyOCnEMCNV1U7aFDllD0w2lEl8c0uJyKM+cOI=",
-    "lastModified": 1782068713
+    "rev": "3ea1942599d8d0a124bdb9ec1304b3e6f63e8b1f",
+    "narHash": "sha256-UVOavLm7rSOXVlVaI4nlszpFPG109iQVxhIJ5UxXRCA=",
+    "lastModified": 1782328582
   },
   "nix-index-database": {
     "type": "github",
@@ -67,9 +67,9 @@
     "type": "github",
     "owner": "flameflag",
     "repo": "nixcord",
-    "rev": "d9aad20784cb2fe8142f2e934d29e1c722cc71d6",
-    "narHash": "sha256-Fva6sbK1BiMgi9b+F7zDcBDNUeUlavWpO7hGi27xu4A=",
-    "lastModified": 1781918107
+    "rev": "afdacaafb10aa459dfabbb8af99e4b0deb74f1d2",
+    "narHash": "sha256-2haY6BBTL+yCblUup/P9t3D8sUTMSqIok68n+qGjjYI=",
+    "lastModified": 1782349937
   },
   "nixpkgs": {
     "type": "tarball",
@@ -81,9 +81,9 @@
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia",
-    "rev": "02d81c7da9c69659f3a7390a41140f6b1b0523c3",
-    "narHash": "sha256-cgFDhjLraNBn9SKFLlvIy2izrg4qBff2ntUXLQEHhVM=",
-    "lastModified": 1782140732
+    "rev": "88f34799fb15ba287c234f64a0e586ed10d2a7c7",
+    "narHash": "sha256-n2XBU942L6VJX3RXLQdkgPFg7dfoNy4q3lxmMHQB+dU=",
+    "lastModified": 1782413672
   },
   "treefmt-nix": {
     "type": "github",
