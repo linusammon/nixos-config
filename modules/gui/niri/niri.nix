@@ -21,7 +21,7 @@ in
       ...
     }:
     {
-      options.keybinds = lib.mkOption {
+      options.custom.keybinds = lib.mkOption {
         type = lib.types.attrsOf lib.types.anything;
         default = { };
       };
