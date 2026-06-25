@@ -1,44 +1,39 @@
-{ inputs, self, ... }:
+{ inputs, ... }:
 {
-  flake.modules.nixos.programs_discord =
-    { config, ... }:
-    let
-      inherit (config.custom.constants) user;
-    in
-    {
-      imports = [ inputs.nixcord.nixosModules.nixcord ];
+  modules.nixos.gui.discord = { user, theme, ... }: {
+    imports = [ inputs.nixcord.nixosModules.nixcord ];
 
-      programs.nixcord = {
-        enable = true;
-        inherit user;
+    programs.nixcord = {
+      enable = true;
+      inherit user;
 
-        discord = {
-          branch = "ptb";
-          vencord.enable = false;
-          equicord.enable = true;
-        };
-
-        quickCss = import ./_theme.nix { inherit self; };
-
-        config = {
-          useQuickCss = true;
-
-          plugins = {
-            messageLoggerEnhanced.enable = true;
-            voiceChannelLog.enable = true;
-            showHiddenChannels.enable = true;
-            showHiddenThings.enable = true;
-            fileUpload.enable = true;
-            silentTyping.enable = true;
-          };
-        };
+      discord = {
+        branch = "ptb";
+        vencord.enable = false;
+        equicord.enable = true;
       };
 
-      custom.keybinds."Mod+Shift+D".spawn = "discordptb";
+      quickCss = import ./_theme.nix { inherit (theme) colors fonts; };
 
-      custom.persist.user.directories = [
-        ".config/discordptb"
-        ".config/Equicord"
-      ];
+      config = {
+        useQuickCss = true;
+
+        plugins = {
+          messageLoggerEnhanced.enable = true;
+          voiceChannelLog.enable = true;
+          showHiddenChannels.enable = true;
+          showHiddenThings.enable = true;
+          fileUpload.enable = true;
+          silentTyping.enable = true;
+        };
+      };
     };
+
+    custom.keybinds."Mod+Shift+D".spawn = "discordptb";
+
+    custom.persist.user.directories = [
+      ".config/discordptb"
+      ".config/Equicord"
+    ];
+  };
 }

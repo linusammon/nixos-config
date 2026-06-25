@@ -1,7 +1,11 @@
-{ self, ... }:
 {
-  flake.modules.nixos.programs_zeditor =
-    { lib, pkgs, ... }:
+  modules.nixos.gui.zeditor =
+    {
+      theme,
+      pkgs,
+      lib,
+      ...
+    }:
     let
       pkg = pkgs.zed-editor;
     in
@@ -10,9 +14,9 @@
 
       hj.xdg.config.files = {
         "zed/settings.json".text = builtins.toJSON (
-          (import ./_settings.nix { inherit self; }) // (import ./_languages.nix { inherit lib pkgs; })
+          (import ./_settings.nix theme) // (import ./_languages.nix { inherit lib pkgs; })
         );
-        "zed/themes/base16.json".text = builtins.toJSON (import ./_theme.nix { inherit self; });
+        "zed/themes/base16.json".text = builtins.toJSON (import ./_theme.nix theme);
       };
 
       custom.keybinds."Mod+Shift+E".spawn = lib.getExe pkg;

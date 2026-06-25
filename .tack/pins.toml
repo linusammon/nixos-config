@@ -28,9 +28,6 @@
 [inputs.nixpkgs]
 url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
 
-[inputs.flake-parts]
-url = "github:ladas552/flake-parts"
-
 [inputs.nix-cachyos-kernel]
 url = "github:xddxdd/nix-cachyos-kernel/release"
 
@@ -43,7 +40,7 @@ url = "github:nix-community/disko"
 [inputs.impermanence]
 url = "github:nix-community/impermanence"
 
-[inputs.wrappers]
+[inputs.nix-wrapper-modules]
 url = "github:birdeehub/nix-wrapper-modules"
 
 [inputs.hjem]

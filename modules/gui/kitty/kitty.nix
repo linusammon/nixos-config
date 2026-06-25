@@ -1,18 +1,17 @@
-{ self, inputs, ... }:
+{ inputs, config, ... }:
 {
-  perSystem =
-    { pkgs, ... }:
-    {
-      packages.kitty = inputs.wrappers.wrappers.kitty.wrap {
-        inherit pkgs;
-        settings = import ./_settings.nix { inherit self; };
-      };
+
+  packages.kitty =
+    pkgs:
+    inputs.nix-wrapper-modules.wrappers.kitty.wrap {
+      inherit pkgs;
+      settings = import ./_settings.nix config;
     };
 
-  flake.modules.nixos.programs_kitty =
+  modules.nixos.gui.kitty =
     { pkgs, lib, ... }:
     let
-      pkg = self.packages.${pkgs.stdenv.hostPlatform.system}.kitty;
+      pkg = config.packages.kitty pkgs;
     in
     {
       environment.systemPackages = [ pkg ];

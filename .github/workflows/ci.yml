@@ -17,7 +17,7 @@ jobs:
     needs: eval
     strategy:
       matrix:
-        host: [desktop, zenbook]
+        host: [riptide, zenbook]
       max-parallel: 1
     steps:
       - uses: jlumbroso/free-disk-space@v1.3.1

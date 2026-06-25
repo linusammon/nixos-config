@@ -1,9 +1,9 @@
-{ self, ... }:
 {
-  flake.modules.nixos.wm =
+  modules.nixos.gui.gtk =
     {
       pkgs,
       lib,
+      theme,
       ...
     }:
     let
@@ -16,7 +16,7 @@
         gtk-application-prefer-dark-theme = true
       '';
 
-      css = import ./_theme.nix { inherit self; };
+      css = import ./_theme.nix theme;
     in
     {
       hj.xdg.config.files = {
