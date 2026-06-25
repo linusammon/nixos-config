@@ -33,14 +33,14 @@ diff --git a/src/app/application.cpp b/src/app/application.cpp
 index c4bcde2d0..eeb0f6843 100644
 --- a/src/app/application.cpp
 +++ b/src/app/application.cpp
-@@ -24,6 +24,7 @@
- #include "launcher/window_provider.h"
- #include "notification/notifications.h"
+@@ -53,6 +53,7 @@
+ #include "pipewire/pipewire_spectrum_poll_source.h"
+ #include "pipewire/sound_player.h"
  #include "render/animation/motion_service.h"
 +#include "ui/palette.h"
+ #include "render/backend/render_backend.h"
  #include "render/core/texture_manager.h"
  #include "render/text/font_weight_catalog.h"
- #include "scripting/plugin_manifest.h"
 @@ -549,16 +550,25 @@ void Application::initServices() {
      motion.setSpeed(m_configService.config().shell.animation.speed);
      motion.setEnabled(m_configService.config().shell.animation.enabled);
