@@ -1,8 +1,8 @@
 {
-  modules.nixos.cli.nh = { user, ... }: {
+  modules.nixos.cli.nh = { args, ... }: {
     programs.nh = {
       enable = true;
-      flake = "/home/${user}/Projects/nixos-config";
+      flake = "/home/${args.user}/Projects/nixos-config";
       clean = {
         enable = true;
         dates = "daily";

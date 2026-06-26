@@ -1,5 +1,5 @@
 { inputs, ... }: {
-  modules.nixos.system.sops = { user, ... }: {
+  modules.nixos.system.sops = { args, ... }: {
     imports = [ inputs.sops-nix.nixosModules.sops ];
 
     sops = {
@@ -8,7 +8,7 @@
 
       secrets = {
         user-password.neededForUsers = true;
-        github-token.owner = user;
+        github-token.owner = args.user;
       };
     };
   };

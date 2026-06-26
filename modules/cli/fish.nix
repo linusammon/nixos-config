@@ -1,5 +1,5 @@
 {
-  modules.nixos.cli.fish = { pkgs, user, ... }: {
+  modules.nixos.cli.fish = { pkgs, args, ... }: {
     programs.fish = {
       enable = true;
       interactiveShellInit = ''
@@ -7,7 +7,7 @@
       '';
     };
 
-    users.users.${user}.shell = pkgs.fish;
+    users.users.${args.user}.shell = pkgs.fish;
 
     custom.persist.user.files = [
       ".local/share/fish/fish_history"

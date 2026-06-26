@@ -1,10 +1,10 @@
 {
-  modules.nixos.cli.podman = { user, ... }: {
+  modules.nixos.cli.podman = { args, ... }: {
     virtualisation.podman = {
       enable = true;
       dockerCompat = true;
     };
 
-    users.users.${user}.extraGroups = [ "podman" ];
+    users.users.${args.user}.extraGroups = [ "podman" ];
   };
 }

@@ -1,6 +1,6 @@
 {
-  modules.nixos.system.nixpkgs = { lib, system, ... }: {
-    nixpkgs.hostPlatform = lib.mkDefault system;
+  modules.nixos.system.nixpkgs = { lib, args, ... }: {
+    nixpkgs.hostPlatform = lib.mkDefault args.hostPlatform;
     nixpkgs.config.allowUnfree = true;
   };
 }

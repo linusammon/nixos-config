@@ -1,8 +1,6 @@
 { config, ... }: {
-  nixosConfigurations = config.lib.mkNixos "riptide" { };
-
-  modules.nixos.hosts.riptide = _: {
-    imports =
+  nixosConfigurations = config.lib.mkNixos "riptide" {
+    modules =
       with config.modules.nixos;
       with config.lib;
       [
@@ -18,6 +16,8 @@
         hardware.firmware
         hardware.networking
         hardware.zsa
+
+        ./_disko.nix
       ];
   };
 }

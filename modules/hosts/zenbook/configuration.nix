@@ -1,8 +1,6 @@
 { config, ... }: {
-  nixosConfigurations = config.lib.mkNixos "zenbook" { };
-
-  modules.nixos.hosts.zenbook = _: {
-    imports =
+  nixosConfigurations = config.lib.mkNixos "zenbook" {
+    modules =
       with config.modules.nixos;
       with config.lib;
       [
@@ -20,6 +18,8 @@
         hardware.bluetooth
         hardware.power
         hardware.zsa
+
+        ./_disko.nix
       ];
   };
 }

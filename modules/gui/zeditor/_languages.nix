@@ -1,7 +1,7 @@
 {
   lib,
   pkgs,
-  host,
+  hostName,
 }:
 {
   languages = {
@@ -26,7 +26,7 @@
       settings = {
         options = {
           nixos = {
-            expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.${host}.options";
+            expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.${hostName}.options";
           };
         };
       };
