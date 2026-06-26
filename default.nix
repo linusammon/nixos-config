@@ -17,13 +17,14 @@ let
 
   importTree = path: toList (fileFilter (file: with file; hasExt "nix" && !hasPrefix "_" name) path);
 
-  inherit ((evalModules {
+  config =
+    (evalModules {
       modules = importTree ./modules ++ [ ./top.nix ];
       specialArgs = { inherit inputs lib; };
-    })) config;
+    }).config;
 in
-config
-// {
+{
+  inherit (config) nixosConfigurations;
   packages = perSystem (pkgs: mapAttrs (_: f: f pkgs) config.packages);
   formatter = perSystem (pkgs: config.formatter pkgs);
 }
