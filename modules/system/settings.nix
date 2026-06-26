@@ -1,5 +1,7 @@
 {
-  modules.nixos.system.settings = { config, ... }: {
+  modules.nixos.system.settings = { config, host, ... }: {
+    networking.hostName = host;
+
     system.stateVersion = config.system.nixos.release;
 
     nix = {
