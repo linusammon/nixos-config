@@ -3,8 +3,8 @@
   modules.nixos.system.state =
     {
       config,
-      user,
       lib,
+      args,
       ...
     }:
     let
@@ -54,13 +54,13 @@
             inherit (cfg.root) files;
           };
 
-          "/persist/user".users.${user} = {
+          "/persist/user".users.${args.user} = {
             inherit (cfg.user) directories;
             inherit (cfg.user) files;
           };
         };
 
-        boot.initrd.systemd.services.creeper = {
+        boot.initrd.systemd.services.btrfs-root-rotate = {
           wantedBy = [ "initrd.target" ];
           after = [ "systemd-cryptsetup@cryptroot.service" ];
           before = [ "sysroot.mount" ];

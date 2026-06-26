@@ -1,10 +1,10 @@
 {
   modules.nixos.gui.zeditor =
     {
-      theme,
       pkgs,
       lib,
-      host,
+      theme,
+      args,
       ...
     }:
     let
@@ -15,7 +15,11 @@
 
       hj.xdg.config.files = {
         "zed/settings.json".text = builtins.toJSON (
-          (import ./_settings.nix theme) // (import ./_languages.nix { inherit lib pkgs host; })
+          (import ./_settings.nix theme)
+          // (import ./_languages.nix {
+            inherit lib pkgs;
+            inherit (args) hostName;
+          })
         );
         "zed/themes/base16.json".text = builtins.toJSON (import ./_theme.nix theme);
       };

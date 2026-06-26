@@ -1,8 +1,8 @@
 {
-  modules.nixos.system.locale = _: {
-    console.keyMap = "de";
+  modules.nixos.system.locale = { args, ... }: {
+    console = { inherit (args) keyMap; };
 
-    time.timeZone = "Europe/Zurich";
+    time = { inherit (args) timeZone; };
 
     i18n = {
       defaultLocale = "en_GB.UTF-8";

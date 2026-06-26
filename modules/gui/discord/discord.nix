@@ -1,11 +1,11 @@
 { inputs, ... }:
 {
-  modules.nixos.gui.discord = { user, theme, ... }: {
+  modules.nixos.gui.discord = { theme, args, ... }: {
     imports = [ inputs.nixcord.nixosModules.nixcord ];
 
     programs.nixcord = {
       enable = true;
-      inherit user;
+      inherit (args) user;
 
       discord = {
         branch = "ptb";

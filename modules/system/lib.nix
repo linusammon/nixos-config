@@ -1,27 +1,36 @@
-{ config, lib, ... }: {
+{
+  inputs,
+  config,
+  lib,
+  ...
+}:
+{
   config.lib = {
     mkNixos =
-      host:
+      hostName:
       {
+        hostPlatform ? "x86_64-linux",
+        timeZone ? "Europe/Zurich",
+        keyMap ? "de",
         user ? "linus",
-        system ? "x86_64-linux",
-        extraConfig ? { },
+        modules ? [ ],
       }:
       {
-        ${host} = lib.nixosSystem {
+        ${hostName} = lib.nixosSystem {
           specialArgs = {
-            inherit host user system;
+            inherit inputs;
             inherit (config) theme;
+            args = {
+              inherit
+                hostName
+                hostPlatform
+                timeZone
+                keyMap
+                user
+                ;
+            };
           };
-          modules = [
-            {
-              options.custom = lib.mkOption {
-                type = lib.types.submodule { freeformType = lib.types.unspecified; };
-              };
-            }
-            config.modules.nixos.hosts.${host}
-            extraConfig
-          ];
+          modules = [ ./_custom.nix ] ++ modules;
         };
       };
 

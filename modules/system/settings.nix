@@ -1,6 +1,6 @@
 {
-  modules.nixos.system.settings = { config, host, ... }: {
-    networking.hostName = host;
+  modules.nixos.system.settings = { config, args, ... }: {
+    networking = { inherit (args) hostName; };
 
     system.stateVersion = config.system.nixos.release;
 
