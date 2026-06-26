@@ -6,7 +6,7 @@
       with config.modules.nixos;
       with config.lib;
       [
-        (collect gui { exclude = [ gui.steam ]; })
+        (collect gui { exclude = [ "steam" ]; })
         (collect cli { })
         (collect system { })
 
