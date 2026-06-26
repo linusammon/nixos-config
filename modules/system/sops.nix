@@ -9,6 +9,7 @@
       secrets = {
         user-password.neededForUsers = true;
         github-token.owner = args.user;
+        gpg-private-key.owner = args.user;
       };
     };
   };
