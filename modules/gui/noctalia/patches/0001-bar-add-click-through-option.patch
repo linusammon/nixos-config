@@ -1,8 +1,7 @@
-From 5fa5526760d3a937127b7bdf23b5ea936c03f8a9 Mon Sep 17 00:00:00 2001
+From e13e8c9d1e8c0e0f1a2b3c4d5e6f7a8b9c0d1e2f Mon Sep 17 00:00:00 2001
 From: Linus Ammon <235536459+linusammon@users.noreply.github.com>
-Date: Sat, 20 Jun 2026 13:48:07 +0200
-Subject: [PATCH] feat(bar): add click_through option to pass clicks through
- dead zones
+Date: Sat, 27 Jun 2026 23:22:49 +0200
+Subject: [PATCH] bar: add click_through option for dead-zone pointer passthrough
 
 ---
  assets/translations/en.json              |  4 ++
@@ -13,10 +12,10 @@ Subject: [PATCH] feat(bar): add click_through option to pass clicks through
  5 files changed, 54 insertions(+), 10 deletions(-)
 
 diff --git a/assets/translations/en.json b/assets/translations/en.json
-index 20ebe2d1c..03721644e 100644
+index 3e34c67f..9338eec7 100644
 --- a/assets/translations/en.json
 +++ b/assets/translations/en.json
-@@ -1389,6 +1389,10 @@
+@@ -1472,6 +1472,10 @@
            "description": "Widgets in the center of the bar",
            "label": "Center Widgets"
          },
@@ -28,10 +27,10 @@ index 20ebe2d1c..03721644e 100644
            "description": "Dark gradient between an attached panel and the bar to suggest depth at the seam"
          },
 diff --git a/src/config/config_types.h b/src/config/config_types.h
-index b9b6cf05a..a009993ba 100644
+index 81ed4bf0..a29b9d3b 100644
 --- a/src/config/config_types.h
 +++ b/src/config/config_types.h
-@@ -167,6 +167,7 @@ struct BarConfig {
+@@ -171,6 +171,7 @@ struct BarConfig {
    bool widgetCapsuleBorderSpecified = false;
    std::optional<ColorSpec> widgetCapsuleBorder;
    BarDeadZoneConfig deadZone;
@@ -40,10 +39,10 @@ index b9b6cf05a..a009993ba 100644
  
    bool operator==(const BarConfig&) const = default;
 diff --git a/src/config/schema/config_schema.cpp b/src/config/schema/config_schema.cpp
-index adea8e437..dd5cd7987 100644
+index 8c140cea..a9e440c9 100644
 --- a/src/config/schema/config_schema.cpp
 +++ b/src/config/schema/config_schema.cpp
-@@ -1907,6 +1907,7 @@ namespace noctalia::config::schema {
+@@ -2016,6 +2016,7 @@ namespace noctalia::config::schema {
          field(&BarConfig::widgetCapsuleOpacity, "capsule_opacity", kBarOpacityRange),
          capsuleBorderField(&BarConfig::widgetCapsuleBorder, &BarConfig::widgetCapsuleBorderSpecified, "capsule_border"),
          subTable(&BarConfig::deadZone, "dead_zone", barDeadZoneSchema()),
@@ -52,10 +51,10 @@ index adea8e437..dd5cd7987 100644
      return s;
    }
 diff --git a/src/shell/bar/bar.cpp b/src/shell/bar/bar.cpp
-index 9862da796..17da01baa 100644
+index 720b2ac9..94f990a1 100644
 --- a/src/shell/bar/bar.cpp
 +++ b/src/shell/bar/bar.cpp
-@@ -636,6 +636,45 @@ namespace {
+@@ -639,6 +639,45 @@ namespace {
      };
    }
  
@@ -101,7 +100,7 @@ index 9862da796..17da01baa 100644
    std::pair<float, float> computeAutoHideHiddenDelta(
        bool isVertical, bool isBottom, bool isRight, float w, float h, float contentLeft, float contentTop,
        float contentRight, float contentBottom
-@@ -2075,14 +2114,8 @@ void Bar::syncBarAutoHideInputRegion(BarInstance& instance) const {
+@@ -2222,14 +2261,8 @@ void Bar::syncBarAutoHideInputRegion(BarInstance& instance) const {
      instance.surface->setInputRegion({});
      return;
    }
@@ -118,7 +117,7 @@ index 9862da796..17da01baa 100644
  }
  
  void Bar::revealAutoHideBar(BarInstance& instance) {
-@@ -2106,7 +2139,7 @@ void Bar::revealAutoHideBar(BarInstance& instance) {
+@@ -2253,7 +2286,7 @@ void Bar::revealAutoHideBar(BarInstance& instance) {
    if (current >= kSettledThreshold) {
      const int surfW = static_cast<int>(instance.surface->width());
      const int surfH = static_cast<int>(instance.surface->height());
@@ -127,7 +126,7 @@ index 9862da796..17da01baa 100644
      syncBarSurfaceChrome(instance);
      instance.surface->requestRedraw();
      notifyAttachedPanel();
-@@ -2124,7 +2157,7 @@ void Bar::revealAutoHideBar(BarInstance& instance) {
+@@ -2271,7 +2304,7 @@ void Bar::revealAutoHideBar(BarInstance& instance) {
    );
    const int surfW = static_cast<int>(instance.surface->width());
    const int surfH = static_cast<int>(instance.surface->height());
@@ -137,10 +136,10 @@ index 9862da796..17da01baa 100644
    instance.surface->requestRedraw();
  }
 diff --git a/src/shell/settings/settings_registry.cpp b/src/shell/settings/settings_registry.cpp
-index ba58115cf..3eae1fc81 100644
+index 4d79806b..bda0d73f 100644
 --- a/src/shell/settings/settings_registry.cpp
 +++ b/src/shell/settings/settings_registry.cpp
-@@ -2232,6 +2232,11 @@ namespace settings {
+@@ -2425,6 +2425,11 @@ namespace settings {
            tr("settings.schema.bar.reserve-space.description"), path("reserve_space"), ToggleSetting{bar.reserveSpace},
            "exclusive zone"
        ));
@@ -154,4 +153,3 @@ index ba58115cf..3eae1fc81 100644
            path("layer"),
 -- 
 2.54.0
-

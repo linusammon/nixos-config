@@ -1,11 +1,11 @@
-From e84b67284cecd53df88c907f877c0025ba51086c Mon Sep 17 00:00:00 2001
+From a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b Mon Sep 17 00:00:00 2001
 From: Linus Ammon <235536459+linusammon@users.noreply.github.com>
-Date: Sat, 20 Jun 2026 13:26:08 +0200
-Subject: [PATCH] feat(ui): add button borders toggle to appearance settings
+Date: Sat, 27 Jun 2026 23:23:09 +0200
+Subject: [PATCH] ui: add button_borders toggle in Shell → Appearance settings
 
 ---
  assets/translations/en.json              |  4 ++++
- src/app/application.cpp                  | 12 +++++++++++-
+ src/app/application_services.cpp         | 12 +++++++++++-
  src/config/config_types.h                |  1 +
  src/config/schema/config_schema.cpp      |  1 +
  src/shell/settings/settings_registry.cpp |  5 +++++
@@ -15,10 +15,10 @@ Subject: [PATCH] feat(ui): add button borders toggle to appearance settings
  8 files changed, 34 insertions(+), 1 deletion(-)
 
 diff --git a/assets/translations/en.json b/assets/translations/en.json
-index 03721644e..51d0eacff 100644
+index 9338eec7..1104f0d8 100644
 --- a/assets/translations/en.json
 +++ b/assets/translations/en.json
-@@ -1279,6 +1279,10 @@
+@@ -1362,6 +1362,10 @@
            "description": "Choose a palette from the bundled catalog",
            "label": "Built-In Palette"
          },
@@ -29,19 +29,19 @@ index 03721644e..51d0eacff 100644
          "community-palette": {
            "description": "Choose a palette from the community catalog",
            "label": "Community Palette",
-diff --git a/src/app/application.cpp b/src/app/application.cpp
-index c4bcde2d0..eeb0f6843 100644
---- a/src/app/application.cpp
-+++ b/src/app/application.cpp
-@@ -53,6 +53,7 @@
- #include "pipewire/pipewire_spectrum_poll_source.h"
- #include "pipewire/sound_player.h"
- #include "render/animation/motion_service.h"
+diff --git a/src/app/application_services.cpp b/src/app/application_services.cpp
+index 28351908..72558bf8 100644
+--- a/src/app/application_services.cpp
++++ b/src/app/application_services.cpp
+@@ -86,6 +86,7 @@
+ #include "ui/dialogs/color_picker_dialog.h"
+ #include "ui/dialogs/file_dialog.h"
+ #include "ui/dialogs/glyph_picker_dialog.h"
 +#include "ui/palette.h"
- #include "render/backend/render_backend.h"
- #include "render/core/texture_manager.h"
- #include "render/text/font_weight_catalog.h"
-@@ -549,16 +550,25 @@ void Application::initServices() {
+ #include "ui/style.h"
+ #include "util/file_utils.h"
+ #include "util/string_utils.h"
+@@ -349,16 +350,25 @@ void Application::initStyleThemeAndWayland() {
      motion.setSpeed(m_configService.config().shell.animation.speed);
      motion.setEnabled(m_configService.config().shell.animation.enabled);
    };
@@ -69,10 +69,10 @@ index c4bcde2d0..eeb0f6843 100644
    auto applyPasswordMaskStyle = [this]() {
      const auto style = m_configService.config().shell.passwordMaskStyle == PasswordMaskStyle::RandomIcons
 diff --git a/src/config/config_types.h b/src/config/config_types.h
-index a009993ba..3869634a3 100644
+index a29b9d3b..0eae9854 100644
 --- a/src/config/config_types.h
 +++ b/src/config/config_types.h
-@@ -872,6 +872,7 @@ struct ShellConfig {
+@@ -949,6 +949,7 @@ struct ShellConfig {
    bool screenTimeEnabled = false;
    bool sharedGlContext = true;
    bool disableMipmaps = false;
@@ -81,10 +81,10 @@ index a009993ba..3869634a3 100644
    std::string clipboardImageActionCommand;
    ShadowConfig shadow;
 diff --git a/src/config/schema/config_schema.cpp b/src/config/schema/config_schema.cpp
-index dd5cd7987..aa3ab6b0c 100644
+index a9e440c9..2565824a 100644
 --- a/src/config/schema/config_schema.cpp
 +++ b/src/config/schema/config_schema.cpp
-@@ -1282,6 +1282,7 @@ namespace noctalia::config::schema {
+@@ -1385,6 +1385,7 @@ namespace noctalia::config::schema {
          field(&ShellConfig::screenTimeEnabled, "screen_time_enabled"),
          field(&ShellConfig::sharedGlContext, "shared_gl_context"),
          field(&ShellConfig::disableMipmaps, "disable_mipmaps"),
@@ -93,10 +93,10 @@ index dd5cd7987..aa3ab6b0c 100644
          field(&ShellConfig::clipboardImageActionCommand, "clipboard_image_action_command"),
          pathStringField(&ShellConfig::avatarPath, "avatar_path"),
 diff --git a/src/shell/settings/settings_registry.cpp b/src/shell/settings/settings_registry.cpp
-index 3eae1fc81..9c5387eca 100644
+index bda0d73f..9fb2175b 100644
 --- a/src/shell/settings/settings_registry.cpp
 +++ b/src/shell/settings/settings_registry.cpp
-@@ -446,6 +446,11 @@ namespace settings {
+@@ -458,6 +458,11 @@ namespace settings {
          tr("settings.schema.appearance.app-icon-colorize.description"), {"shell", "app_icon_colorize"},
          ToggleSetting{cfg.shell.appIconColorize}, "tint all application icons"
      ));
@@ -109,10 +109,10 @@ index 3eae1fc81..9c5387eca 100644
        const SettingVisibility colorizeOn{{"shell", "app_icon_colorize"}, {"true"}};
        ShellConfig colorizeShell = cfg.shell;
 diff --git a/src/ui/controls/button.cpp b/src/ui/controls/button.cpp
-index 42168012b..b3914161c 100644
+index 8431879e..0837ab53 100644
 --- a/src/ui/controls/button.cpp
 +++ b/src/ui/controls/button.cpp
-@@ -431,6 +431,10 @@ void Button::applyVariant() {
+@@ -474,6 +474,10 @@ void Button::applyVariant() {
      m_palette.normal.bg.alpha *= m_surfaceOpacity;
      m_palette.disabled.bg.alpha *= m_surfaceOpacity;
    }
@@ -124,7 +124,7 @@ index 42168012b..b3914161c 100644
  
    // Only seed targets before the first visual state application. Once the
 diff --git a/src/ui/style.cpp b/src/ui/style.cpp
-index 6c28743fb..21d42d4fe 100644
+index 6c28743f..21d42d4f 100644
 --- a/src/ui/style.cpp
 +++ b/src/ui/style.cpp
 @@ -5,6 +5,7 @@
@@ -147,10 +147,10 @@ index 6c28743fb..21d42d4fe 100644
  
    float scaledRadiusSm(float localScale) noexcept { return scaledRadius(radiusSm, localScale); }
 diff --git a/src/ui/style.h b/src/ui/style.h
-index 87ff88a9c..9e7eeab80 100644
+index 24817460..baeebeb9 100644
 --- a/src/ui/style.h
 +++ b/src/ui/style.h
-@@ -62,6 +62,9 @@ namespace Style {
+@@ -65,6 +65,9 @@ namespace Style {
    [[nodiscard]] float cornerRadiusScale() noexcept;
    void setCornerRadiusScale(float scale) noexcept;
  
@@ -162,4 +162,3 @@ index 87ff88a9c..9e7eeab80 100644
    [[nodiscard]] float scaledRadiusMd(float localScale = 1.0f) noexcept;
 -- 
 2.54.0
-
