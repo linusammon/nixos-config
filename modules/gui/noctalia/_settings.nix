@@ -17,11 +17,13 @@ config: with config.theme; {
     panel = {
       borders = false;
       floating_offset = 5;
-      launcher_categories = false;
       open_near_click_control_center = true;
-      session_placement = "centered";
+      session_placement = "floating";
+      session_position = "center";
       transparency_mode = "soft";
     };
+
+    launcher.categories = false;
   };
 
   control_center = {
