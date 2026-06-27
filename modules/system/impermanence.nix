@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  modules.nixos.system.state =
+  modules.nixos.system.impermanence =
     {
       config,
       lib,
