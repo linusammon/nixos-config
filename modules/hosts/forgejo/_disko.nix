@@ -10,8 +10,8 @@
           type = "gpt";
           partitions = {
             ESP = {
-              name = "boot";
-              label = "ESP";
+              label = "boot";
+              name = "ESP";
               size = "512M";
               type = "EF00";
               content = {
