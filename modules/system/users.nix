@@ -1,13 +1,21 @@
 {
   modules.nixos.system.users = { config, args, ... }: {
-    users.users = {
-      root.hashedPasswordFile = config.sops.secrets.user-password.path;
+    users = {
+      mutableUsers = false;
 
-      ${args.user} = {
-        hashedPasswordFile = config.sops.secrets.user-password.path;
-        isNormalUser = true;
-        extraGroups = [ "wheel" ];
-      };
+      users =
+        let
+          hashedPasswordFile = config.sops.secrets.user-password.path;
+        in
+        {
+          root = { inherit hashedPasswordFile; };
+
+          ${args.user} = {
+            inherit hashedPasswordFile;
+            isNormalUser = true;
+            extraGroups = [ "wheel" ];
+          };
+        };
     };
   };
 }
