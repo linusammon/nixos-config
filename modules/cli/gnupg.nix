@@ -19,7 +19,6 @@
           Type = "oneshot";
           User = args.user;
           RemainAfterExit = true;
-          Environment = "HOME=${config.users.users.${args.user}.home}";
         };
         script = ''
           if [ -f '${config.sops.secrets.gpg-private-key.path}' ]; then
