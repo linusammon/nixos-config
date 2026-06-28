@@ -27,7 +27,7 @@
 
             # Extract the keygrip of the authentication-capable subkey
             # by finding the first subkey with auth capability.
-            KEYGRIP=$(${pkgs.gnupg}/bin/gpg --with-colons --with-keygrip --list-secret-keys 2>/dev/null | awk -F: 'BEGIN{found=0} /^sec:/{sec=1} /^ssb:/{sec=0} /^cap:/{cap=$2} /^grp:/{if(sec==0 && cap~/a/ && found==0){print $10; found=1}}')
+            KEYGRIP=$(${pkgs.gnupg}/bin/gpg --with-colons --with-keygrip --list-secret-keys 2>/dev/null | ${pkgs.gawk}/bin/awk -F: 'BEGIN{found=0} /^sec:/{sec=1} /^ssb:/{sec=0} /^cap:/{cap=$2} /^grp:/{if(sec==0 && cap~/a/ && found==0){print $10; found=1}}')
             if [ -n "$KEYGRIP" ]; then
               SSHCONTROL="$HOME/.gnupg/sshcontrol"
               mkdir -p "$HOME/.gnupg"
