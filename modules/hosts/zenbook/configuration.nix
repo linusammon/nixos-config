@@ -11,6 +11,7 @@
         hardware.usb
         hardware.thunderbolt
         hardware.disk.nvme
+        hardware.disk.vmd
         hardware.cpu.intel
         hardware.gpu.intel
         hardware.firmware
