@@ -21,6 +21,7 @@
             inherit (args) hostName;
           })
         );
+        "zed/keymap.json".text = builtins.toJSON (import ./_keymap.nix);
         "zed/themes/base16.json".text = builtins.toJSON (import ./_theme.nix theme);
       };
 
