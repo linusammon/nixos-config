@@ -7,6 +7,7 @@ config: with config.theme; {
     launch_apps_as_systemd_services = true;
     niri_overview_type_to_launch_enabled = true;
 
+    polkit_agent = true;
     screen_time_enabled = true;
     telemetry_enabled = true;
     settings_show_advanced = true;
