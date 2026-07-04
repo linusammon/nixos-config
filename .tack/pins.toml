@@ -20,9 +20,6 @@ url = "github:nix-community/impermanence"
 [inputs.nix-wrapper-modules]
 url = "github:birdeehub/nix-wrapper-modules"
 
-[inputs.hjem]
-url = "github:feel-co/hjem"
-
 [inputs.monique]
 url = "github:torvaldz/monique"
 follows = { flake-utils = "flake-utils" }

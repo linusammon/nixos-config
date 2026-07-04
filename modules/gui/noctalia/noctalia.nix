@@ -38,12 +38,12 @@
     {
       environment.systemPackages = [ pkg ];
 
-      hj.systemd.services.noctalia = {
+      systemd.user.services.noctalia = {
         partOf = [ "graphical-session.target" ];
         after = [ "graphical-session.target" ];
         wantedBy = [ "graphical-session.target" ];
         restartTriggers = [ pkg ];
-        enableDefaultPath = false;
+        environment.PATH = lib.mkForce null;
         serviceConfig = {
           ExecStart = exe;
           Restart = "on-failure";
