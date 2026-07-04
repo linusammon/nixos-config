@@ -1,18 +1,28 @@
 {
+  inputs,
+  config,
+  ...
+}:
+{
+  packages.qutebrowser =
+    pkgs:
+    inputs.nix-wrapper-modules.lib.wrapPackage {
+      inherit pkgs;
+      package = pkgs.qutebrowser;
+      constructFiles.config = {
+        relPath = "qutebrowser/config.py";
+        content = import ./_config.nix config.theme;
+      };
+      flags."--config-py" = "${placeholder "out"}/qutebrowser/config.py";
+    };
+
   modules.nixos.gui.qutebrowser =
-    {
-      theme,
-      pkgs,
-      lib,
-      ...
-    }:
+    { pkgs, lib, ... }:
     let
-      pkg = pkgs.qutebrowser;
+      pkg = (config.packages.qutebrowser pkgs);
     in
     {
       environment.systemPackages = [ pkg ];
-
-      hj.xdg.config.files."qutebrowser/config.py".text = import ./_config.nix theme;
 
       custom.keybinds."Mod+Shift+B".spawn = lib.getExe pkg;
 
