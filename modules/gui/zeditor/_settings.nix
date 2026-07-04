@@ -6,7 +6,6 @@ theme: with theme; {
   disable_ai = true;
   auto_install_extensions = {
     colored-zed-icons-theme = true;
-    nix = true;
   };
   auto_update = false;
   base_keymap = "VSCode";

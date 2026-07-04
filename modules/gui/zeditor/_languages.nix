@@ -4,6 +4,10 @@
   hostName,
 }:
 {
+  auto_install_extensions = {
+    nix = true;
+  };
+
   languages = {
     Nix = {
       language_servers = [
