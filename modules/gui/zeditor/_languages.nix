@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  hostName,
-}:
-{
+pkgs: lib: {
   auto_install_extensions = {
     nix = true;
   };
@@ -30,7 +25,7 @@
       settings = {
         options = {
           nixos = {
-            expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.${hostName}.options";
+            expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.desktop.options";
           };
         };
       };
