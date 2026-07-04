@@ -1,4 +1,4 @@
-theme: with theme; {
+config: with config.theme; {
   ui_font_family = fonts.sans;
   ui_font_size = fonts.size * 4.0 / 3.0;
   buffer_font_family = fonts.mono;

@@ -1,31 +1,45 @@
 {
+  inputs,
+  config,
+  lib,
+  ...
+}:
+{
+  packages.zeditor =
+    pkgs:
+    inputs.nix-wrapper-modules.lib.wrapPackage {
+      inherit pkgs;
+      package = pkgs.zed-editor;
+      env.XDG_CONFIG_HOME = "${placeholder "out"}/";
+      constructFiles = {
+        settings = {
+          relPath = "zed/settings.json";
+          content = builtins.toJSON (
+            lib.recursiveUpdate (import ./_settings.nix config) (import ./_languages.nix pkgs lib)
+          );
+        };
+        keymap = {
+          relPath = "zed/keymap.json";
+          content = builtins.toJSON (import ./_keymap.nix);
+        };
+        theme = {
+          relPath = "zed/themes/base16.json";
+          content = builtins.toJSON (import ./_theme.nix config);
+        };
+      };
+    };
+
   modules.nixos.gui.zeditor =
     {
       pkgs,
       lib,
-      theme,
-      args,
       ...
     }:
     let
-      pkg = pkgs.zed-editor;
+      pkg = config.packages.zeditor pkgs;
     in
     {
       environment.systemPackages = [ pkg ];
-
-      hj.xdg.config.files =
-        let
-          settings = import ./_settings.nix theme;
-          languages = import ./_languages.nix {
-            inherit lib pkgs;
-            inherit (args) hostName;
-          };
-        in
-        {
-          "zed/settings.json".text = builtins.toJSON (lib.recursiveUpdate settings languages);
-          "zed/keymap.json".text = builtins.toJSON (import ./_keymap.nix);
-          "zed/themes/base16.json".text = builtins.toJSON (import ./_theme.nix theme);
-        };
 
       custom.keybinds."Mod+Shift+E".spawn = lib.getExe pkg;
 

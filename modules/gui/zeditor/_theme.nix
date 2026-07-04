@@ -1,4 +1,4 @@
-theme: with theme; {
+config: with config.theme; {
   "$schema" = "https://zed.dev/schema/themes/v0.2.0.json";
   name = "base16";
   author = "";
