@@ -19,11 +19,11 @@
       css = import ./_theme.nix theme;
     in
     {
-      hj.xdg.config.files = {
-        "gtk-3.0/settings.ini".text = settings;
-        "gtk-4.0/settings.ini".text = settings;
-        "gtk-3.0/gtk.css".text = css;
-        "gtk-4.0/gtk.css".text = css;
+      custom.symlinks.files = {
+        "gtk-3.0/settings.ini" = settings;
+        "gtk-4.0/settings.ini" = settings;
+        "gtk-3.0/gtk.css" = css;
+        "gtk-4.0/gtk.css" = css;
       };
 
       programs = {
