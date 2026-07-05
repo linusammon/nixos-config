@@ -5,14 +5,6 @@
 
     programs.monique.enable = true;
 
-    custom.persist.user = {
-      directories = [ ".config/monique" ];
-      files = [
-        ".config/niri/monitors.kdl"
-        ".config/hypr/monitors.lua"
-        ".config/hypr/monitors.conf"
-        ".config/sway/monitors.conf"
-      ];
-    };
+    custom.persist.user.directories = [ ".config/monique" ];
   };
 }

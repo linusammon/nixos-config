@@ -58,9 +58,14 @@ in
 
           services.gnome.gcr-ssh-agent.enable = false;
 
-          custom.persist.user.directories = [
-            ".local/share/keyrings"
-          ];
+          custom.persist.user = {
+            directories = [
+              ".local/share/keyrings"
+            ];
+            files = [
+              ".config/niri/monitors.kdl"
+            ];
+          };
         };
     };
 }
