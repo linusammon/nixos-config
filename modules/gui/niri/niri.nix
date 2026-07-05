@@ -6,7 +6,6 @@ let
       inherit pkgs;
       package = pkgs.niri;
       settings = import ./_settings.nix config;
-      v2-settings = true;
     };
 in
 {
