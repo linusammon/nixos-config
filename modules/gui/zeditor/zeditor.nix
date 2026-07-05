@@ -48,17 +48,16 @@ in
 {
   packages = lib.mapAttrs (_: mkPkg) (
     {
-      zeditor = [ "nix" ];
+      zeditor = [ ];
       zeditor-full = builtins.attrNames allLangs;
-      zeditor-minimal = [ ];
     }
-    // lib.mapAttrs (name: _: [ name ]) allLangs
+    // lib.mapAttrs' (name: _: lib.nameValuePair "zeditor-${name}" [ name ]) allLangs
   );
 
   modules.nixos.gui.zeditor =
     { pkgs, lib, ... }:
     let
-      pkg = config.packages.zeditor { inherit pkgs; };
+      pkg = config.packages.zeditor-nix { inherit pkgs; };
     in
     {
       environment.systemPackages = [ pkg ];
