@@ -38,7 +38,6 @@ url = "github:Mic92/sops-nix"
 
 [inputs.noctalia]
 url = "github:noctalia-dev/noctalia/cachix"
-exclude_follow = [ "nixpkgs" ]
 
 [inputs.tack]
 url = "github:manic-systems/tack"
