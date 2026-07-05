@@ -19,6 +19,7 @@ config: with config.theme; {
       borders = false;
       floating_offset = 5;
       open_near_click_control_center = true;
+      control_center_placement = "floating";
       session_placement = "floating";
       session_position = "center";
       transparency_mode = "soft";
@@ -54,6 +55,7 @@ config: with config.theme; {
     let
       common = {
         reserve_space = false;
+        hover_highlight = false;
         background_opacity = 0.0;
         scale = 1.1;
         thickness = 30;
