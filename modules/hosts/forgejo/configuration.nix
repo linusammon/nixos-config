@@ -6,10 +6,7 @@
       [
         (collect cli { })
         (collect system {
-          exclude = [
-            "hjem"
-            "impermanence"
-          ];
+          exclude = [ "impermanence" ];
         })
         (collect services.forgejo { })
 
