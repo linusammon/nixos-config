@@ -4,10 +4,6 @@ nixpkgs = "nixpkgs"
 [inputs.nixpkgs]
 url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
 
-[inputs.nix-cachyos-kernel]
-url = "github:xddxdd/nix-cachyos-kernel/release"
-exclude_follow = [ "nixpkgs" ]
-
 [inputs.treefmt-nix]
 url = "github:numtide/treefmt-nix"
 

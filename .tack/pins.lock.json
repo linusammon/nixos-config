@@ -31,21 +31,13 @@
     "narHash": "sha256-Ee3dq6aDWycGN77MyzG1a96uQkwswas3YmE93wHVvtQ=",
     "lastModified": 1781167861
   },
-  "nix-cachyos-kernel": {
-    "type": "github",
-    "owner": "xddxdd",
-    "repo": "nix-cachyos-kernel",
-    "rev": "1740ec90e7b07730c212a3a1ff5e71af08a5270b",
-    "narHash": "sha256-Qts73QQA+lADfxWjonL3Q1JcZssVZPsQI38L3qZyS0o=",
-    "lastModified": 1782415778
-  },
   "nix-index-database": {
     "type": "github",
     "owner": "nix-community",
     "repo": "nix-index-database",
-    "rev": "3017088b49efd404f78e3b104f553b97e4af786b",
-    "narHash": "sha256-h4WpMr455AfRub0FXBaon6Vcpe0waUyJ4GivIW6oyd4=",
-    "lastModified": 1782030356
+    "rev": "fab14c7b63499d57cb6673d5690168c3ec42b99a",
+    "narHash": "sha256-jzisD+3wWZPC4QvAsKtYguiGsmlH2SN3Mjx5LWd68Ok=",
+    "lastModified": 1783233851
   },
   "nix-wrapper-modules": {
     "type": "github",
@@ -59,39 +51,39 @@
     "type": "github",
     "owner": "flameflag",
     "repo": "nixcord",
-    "rev": "e11a63804bd1b2cd9fa6f203fb9a838137a5920a",
-    "narHash": "sha256-xJPv6ioXUDJuDwrN7K8pNhjj0wenxxlcY0LVCJzBlsE=",
-    "lastModified": 1782551196
+    "rev": "26269ccc562c062d4c8bf842dda325e3a08b9e5f",
+    "narHash": "sha256-otl/59UNHmvTOs6NoLNaUtsXG9HNWOKTuk9fakIKOxY=",
+    "lastModified": 1783244166
   },
   "nixpkgs": {
     "type": "tarball",
-    "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1022855.e73de5be04e0/nixexprs.tar.xz",
-    "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
-    "narHash": "sha256-inDx/w70OSJoJPqtKh0BrzAsbZZhpya7YgS43jHnhwg="
+    "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1027867.d407951447dc/nixexprs.tar.xz",
+    "rev": "d407951447dcd00442e97087bf374aad70c04cea",
+    "narHash": "sha256-FGQ8TfSm9WviNE/fQAWsKs+y4GkX8fU4EScewpw54Y8="
   },
   "noctalia": {
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia",
-    "rev": "3e1996739ffa73350fe50a6829a22427dddccad9",
-    "narHash": "sha256-+FVG8nHXnSlngepkU++vyZEiG2lOwBBqARSkQeiDstI=",
-    "lastModified": 1782592860
+    "rev": "87db64f1ad856ded71a09bfae971025640a6034d",
+    "narHash": "sha256-Xeb4OSx42L2zAVACmdmMZ0veG3Ksk8c7i0mdBEMu7JU=",
+    "lastModified": 1783264446
   },
   "sops-nix": {
     "type": "github",
     "owner": "Mic92",
     "repo": "sops-nix",
-    "rev": "56b24064fdcaedca53553b1a6d607fd23b613a24",
-    "narHash": "sha256-478kKQBvK6SYTOdN2h9jhKJv94nbXRbFMfuL1WshErg=",
-    "lastModified": 1782165805
+    "rev": "f1406619a3884cd5c47992a70b8b35c9c0fcb4c9",
+    "narHash": "sha256-aCWC8ngycU7OdJrU2+Je3qf+1a2ykuBvpPhZT/9tXMc=",
+    "lastModified": 1783174389
   },
   "tack": {
     "type": "github",
     "owner": "manic-systems",
     "repo": "tack",
-    "rev": "50675c9e13b17d00f6fb36bf87a80ad805e56431",
-    "narHash": "sha256-8KDskLCvtSt2UQ2O4o5CSj9zphkGuywuI5DzpEy8pYs=",
-    "lastModified": 1782581568
+    "rev": "95ddc34601dcded62dc5d3cba27a5d102136f542",
+    "narHash": "sha256-2oK+QKei8MNpfDBwnSC/pjWtWwWwGNtqChM8XmAhZhs=",
+    "lastModified": 1782616671
   },
   "treefmt-nix": {
     "type": "github",
