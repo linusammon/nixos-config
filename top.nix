@@ -45,12 +45,13 @@ let
             ) acc (attrNames d.value)
           ) { } wrong;
         in
-        listToAttrs (
-          map (key: {
-            name = key;
-            value = (mergeDefinitions (loc ++ [ key ]) recursive defsByKey.${key}).mergedValue;
-          }) (attrNames defsByKey)
-        );
+        defsByKey
+        |> attrNames
+        |> map (key: {
+          name = key;
+          value = (mergeDefinitions (loc ++ [ key ]) recursive defsByKey.${key}).mergedValue;
+        })
+        |> listToAttrs;
   };
 in
 {

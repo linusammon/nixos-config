@@ -10,7 +10,7 @@
       cfg = config.custom.symlinks;
 
       manifest = pkgs.writeText "config-symlinks-manifest" (
-        lib.concatStringsSep "\n" (lib.attrNames cfg.files)
+        cfg.files |> lib.attrNames |> lib.concatStringsSep "\n"
       );
 
       fileSpecs = lib.concatStringsSep "\n" (

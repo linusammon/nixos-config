@@ -45,7 +45,10 @@
           if value ? imports then
             [ value ]
           else
-            lib.concatMap (name: collectLeaves value.${name}) (builtins.attrNames (removeAttrs value exclude));
+            value
+            |> (v: removeAttrs v exclude)
+            |> builtins.attrNames
+            |> lib.concatMap (name: collectLeaves value.${name});
       in
       {
         imports = collectLeaves subtree;
