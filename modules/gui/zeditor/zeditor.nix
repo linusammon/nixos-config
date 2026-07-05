@@ -7,12 +7,16 @@
 let
   dir = ./langs;
 
-  allLangs = lib.listToAttrs (
-    map (n: {
-      name = lib.removeSuffix ".nix" (lib.removePrefix "_" n);
+  allLangs =
+    dir
+    |> builtins.readDir
+    |> builtins.attrNames
+    |> builtins.filter (n: lib.hasSuffix ".nix" n)
+    |> map (n: {
+      name = n |> lib.removePrefix "_" |> lib.removeSuffix ".nix";
       value = dir + "/${n}";
-    }) (builtins.filter (n: lib.hasSuffix ".nix" n) (builtins.attrNames (builtins.readDir dir)))
-  );
+    })
+    |> lib.listToAttrs;
 
   loadLangs =
     pkgs:

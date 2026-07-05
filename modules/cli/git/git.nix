@@ -7,7 +7,8 @@
         advice.skippedCherryPicks = false;
         branch.sort = "-committerdate";
         commit.gpgSign = true;
-        core.excludesFile = pkgs.writeText ".gitignore" (lib.concatStringsSep "\n" (import ./_ignore.nix));
+        core.excludesFile =
+          import ./_ignore.nix |> lib.concatStringsSep "\n" |> pkgs.writeText ".gitignore";
         core.fsmonitor = true;
         core.untrackedCache = true;
         diff.algorithm = "histogram";

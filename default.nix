@@ -15,13 +15,16 @@ let
 
   perSystem = f: lib.genAttrs systems (system: f inputs.nixpkgs.legacyPackages.${system});
 
-  importTree = path: toList (fileFilter (file: with file; hasExt "nix" && !hasPrefix "_" name) path);
+  importTree =
+    path: path |> fileFilter (file: with file; hasExt "nix" && !hasPrefix "_" name) |> toList;
 
-  config =
+  inherit
     (evalModules {
       modules = importTree ./modules ++ [ ./top.nix ];
       specialArgs = { inherit inputs lib; };
-    }).config;
+    })
+    config
+    ;
 in
 {
   inherit (config) nixosConfigurations;

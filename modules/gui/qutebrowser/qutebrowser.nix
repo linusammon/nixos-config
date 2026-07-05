@@ -19,7 +19,7 @@
   modules.nixos.gui.qutebrowser =
     { pkgs, lib, ... }:
     let
-      pkg = (config.packages.qutebrowser pkgs);
+      pkg = config.packages.qutebrowser pkgs;
     in
     {
       environment.systemPackages = [ pkg ];

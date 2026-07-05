@@ -77,8 +77,10 @@ config: with config.theme; {
       "0.05+"
     ];
   }
-  // builtins.listToAttrs (
-    builtins.concatMap (n: [
+  // (
+    9
+    |> builtins.genList (i: i + 1)
+    |> builtins.concatMap (n: [
       {
         name = "Mod+${toString n}";
         value.focus-workspace = n;
@@ -87,7 +89,8 @@ config: with config.theme; {
         name = "Mod+Shift+${toString n}";
         value.move-column-to-workspace = n;
       }
-    ]) (builtins.genList (i: i + 1) 9)
+    ])
+    |> builtins.listToAttrs
   );
 
   layout = {
