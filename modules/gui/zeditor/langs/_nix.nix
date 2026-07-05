@@ -24,9 +24,7 @@
 
   lsp = {
     nixd = {
-      binary = {
-        path = lib.getExe pkgs.nixd;
-      };
+      binary.path = lib.getExe pkgs.nixd;
       settings = {
         options = {
           nixos = {

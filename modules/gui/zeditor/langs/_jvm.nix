@@ -51,15 +51,11 @@
     };
 
     groovy-language-server = {
-      binary = {
-        path = lib.getExe' pkgs.groovy-language-server "groovy-language-server";
-      };
+      binary.path = lib.getExe' pkgs.groovy-language-server "groovy-language-server";
     };
 
     kotlin-language-server = {
-      binary = {
-        path = lib.getExe pkgs.kotlin-language-server;
-      };
+      binary.path = lib.getExe pkgs.kotlin-language-server;
     };
   };
 }
