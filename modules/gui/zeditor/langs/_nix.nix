@@ -11,7 +11,12 @@
       ];
       formatter = {
         external = {
-          command = lib.getExe pkgs.nixfmt;
+          command = lib.getExe' pkgs.bash "bash";
+          arguments = [
+            "-c"
+            "cat > \"$0\"; ${lib.getExe pkgs.nix} fmt \"$0\"; cat \"$0\""
+            "{buffer_path}"
+          ];
         };
       };
     };
