@@ -13,7 +13,6 @@
         ];
 
         trusted-users = [
-          "root"
           "@wheel"
         ];
       };
