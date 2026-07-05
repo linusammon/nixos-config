@@ -29,15 +29,11 @@
 
   lsp = {
     bash-language-server = {
-      binary = {
-        path = lib.getExe pkgs.bash-language-server;
-      };
+      binary.path = lib.getExe pkgs.bash-language-server;
     };
 
     shellcheck = {
-      binary = {
-        path = lib.getExe pkgs.shellcheck;
-      };
+      binary.path = lib.getExe pkgs.shellcheck;
     };
   };
 }
