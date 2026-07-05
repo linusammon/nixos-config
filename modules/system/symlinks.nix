@@ -4,7 +4,6 @@
       config,
       pkgs,
       lib,
-      args,
       ...
     }:
     let
@@ -25,45 +24,50 @@
       );
 
       manageScript = pkgs.writeShellScript "manage-config-symlinks" ''
-                set -euo pipefail
+        set -euo pipefail
 
-                MANIFEST_PATH="/run/config-symlinks-manifest"
-                NEW_MANIFEST="${manifest}"
-                OLD_MANIFEST="$MANIFEST_PATH.prev"
+        STATE_DIR="''${XDG_STATE_HOME:-$HOME/.local/state}"
+        mkdir -p "$STATE_DIR"
 
-                if [ -f "$MANIFEST_PATH" ]; then
-                  cp "$MANIFEST_PATH" "$OLD_MANIFEST"
-                else
-                  touch "$OLD_MANIFEST"
-                fi
+        MANIFEST_PATH="$STATE_DIR/config-symlinks-manifest"
+        NEW_MANIFEST="${manifest}"
+        OLD_MANIFEST="$MANIFEST_PATH.prev"
 
-                while IFS=$'\t' read -r name source; do
-                  [ -z "$name" ] && continue
-                  target="/home/${args.user}/.config/$name"
-                  mkdir -p "$(dirname "$target")"
-                  ln -sfn "$source" "$target"
-                done <<EOF
+        if [ -f "$MANIFEST_PATH" ]; then
+          cp "$MANIFEST_PATH" "$OLD_MANIFEST"
+        else
+          touch "$OLD_MANIFEST"
+        fi
+
+        CONFIG_DIR="''${XDG_CONFIG_HOME:-$HOME/.config}"
+
+        while IFS=$'\t' read -r name source; do
+          [ -z "$name" ] && continue
+          target="$CONFIG_DIR/$name"
+          mkdir -p "$(dirname "$target")"
+          ln -sfn "$source" "$target"
+        done <<EOF
         ${fileSpecs}
         EOF
 
-                if [ -f "$OLD_MANIFEST" ]; then
-                  while IFS= read -r name; do
-                    if [ -n "$name" ] && ! grep -qxF "$name" "$NEW_MANIFEST"; then
-                      target="/home/${args.user}/.config/$name"
-                      if [ -L "$target" ]; then
-                        rm -f "$target"
-                        parent="$(dirname "$target")"
-                        while [ "$parent" != "/home/${args.user}/.config" ] && [ "$parent" != "/" ]; do
-                          rmdir "$parent" 2>/dev/null || break
-                          parent="$(dirname "$parent")"
-                        done
-                      fi
-                    fi
-                  done < "$OLD_MANIFEST"
-                fi
+        if [ -f "$OLD_MANIFEST" ]; then
+          while IFS= read -r name; do
+            if [ -n "$name" ] && ! grep -qxF "$name" "$NEW_MANIFEST"; then
+              target="$CONFIG_DIR/$name"
+              if [ -L "$target" ]; then
+                rm -f "$target"
+                parent="$(dirname "$target")"
+                while [ "$parent" != "$CONFIG_DIR" ] && [ "$parent" != "/" ]; do
+                  rmdir "$parent" 2>/dev/null || break
+                  parent="$(dirname "$parent")"
+                done
+              fi
+            fi
+          done < "$OLD_MANIFEST"
+        fi
 
-                cp "$NEW_MANIFEST" "$MANIFEST_PATH.tmp"
-                mv "$MANIFEST_PATH.tmp" "$MANIFEST_PATH"
+        cp "$NEW_MANIFEST" "$MANIFEST_PATH.tmp"
+        mv "$MANIFEST_PATH.tmp" "$MANIFEST_PATH"
       '';
     in
     {
@@ -74,10 +78,13 @@
         };
       };
 
-      config = {
-        system.activationScripts.symlinks = lib.stringAfter [ "users" "specialfs" ] ''
-          ${manageScript}
-        '';
+      config.systemd.user.services.config-symlinks = {
+        serviceConfig = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+          ExecStart = manageScript;
+        };
+        wantedBy = [ "default.target" ];
       };
     };
 }
