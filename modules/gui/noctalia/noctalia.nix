@@ -38,6 +38,11 @@
     {
       environment.systemPackages = [ pkg ];
 
+      security.polkit = {
+        enable = true;
+        enablePkexecWrapper = true;
+      };
+
       systemd.user.services.noctalia = {
         partOf = [ "graphical-session.target" ];
         after = [ "graphical-session.target" ];
