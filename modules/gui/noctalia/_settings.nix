@@ -137,6 +137,8 @@ config: with config.theme; {
       inactive_opacity = 0.8;
       show_active_indicator = false;
       workspace_group_capsule = false;
+      empty_color = "tertiary";
+      occupied_color = "tertiary";
     };
   };
 }
