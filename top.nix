@@ -5,53 +5,38 @@ let
     mkOption
     mergeDefinitions
     ;
-  inherit (builtins)
-    isFunction
-    isAttrs
-    partition
-    concatStringsSep
-    foldl'
-    attrNames
-    listToAttrs
-    ;
 
   recursive = mkOptionType {
     name = "recursive";
-    check = v: isFunction v || isAttrs v;
+    check = v: lib.isFunction v || lib.isAttrs v;
     merge =
       loc: defs:
-      let
-        inherit (partition (d: isFunction d.value) defs) right wrong;
-      in
-      if right != [ ] && wrong != [ ] then
-        throw "recursive: cannot mix leaves and branches at ${concatStringsSep "." loc}"
-      else if wrong == [ ] then
+      if lib.all (d: lib.isFunction d.value) defs then
         lib.types.deferredModule.merge loc defs
       else
         let
-          defsByKey = foldl' (
-            acc: d:
-            foldl' (
-              acc': key:
-              acc'
-              // {
-                ${key} = (acc'.${key} or [ ]) ++ [
-                  {
-                    inherit (d) file;
-                    value = d.value.${key};
-                  }
-                ];
-              }
-            ) acc (attrNames d.value)
-          ) { } wrong;
+          expanded = lib.concatMap (
+            d:
+            lib.mapAttrsToList (key: val: {
+              inherit (d) file;
+              name = key;
+              value = val;
+            }) d.value
+          ) (lib.filter (d: lib.isAttrs d.value) defs);
+
+          byKey = lib.groupBy (d: d.name) expanded;
+
+          mergeKey =
+            key: keyDefs:
+            let
+              keyDefsClean = map (d: {
+                inherit (d) file;
+                inherit (d) value;
+              }) keyDefs;
+            in
+            (mergeDefinitions (loc ++ [ key ]) recursive keyDefsClean).mergedValue;
         in
-        defsByKey
-        |> attrNames
-        |> map (key: {
-          name = key;
-          value = (mergeDefinitions (loc ++ [ key ]) recursive defsByKey.${key}).mergedValue;
-        })
-        |> listToAttrs;
+        lib.mapAttrs mergeKey byKey;
   };
 in
 {
