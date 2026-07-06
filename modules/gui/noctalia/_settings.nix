@@ -42,6 +42,34 @@ config: with config.theme; {
     ];
   };
 
+  idle = {
+    behavior_order = [
+      "lock"
+      "screen-off"
+      "lock-and-suspend"
+    ];
+
+    behavior = {
+      lock = {
+        action = "lock";
+        enabled = true;
+        timeout = 300.0;
+      };
+
+      screen-off = {
+        action = "screen_off";
+        enabled = true;
+        timeout = 360.0;
+      };
+
+    };
+  };
+
+  lockscreen = {
+    blur_intensity = 0.0;
+    tint_intensity = 1.0;
+  };
+
   location.auto_locate = true;
   nightlight.enabled = true;
 
