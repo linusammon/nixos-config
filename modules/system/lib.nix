@@ -46,8 +46,8 @@
             [ value ]
           else
             value
-            |> (v: removeAttrs v exclude)
-            |> builtins.attrNames
+            |> (v: if exclude == [ ] then v else removeAttrs v exclude)
+            |> lib.attrNames
             |> lib.concatMap (name: collectLeaves value.${name});
       in
       {
