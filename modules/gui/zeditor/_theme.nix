@@ -390,7 +390,7 @@ config: with config.theme; {
             "font_weight" = null;
           };
           "variable" = {
-            "color" = "${colors.base08}ff";
+            "color" = "${colors.base05}ff";
             "font_style" = null;
             "font_weight" = null;
           };
