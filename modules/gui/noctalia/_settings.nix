@@ -62,12 +62,18 @@ config: with config.theme; {
         timeout = 360.0;
       };
 
+      lock_and_suspend = {
+        action = "lock_and_suspend";
+        enable = true;
+        timeout = 600;
+      };
     };
   };
 
   lockscreen = {
-    blur_intensity = 0.0;
-    tint_intensity = 1.0;
+    blurred_desktop = true;
+    blur_intensity = 0.3;
+    tint_intensity = 0.0;
   };
 
   location.auto_locate = true;
