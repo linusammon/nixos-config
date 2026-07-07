@@ -4,6 +4,7 @@ pkgs: lib: {
     java = true;
     kotlin = true;
     groovy = true;
+    toml = true;
   };
 
   languages = {
@@ -81,6 +82,30 @@ pkgs: lib: {
         };
       };
     };
+
+    Json = {
+      language_servers = [
+        "vscode-json-languageserver"
+      ];
+      formatter = {
+        external = {
+          command = lib.getExe pkgs.prettier;
+          arguments = [ "--stdin-filepath" "{buffer_path}" ];
+        };
+      };
+    };
+
+    Yaml = {
+      language_servers = [
+        "yaml-language-server"
+      ];
+      formatter = {
+        external = {
+          command = lib.getExe pkgs.prettier;
+          arguments = [ "--stdin-filepath" "{buffer_path}" ];
+        };
+      };
+    };
   };
 
   lsp = {
@@ -118,6 +143,14 @@ pkgs: lib: {
 
     shellcheck = {
       binary.path = lib.getExe pkgs.shellcheck;
+    };
+
+    vscode-json-languageserver = {
+      binary.path = lib.getExe pkgs.vscode-json-languageserver;
+    };
+
+    yaml-language-server = {
+      binary.path = lib.getExe pkgs.yaml-language-server;
     };
   };
 }
