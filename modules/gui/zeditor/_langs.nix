@@ -90,7 +90,10 @@ pkgs: lib: {
       formatter = {
         external = {
           command = lib.getExe pkgs.prettier;
-          arguments = [ "--stdin-filepath" "{buffer_path}" ];
+          arguments = [
+            "--stdin-filepath"
+            "{buffer_path}"
+          ];
         };
       };
     };
@@ -102,7 +105,10 @@ pkgs: lib: {
       formatter = {
         external = {
           command = lib.getExe pkgs.prettier;
-          arguments = [ "--stdin-filepath" "{buffer_path}" ];
+          arguments = [
+            "--stdin-filepath"
+            "{buffer_path}"
+          ];
         };
       };
     };
