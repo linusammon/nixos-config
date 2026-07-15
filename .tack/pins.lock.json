@@ -25,19 +25,19 @@
   },
   "monique": {
     "type": "github",
-    "owner": "ToRvaLDz",
+    "owner": "torvaldz",
     "repo": "monique",
-    "rev": "196a22320856482be7abbda76aacaecb259c8218",
-    "narHash": "sha256-Ee3dq6aDWycGN77MyzG1a96uQkwswas3YmE93wHVvtQ=",
-    "lastModified": 1781167861
+    "rev": "257bc5b9fdbd41d056fda44cf35de32660e9cef9",
+    "narHash": "sha256-Z15bA0ImPPYC+RdVmHsYYEOM8jlGXpw8REzJqp80wfU=",
+    "lastModified": 1783941473
   },
   "nix-index-database": {
     "type": "github",
     "owner": "nix-community",
     "repo": "nix-index-database",
-    "rev": "fab14c7b63499d57cb6673d5690168c3ec42b99a",
-    "narHash": "sha256-jzisD+3wWZPC4QvAsKtYguiGsmlH2SN3Mjx5LWd68Ok=",
-    "lastModified": 1783233851
+    "rev": "1111b9bc836afb7e31a7014e8d1272de9b1c917d",
+    "narHash": "sha256-BQxN5UMg9FOevAsgBRwPxfxlh51Puj+dNn/8Dsi3sPM=",
+    "lastModified": 1783864904
   },
   "nix-wrapper-modules": {
     "type": "github",
@@ -51,23 +51,23 @@
     "type": "github",
     "owner": "flameflag",
     "repo": "nixcord",
-    "rev": "26269ccc562c062d4c8bf842dda325e3a08b9e5f",
-    "narHash": "sha256-otl/59UNHmvTOs6NoLNaUtsXG9HNWOKTuk9fakIKOxY=",
-    "lastModified": 1783244166
+    "rev": "d3b4dc6c60d700f499333489f6d1777a21a58859",
+    "narHash": "sha256-gOhKspbHJGTz3VQ0wgfwk2PBJaq6Qhy5HFcnc3wsYeU=",
+    "lastModified": 1784134907
   },
   "nixpkgs": {
     "type": "tarball",
-    "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1027867.d407951447dc/nixexprs.tar.xz",
-    "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-    "narHash": "sha256-FGQ8TfSm9WviNE/fQAWsKs+y4GkX8fU4EScewpw54Y8="
+    "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1034379.18b9261cb329/nixexprs.tar.xz",
+    "rev": "18b9261cb3294b6d2a06d03f96872827b8fe2698",
+    "narHash": "sha256-G9I5EeMhwLckqD5QLgowA6hNBaOjG9CeYIzfSz4gZ6k="
   },
   "noctalia": {
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia",
-    "rev": "87db64f1ad856ded71a09bfae971025640a6034d",
-    "narHash": "sha256-Xeb4OSx42L2zAVACmdmMZ0veG3Ksk8c7i0mdBEMu7JU=",
-    "lastModified": 1783264446
+    "rev": "7b375c2df62285c9fe31bf71bf3d4c067d311d0d",
+    "narHash": "sha256-VEc0z8yZkahqdHeaie1XlPqijRvE3cKXweG01lIlxDI=",
+    "lastModified": 1784132290
   },
   "sops-nix": {
     "type": "github",
@@ -81,9 +81,9 @@
     "type": "github",
     "owner": "manic-systems",
     "repo": "tack",
-    "rev": "95ddc34601dcded62dc5d3cba27a5d102136f542",
-    "narHash": "sha256-2oK+QKei8MNpfDBwnSC/pjWtWwWwGNtqChM8XmAhZhs=",
-    "lastModified": 1782616671
+    "rev": "1b35dea7e2f90863cce2099eafdf318d4c96f2e6",
+    "narHash": "sha256-5peItmNvgVHeLDf/T7JxA/By0r8JsQx75MuMni1Q9ns=",
+    "lastModified": 1783834540
   },
   "treefmt-nix": {
     "type": "github",

@@ -12,7 +12,6 @@
       package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
         patches = (old.patches or [ ]) ++ [
           ./patches/0001-bar-add-click-through-option.patch
-          ./patches/0002-ui-add-button-borders-toggle.patch
         ];
       });
       env.NOCTALIA_CONFIG_HOME = "${placeholder "out"}/";
