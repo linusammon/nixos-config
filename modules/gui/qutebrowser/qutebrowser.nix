@@ -13,7 +13,10 @@
         relPath = "qutebrowser/config.py";
         content = import ./_config.nix config.theme;
       };
-      flags."--config-py" = "${placeholder "out"}/qutebrowser/config.py";
+      flags = {
+        "--config-py" = "${placeholder "out"}/qutebrowser/config.py";
+        "--qt-flag" = "disable-gpu-compositing";
+      };
     };
 
   modules.nixos.gui.qutebrowser =
