@@ -85,6 +85,8 @@ config: with config.theme; {
     custom_palette = "palette";
   };
 
+  wallpaper.enabled = false;
+
   bar =
     let
       common = {

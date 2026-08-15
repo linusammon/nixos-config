@@ -17,9 +17,9 @@ diff --git a/assets/translations/en.json b/assets/translations/en.json
 index 5e1de02..9254a6e 100644
 --- a/assets/translations/en.json
 +++ b/assets/translations/en.json
-@@ -1523,6 +1523,10 @@
-           "description": "Widgets in the center of the bar",
-           "label": "Center Widgets"
+@@ -1715,6 +1715,10 @@
+           "description": "Carve concave notches into two of the bar's corners (requires Edge Margin to be 0); with Ends Margin at 0, the corners on the bar's inner edge are carved, otherwise the corners touching the screen edge are carved",
+           "label": "Concave Edge Corners"
          },
 +        "click-through": {
 +          "description": "Let pointer events pass through empty bar areas to windows below",
@@ -32,7 +32,7 @@ diff --git a/src/config/config_types.h b/src/config/config_types.h
 index d6c088f..46d141a 100644
 --- a/src/config/config_types.h
 +++ b/src/config/config_types.h
-@@ -177,6 +177,7 @@ struct BarConfig {
+@@ -193,6 +193,7 @@ struct BarConfig {
    // Soft tint of a widget's foreground color over the widget under the pointer (per member in capsule groups).
    bool hoverHighlight = true;
    BarDeadZoneConfig deadZone;
@@ -44,11 +44,11 @@ diff --git a/src/config/schema/config_schema.cpp b/src/config/schema/config_sche
 index 387f275..b84021c 100644
 --- a/src/config/schema/config_schema.cpp
 +++ b/src/config/schema/config_schema.cpp
-@@ -2036,6 +2036,7 @@ namespace noctalia::config::schema {
-         capsuleBorderField(&BarConfig::widgetCapsuleBorder, &BarConfig::widgetCapsuleBorderSpecified, "capsule_border"),
+@@ -2215,6 +2215,7 @@ namespace noctalia::config::schema {
          field(&BarConfig::hoverHighlight, "hover_highlight"),
          subTable(&BarConfig::deadZone, "dead_zone", barDeadZoneSchema()),
 +        field(&BarConfig::clickThrough, "click_through"),
+         field(&BarConfig::actions, "actions"),
      };
      return s;
    }
@@ -56,7 +56,7 @@ diff --git a/src/shell/bar/bar.cpp b/src/shell/bar/bar.cpp
 index 668d823..8d18400 100644
 --- a/src/shell/bar/bar.cpp
 +++ b/src/shell/bar/bar.cpp
-@@ -799,6 +799,47 @@ namespace {
+@@ -794,6 +794,47 @@ namespace {
      };
    }
  
@@ -104,9 +104,9 @@ index 668d823..8d18400 100644
    std::pair<float, float> computeAutoHideHiddenDelta(
        bool isVertical, bool isBottom, bool isRight, float w, float h, float contentLeft, float contentTop,
        float contentRight, float contentBottom
-@@ -2648,11 +2689,11 @@ void Bar::syncBarAutoHideInputRegion(BarInstance& instance) const {
+@@ -2905,11 +2947,11 @@ void Bar::syncBarAutoHideInputRegion(BarInstance& instance) const {
          || instance.attachedPopupCount > 0
-         || instance.hideOpacity > 0.5f
+         || instance.hideOpacity > 0.5F
          || (instance.barConfig.smartAutoHide && instance.smartAutoHidePinnedVisible);
 -    instance.surface->setInputRegion(barAutoHideSurfaceInputRegion(instance.barConfig, surfW, surfH, fullSurface));
 +    instance.surface->setInputRegion(computeBarInputRegion(instance, m_config->config().shell.shadow, surfW, surfH, fullSurface));
@@ -118,7 +118,7 @@ index 668d823..8d18400 100644
    );
  }
  
-@@ -2677,7 +2718,7 @@ void Bar::revealAutoHideBar(BarInstance& instance) {
+@@ -2925,7 +2976,7 @@ void Bar::revealAutoHideBar(BarInstance& instance) {
    if (current >= kSettledThreshold) {
      const int surfW = static_cast<int>(instance.surface->width());
      const int surfH = static_cast<int>(instance.surface->height());
@@ -127,7 +127,7 @@ index 668d823..8d18400 100644
      syncBarSurfaceChrome(instance);
      instance.surface->requestRedraw();
      notifyAttachedPanel();
-@@ -2695,7 +2736,7 @@ void Bar::revealAutoHideBar(BarInstance& instance) {
+@@ -2953,7 +2996,7 @@ void Bar::revealAutoHideBar(BarInstance& instance) {
    );
    const int surfW = static_cast<int>(instance.surface->width());
    const int surfH = static_cast<int>(instance.surface->height());
@@ -140,7 +140,7 @@ diff --git a/src/shell/settings/settings_registry.cpp b/src/shell/settings/setti
 index 93bf970..3d945c1 100644
 --- a/src/shell/settings/settings_registry.cpp
 +++ b/src/shell/settings/settings_registry.cpp
-@@ -2547,6 +2547,11 @@ namespace settings {
+@@ -3008,6 +3008,11 @@ namespace settings {
            tr("settings.schema.bar.reserve-space.description"), path("reserve_space"), ToggleSetting{bar.reserveSpace},
            "exclusive zone"
        ));
