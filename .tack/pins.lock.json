@@ -15,6 +15,22 @@
     "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
     "lastModified": 1731533236
   },
+  "freesmlauncher": {
+    "type": "github",
+    "owner": "FreesmTeam",
+    "repo": "FreesmLauncher",
+    "rev": "4d8858540acd04fcf3fca20f6286d090279cba51",
+    "narHash": "sha256-JMT52vDwrvpebB+DL/ZTEa62fPmKcKSR7b15RJVu3Yo=",
+    "lastModified": 1786356406
+  },
+  "freeswlauncher": {
+    "type": "github",
+    "owner": "FreesmTeam",
+    "repo": "FreesmLauncher",
+    "rev": "4d8858540acd04fcf3fca20f6286d090279cba51",
+    "narHash": "sha256-JMT52vDwrvpebB+DL/ZTEa62fPmKcKSR7b15RJVu3Yo=",
+    "lastModified": 1786356406
+  },
   "impermanence": {
     "type": "github",
     "owner": "nix-community",

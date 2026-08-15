@@ -4,7 +4,12 @@
       with config.modules.nixos;
       with config.lib;
       [
-        (collect gui { exclude = [ "steam" ]; })
+        (collect gui {
+          exclude = [
+            "steam"
+            "minecraft"
+          ];
+        })
         (collect cli { })
         (collect system { })
 
