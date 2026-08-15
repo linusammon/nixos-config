@@ -1,6 +1,5 @@
 { inputs, config, ... }:
 {
-
   packages.kitty =
     pkgs:
     inputs.nix-wrapper-modules.wrappers.kitty.wrap {
