@@ -59,5 +59,18 @@
     };
   };
 
-  outputs = inputs: (import ./default.nix) { inherit inputs; };
+  outputs =
+    inputs@{ self, ... }:
+    let
+      lib = inputs.nixpkgs.lib;
+      inherit (lib.fileset) fileFilter toList;
+      importTree =
+        path:
+        path
+        |> fileFilter (file: file.hasExt "nix" && !lib.hasPrefix "_" file.name)
+        |> toList
+        |> map (f: lib.toFunction (import f) { inherit inputs self lib; })
+        |> lib.foldl' lib.recursiveUpdate { };
+    in
+    importTree ./modules;
 }

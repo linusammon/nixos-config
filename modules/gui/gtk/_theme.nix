@@ -1,4 +1,4 @@
-theme: with theme; ''
+{ colors }: ''
   @define-color accent_color ${colors.base0D};
   @define-color accent_bg_color ${colors.base0D};
   @define-color accent_fg_color ${colors.base00};

@@ -1,4 +1,4 @@
-config: with config.theme; {
+{ colors }: {
   base16 = ''
     theme[main_bg]="${colors.base00}"
     theme[main_fg]="${colors.base05}"

@@ -1,6 +1,6 @@
-{ inputs, ... }:
+{ self, inputs, ... }:
 {
-  modules.nixos.gui.discord = { theme, args, ... }: {
+  modules.nixos.gui.discord = { args, ... }: {
     imports = [ inputs.nixcord.nixosModules.nixcord ];
 
     programs.nixcord = {
@@ -13,7 +13,7 @@
         equicord.enable = true;
       };
 
-      quickCss = import ./_theme.nix { inherit (theme) colors fonts; };
+      quickCss = import ./_theme.nix { inherit (self.theme) colors fonts; };
 
       config = {
         useQuickCss = true;

@@ -1,9 +1,9 @@
+{ self, ... }:
 {
   modules.nixos.gui.gtk =
     {
       pkgs,
       lib,
-      theme,
       ...
     }:
     let
@@ -16,7 +16,7 @@
         gtk-application-prefer-dark-theme = true
       '';
 
-      css = import ./_theme.nix theme;
+      css = import ./_theme.nix { inherit (self.theme) colors; };
     in
     {
       custom.symlinks.files = {

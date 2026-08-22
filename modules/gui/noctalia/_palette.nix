@@ -1,4 +1,4 @@
-config: with config.theme; {
+{ colors }: {
   dark = {
     mPrimary = colors.base0D;
     mOnPrimary = colors.base00;

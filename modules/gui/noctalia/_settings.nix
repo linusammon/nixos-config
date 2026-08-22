@@ -1,4 +1,4 @@
-config: with config.theme; {
+{ fonts }: {
   shell = {
     button_borders = false;
     corner_radius_scale = 0.0;

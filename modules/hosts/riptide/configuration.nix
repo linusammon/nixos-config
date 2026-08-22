@@ -1,8 +1,9 @@
-{ config, ... }: {
-  nixosConfigurations = config.lib.mkNixos "riptide" {
+{ self, ... }:
+{
+  nixosConfigurations = self.lib.mkNixos "riptide" {
     modules =
-      with config.modules.nixos;
-      with config.lib;
+      with self.modules.nixos;
+      with self.lib;
       [
         (collect gui { })
         (collect cli { })

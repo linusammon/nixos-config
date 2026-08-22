@@ -1,4 +1,4 @@
-config: with config.theme; {
+{ colors }: {
   window_padding_width = 14;
   hide_window_decorations = "yes";
   confirm_os_window_close = 0;

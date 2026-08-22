@@ -1,10 +1,9 @@
-{ inputs, config, ... }: {
-  packages.btop =
-    pkgs:
-    inputs.nix-wrapper-modules.wrappers.btop.wrap {
+{ self, inputs, ... }:
+{
+  packages = self.lib.perSystem (pkgs: {
+    btop = inputs.nix-wrapper-modules.wrappers.btop.wrap {
       inherit pkgs;
-      package = pkgs.btop;
-      themes = import ./_themes.nix config;
+      themes = import ./_themes.nix { inherit (self.theme) colors; };
       settings = {
         color_theme = "base16";
         theme_background = false;
@@ -13,8 +12,9 @@
         clock_format = "";
       };
     };
+  });
 
   modules.nixos.cli.btop = { pkgs, ... }: {
-    environment.systemPackages = [ (config.packages.btop pkgs) ];
+    environment.systemPackages = [ self.packages.${pkgs.stdenv.hostPlatform.system}.btop ];
   };
 }

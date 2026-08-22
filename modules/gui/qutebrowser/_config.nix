@@ -1,4 +1,4 @@
-theme: with theme; ''
+{ colors }: ''
   config.load_autoconfig(False)
 
   c.auto_save.session = True

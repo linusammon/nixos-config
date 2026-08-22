@@ -1,28 +1,24 @@
+{ self, inputs, ... }:
 {
-  inputs,
-  config,
-  ...
-}:
-{
-  packages.qutebrowser =
-    pkgs:
-    inputs.nix-wrapper-modules.lib.wrapPackage {
+  packages = self.lib.perSystem (pkgs: {
+    qutebrowser = inputs.nix-wrapper-modules.lib.wrapPackage {
       inherit pkgs;
       package = pkgs.qutebrowser;
       constructFiles.config = {
         relPath = "qutebrowser/config.py";
-        content = import ./_config.nix config.theme;
+        content = import ./_config.nix { inherit (self.theme) colors; };
       };
       flags = {
         "--config-py" = "${placeholder "out"}/qutebrowser/config.py";
         "--qt-flag" = "disable-gpu-compositing";
       };
     };
+  });
 
   modules.nixos.gui.qutebrowser =
     { pkgs, lib, ... }:
     let
-      pkg = config.packages.qutebrowser pkgs;
+      pkg = self.packages.${pkgs.stdenv.hostPlatform.system}.qutebrowser;
     in
     {
       environment.systemPackages = [ pkg ];

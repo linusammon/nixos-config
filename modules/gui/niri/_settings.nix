@@ -1,4 +1,4 @@
-config: with config.theme; {
+{ colors }: {
   input = {
     keyboard = {
       xkb = {

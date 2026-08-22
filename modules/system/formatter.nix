@@ -1,9 +1,13 @@
-{ inputs, ... }: {
-  formatter =
+{ self, inputs, ... }:
+{
+  formatter = self.lib.perSystem (
     pkgs:
     inputs.treefmt-nix.lib.mkWrapper pkgs {
-      programs.nixfmt.enable = true;
-      programs.statix.enable = true;
-      programs.deadnix.enable = true;
-    };
+      programs = {
+        nixfmt.enable = true;
+        statix.enable = true;
+        deadnix.enable = true;
+      };
+    }
+  );
 }

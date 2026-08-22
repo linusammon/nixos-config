@@ -1,4 +1,4 @@
-config: with config.theme; {
+{ colors }: {
   "$schema" = "https://zed.dev/schema/themes/v0.2.0.json";
   name = "base16";
   author = "";

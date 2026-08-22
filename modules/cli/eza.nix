@@ -1,7 +1,7 @@
-{ inputs, config, ... }: {
-  packages.eza =
-    pkgs:
-    inputs.nix-wrapper-modules.lib.wrapPackage {
+{ self, inputs, ... }:
+{
+  packages = self.lib.perSystem (pkgs: {
+    eza = inputs.nix-wrapper-modules.lib.wrapPackage {
       inherit pkgs;
       package = pkgs.eza;
       flags = {
@@ -12,10 +12,11 @@
         "--time-style" = "+%Y-%m-%d %H:%M";
       };
     };
+  });
 
   modules.nixos.cli.eza = { pkgs, ... }: {
     environment = {
-      systemPackages = [ (config.packages.eza pkgs) ];
+      systemPackages = [ self.packages.${pkgs.stdenv.hostPlatform.system}.eza ];
 
       shellAliases = {
         ls = "eza";

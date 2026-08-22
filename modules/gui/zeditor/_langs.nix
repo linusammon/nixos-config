@@ -1,4 +1,5 @@
-pkgs: lib: {
+{ pkgs, lib }:
+{
   auto_install_extensions = {
     nix = true;
     java = true;

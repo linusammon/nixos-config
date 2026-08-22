@@ -1,5 +1,5 @@
 {
-  config.theme = {
+  theme = {
     colors = {
       base00 = "#151515";
       base01 = "#202020";

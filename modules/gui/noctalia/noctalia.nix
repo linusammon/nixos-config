@@ -1,13 +1,12 @@
 {
+  self,
   inputs,
-  config,
   lib,
   ...
 }:
 {
-  packages.noctalia =
-    pkgs:
-    inputs.nix-wrapper-modules.lib.wrapPackage {
+  packages = self.lib.perSystem (pkgs: {
+    noctalia = inputs.nix-wrapper-modules.lib.wrapPackage {
       inherit pkgs;
       package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
         patches = (old.patches or [ ]) ++ [
@@ -18,20 +17,21 @@
       constructFiles = {
         settings = {
           relPath = "noctalia/config.toml";
-          content = builtins.toJSON (import ./_settings.nix config);
+          content = builtins.toJSON (import ./_settings.nix { inherit (self.theme) fonts; });
           builder = "${lib.getExe pkgs.remarshal} -f json -i \"$1\" -t toml -o \"$2\"";
         };
         pallete = {
           relPath = "noctalia/palettes/palette.json";
-          content = builtins.toJSON (import ./_palette.nix config);
+          content = builtins.toJSON (import ./_palette.nix { inherit (self.theme) colors; });
         };
       };
     };
+  });
 
   modules.nixos.gui.noctalia =
     { pkgs, lib, ... }:
     let
-      pkg = config.packages.noctalia pkgs;
+      pkg = self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia;
       exe = lib.getExe pkg;
     in
     {

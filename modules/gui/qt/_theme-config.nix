@@ -1,4 +1,4 @@
-theme: with theme; ''
+{ colors }: ''
   [%General]
   author=Bluskript based on Catppuccin Frappe Mauve theme
   comment=base16-qt

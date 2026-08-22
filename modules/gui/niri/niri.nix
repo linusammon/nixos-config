@@ -1,22 +1,23 @@
-{ inputs, config, ... }:
+{ self, inputs, ... }:
 let
   niriPkg =
     pkgs:
     inputs.nix-wrapper-modules.wrappers.niri.wrap {
       inherit pkgs;
       package = pkgs.niri;
-      settings = import ./_settings.nix config;
+      settings = import ./_settings.nix { inherit (self.theme) colors; };
     };
 in
 {
-  packages.niri = niriPkg;
+  packages = self.lib.perSystem (pkgs: {
+    niri = niriPkg pkgs;
+  });
 
   modules.nixos.gui.niri =
     {
       pkgs,
       config,
       lib,
-      theme,
       ...
     }:
     {
@@ -30,7 +31,7 @@ in
           niri = (niriPkg pkgs).wrap {
             settings = {
               binds = config.custom.keybinds;
-              cursor = with theme.cursor; {
+              cursor = with self.theme.cursor; {
                 xcursor-theme = name;
                 xcursor-size = size;
               };
@@ -53,7 +54,7 @@ in
 
           environment.systemPackages = [
             pkgs.xwayland-satellite
-            (theme.cursor.package pkgs)
+            (self.theme.cursor.package pkgs)
           ];
 
           services.gnome.gcr-ssh-agent.enable = false;

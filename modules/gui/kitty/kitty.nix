@@ -1,16 +1,16 @@
-{ inputs, config, ... }:
+{ self, inputs, ... }:
 {
-  packages.kitty =
-    pkgs:
-    inputs.nix-wrapper-modules.wrappers.kitty.wrap {
+  packages = self.lib.perSystem (pkgs: {
+    kitty = inputs.nix-wrapper-modules.wrappers.kitty.wrap {
       inherit pkgs;
-      settings = import ./_settings.nix config;
+      settings = import ./_settings.nix { inherit (self.theme) colors; };
     };
+  });
 
   modules.nixos.gui.kitty =
     { pkgs, lib, ... }:
     let
-      pkg = config.packages.kitty pkgs;
+      pkg = self.packages.${pkgs.stdenv.hostPlatform.system}.kitty;
     in
     {
       environment.systemPackages = [ pkg ];

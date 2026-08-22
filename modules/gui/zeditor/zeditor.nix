@@ -1,13 +1,12 @@
 {
+  self,
   inputs,
-  config,
   lib,
   ...
 }:
 {
-  packages.zeditor =
-    pkgs:
-    inputs.nix-wrapper-modules.lib.wrapPackage {
+  packages = self.lib.perSystem (pkgs: {
+    zeditor = inputs.nix-wrapper-modules.lib.wrapPackage {
       inherit pkgs;
       package = pkgs.zed-editor;
       env.XDG_CONFIG_HOME = "${placeholder "out"}/";
@@ -19,20 +18,23 @@
         settings = {
           relPath = "zed/settings.json";
           content = builtins.toJSON (
-            lib.recursiveUpdate (import ./_settings.nix config) (import ./_langs.nix pkgs lib)
+            lib.recursiveUpdate (import ./_settings.nix { inherit (self.theme) fonts; }) (
+              import ./_langs.nix { inherit pkgs lib; }
+            )
           );
         };
         theme = {
           relPath = "zed/themes/base16.json";
-          content = builtins.toJSON (import ./_theme.nix config);
+          content = builtins.toJSON (import ./_theme.nix { inherit (self.theme) colors; });
         };
       };
     };
+  });
 
   modules.nixos.gui.zeditor =
     { pkgs, lib, ... }:
     let
-      pkg = config.packages.zeditor pkgs;
+      pkg = self.packages.${pkgs.stdenv.hostPlatform.system}.zeditor;
     in
     {
       environment.systemPackages = [ pkg ];

@@ -1,6 +1,7 @@
+{ self, ... }:
 {
-  modules.nixos.gui.fonts = { pkgs, theme, ... }: {
-    fonts = with theme.fonts; {
+  modules.nixos.gui.fonts = { pkgs, ... }: {
+    fonts = with self.theme.fonts; {
       fontconfig.defaultFonts = {
         sansSerif = [ sans ];
         serif = [ serif ];
