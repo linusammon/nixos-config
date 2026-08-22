@@ -1,5 +1,5 @@
 {
-  modules.nixos.system.userdirs = { pkgs, ... }: {
+  modules.nixos.system.xdg-user-dirs = { pkgs, ... }: {
     environment = {
       systemPackages = [ pkgs.xdg-user-dirs ];
 
