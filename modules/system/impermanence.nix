@@ -17,29 +17,19 @@
 
       options.custom.persist =
         let
-          inherit (lib) types mkOption;
-          inherit (types) listOf str;
+          pathList = lib.mkOption {
+            type = lib.types.listOf lib.types.str;
+            default = [ ];
+          };
         in
         {
           root = {
-            directories = mkOption {
-              type = listOf str;
-              default = [ ];
-            };
-            files = mkOption {
-              type = listOf str;
-              default = [ ];
-            };
+            directories = pathList;
+            files = pathList;
           };
           user = {
-            directories = mkOption {
-              type = listOf str;
-              default = [ ];
-            };
-            files = mkOption {
-              type = listOf str;
-              default = [ ];
-            };
+            directories = pathList;
+            files = pathList;
           };
         };
 
