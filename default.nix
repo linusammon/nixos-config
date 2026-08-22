@@ -1,9 +1,7 @@
 {
-  tackOverrides ? { },
+  inputs,
 }:
 let
-  inputs = import ./.tack { overrides = tackOverrides; };
-
   lib = inputs.nixpkgs.lib;
   inherit (lib) evalModules hasPrefix mapAttrs;
   inherit (lib.fileset) fileFilter toList;
