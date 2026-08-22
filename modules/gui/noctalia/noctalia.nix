@@ -8,7 +8,7 @@
   packages = self.lib.perSystem (pkgs: {
     noctalia = inputs.nix-wrapper-modules.lib.wrapPackage {
       inherit pkgs;
-      package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+      package = pkgs.noctalia.overrideAttrs (old: {
         patches = (old.patches or [ ]) ++ [
           ./patches/0001-bar-add-click-through-option.patch
         ];
