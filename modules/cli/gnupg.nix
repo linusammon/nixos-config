@@ -6,6 +6,9 @@
       args,
       ...
     }:
+    let
+      gpgPrivateKeyPath = config.security.nix-secrets.secrets."${args.scope}/gpg-private-key".path;
+    in
     {
       programs.gnupg.agent = {
         enable = true;
@@ -21,10 +24,15 @@
           RemainAfterExit = true;
         };
         script = ''
-          if [ -f '${config.sops.secrets.gpg-private-key.path}' ]; then
-            ${pkgs.gnupg}/bin/gpg --batch --import '${config.sops.secrets.gpg-private-key.path}'
+          if [ -f '${gpgPrivateKeyPath}' ]; then
+            ${pkgs.gnupg}/bin/gpg --batch --import '${gpgPrivateKeyPath}'
 
-            KEYGRIP=$(${pkgs.gnupg}/bin/gpg --with-colons --with-keygrip --list-secret-keys 2>/dev/null | ${pkgs.gawk}/bin/awk -F: 'BEGIN{found=0} /^sec:/{sec=1} /^ssb:/{sec=0} /^cap:/{cap=$2} /^grp:/{if(sec==0 && cap~/a/ && found==0){print $10; found=1}}')
+            KEYGRIP=""
+            for _ in $(seq 1 5); do
+              KEYGRIP=$(${pkgs.gnupg}/bin/gpg --with-colons --with-keygrip --list-secret-keys 2>/dev/null | ${pkgs.gawk}/bin/awk -F: '/^(sec|ssb):/{auth=($12 ~ /a/)} /^grp:/{if(auth){print $10; exit}}')
+              [ -n "$KEYGRIP" ] && break
+              sleep 1
+            done
             if [ -n "$KEYGRIP" ]; then
               SSHCONTROL="$HOME/.gnupg/sshcontrol"
               mkdir -p "$HOME/.gnupg"

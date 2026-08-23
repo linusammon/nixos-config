@@ -14,6 +14,8 @@
         (collect cli { })
         (collect system { })
 
+        secrets
+
         hardware.usb
         hardware.thunderbolt
         hardware.disk.nvme

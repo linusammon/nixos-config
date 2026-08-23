@@ -5,7 +5,7 @@
 
       users =
         let
-          hashedPasswordFile = config.sops.secrets.user-password.path;
+          hashedPasswordFile = config.security.nix-secrets.secrets."${args.scope}/password".path;
         in
         {
           root = { inherit hashedPasswordFile; };
