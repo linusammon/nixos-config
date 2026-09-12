@@ -29,6 +29,7 @@
           roboto
           roboto-serif
           roboto-mono
+          nerd-fonts.jetbrains-mono
         ];
     };
 
