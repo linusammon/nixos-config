@@ -9,7 +9,7 @@
     noctalia = inputs.nix-wrapper-modules.lib.wrapPackage {
       inherit pkgs;
       package = pkgs.noctalia.overrideAttrs (old: {
-        mesonFlags = (old.masonFlags or [ ] ++ [ "-Dtests=disabled" ]);
+        mesonFlags = old.masonFlags or [ ] ++ [ "-Dtests=disabled" ];
         patches = (old.patches or [ ]) ++ [
           ./patches/0001-bar-add-click-through-option.patch
         ];
