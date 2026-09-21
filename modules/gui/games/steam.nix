@@ -1,5 +1,5 @@
 {
-  modules.nixos.gui.steam = _: {
+  modules.nixos.gui.games.steam = _: {
     programs.steam.enable = true;
 
     custom.persist.user.directories = [

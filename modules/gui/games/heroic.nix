@@ -1,5 +1,5 @@
 {
-  modules.nixos.gui.heroic = { pkgs, ... }: {
+  modules.nixos.gui.games.heroic = { pkgs, ... }: {
     environment.systemPackages = [
       pkgs.heroic
     ];

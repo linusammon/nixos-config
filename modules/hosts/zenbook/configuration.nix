@@ -5,12 +5,7 @@
       with self.modules.nixos;
       with self.lib;
       [
-        (collect gui {
-          exclude = [
-            "steam"
-            "minecraft"
-          ];
-        })
+        (collect gui { exclude = [ "games" ]; })
         (collect cli { })
         (collect system { })
 

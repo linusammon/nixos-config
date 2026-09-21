@@ -51,6 +51,8 @@
       exclude ? [ ],
     }:
     {
-      imports = lib.attrValues (removeAttrs subtree exclude);
+      imports = lib.collect lib.isFunction (
+        lib.filterAttrsRecursive (name: _: !lib.elem name exclude) subtree
+      );
     };
 }

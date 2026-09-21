@@ -1,5 +1,5 @@
 { inputs, ... }: {
-  modules.nixos.gui.minecraft = { pkgs, ... }: {
+  modules.nixos.gui.games.minecraft = { pkgs, ... }: {
     environment.systemPackages = [
       inputs.freesmlauncher.packages.${pkgs.stdenv.hostPlatform.system}.freesmlauncher
     ];
