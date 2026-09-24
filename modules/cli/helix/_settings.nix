@@ -21,5 +21,6 @@
       display-inlay-hints = true;
       display-color-swatches = true;
     };
+    true-color = true;
   };
 }
