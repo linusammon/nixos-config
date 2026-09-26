@@ -5,6 +5,7 @@
     ];
 
     custom.persist.user.directories = [
+      ".config/heroic"
       "Games"
     ];
   };
