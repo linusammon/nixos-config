@@ -10,23 +10,6 @@
       inherit pkgs;
       settings = import ./_settings.nix;
       languages = import ./_languages.nix { inherit pkgs lib; };
-      runtimePkgs = with pkgs; [
-        jq
-        nixfmt
-        nil
-        nixd
-        efm-langserver
-        deadnix
-        statix
-        nodejs
-        typescript-language-server
-        tailwindcss-language-server
-        emmet-language-server
-        vscode-langservers-extracted
-        marksman
-        taplo
-        yaml-language-server
-      ];
     };
   });
 
