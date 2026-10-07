@@ -106,6 +106,11 @@ in
       name = "yaml";
       language-servers = [ "yaml-language-server" ];
     }
+    {
+      name = "rust";
+      auto-format = true;
+      language-servers = [ "rust-analyzer" ];
+    }
   ];
 
   language-server = {
@@ -172,6 +177,12 @@ in
           }
         )}"
       ];
+    };
+    rust-analyzer.config = {
+      check.command = "clippy";
+      cargo.features = "all";
+      procMacro.enable = true;
+      lens.enable = false;
     };
   };
 }
