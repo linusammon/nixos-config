@@ -5,9 +5,8 @@
       toml = pkgs.formats.toml { };
       conf = toml.generate "starship.toml" {
         add_newline = false;
-        line_break = {
-          disabled = true;
-        };
+        line_break.disabled = true;
+        nix_shell.symbol = "❄  ";
       };
     in
     {
