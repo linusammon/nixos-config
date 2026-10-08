@@ -1,4 +1,4 @@
-{
+{ pkgs, lib, ... }: {
   theme = "base16_transparent";
 
   editor = {

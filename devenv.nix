@@ -1,5 +1,5 @@
 { pkgs, ... }:
-{ 
+{
   packages = with pkgs; [
     nixd
     nil
