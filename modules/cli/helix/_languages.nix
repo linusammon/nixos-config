@@ -26,6 +26,7 @@ in
         "nil"
         "nixd"
         "efm"
+        "devenv-lsp"
       ];
     }
     {
@@ -114,6 +115,10 @@ in
   ];
 
   language-server = {
+    devenv-lsp = {
+      command = "devenv";
+      arvs = [ "lsp" ];
+    };
     tailwindcss-language-server = {
       command = "tailwindcss-language-server";
       args = [ "--stdio" ];
