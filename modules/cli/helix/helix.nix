@@ -8,7 +8,7 @@
   packages = self.lib.perSystem (pkgs: {
     helix = inputs.nix-wrapper-modules.wrappers.helix.wrap {
       inherit pkgs;
-      settings = import ./_settings.nix;
+      settings = import ./_settings.nix { inherit pkgs lib; };
       languages = import ./_languages.nix { inherit pkgs lib; };
     };
   });

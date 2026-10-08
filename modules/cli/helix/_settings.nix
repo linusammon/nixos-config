@@ -23,4 +23,11 @@
     };
     true-color = true;
   };
+
+  keys.normal."C-g" = [
+    ":write-all"
+    ":insert-output env -u XDG_CONFIG_HOME ${lib.getExe pkgs.lazygit} >/dev/tty"
+    ":redraw"
+    ":reload-all"
+  ];
 }
