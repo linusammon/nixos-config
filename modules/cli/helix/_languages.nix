@@ -117,7 +117,7 @@ in
   language-server = {
     devenv-lsp = {
       command = "devenv";
-      arvs = [ "lsp" ];
+      args = [ "lsp" ];
     };
     tailwindcss-language-server = {
       command = "tailwindcss-language-server";
