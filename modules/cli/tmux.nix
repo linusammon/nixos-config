@@ -38,9 +38,18 @@
     };
   });
 
-  modules.nixos.cli.tmux = { pkgs, ... }: {
-    environment.systemPackages = [
-      self.packages.${pkgs.stdenv.hostPlatform.system}.tmux
-    ];
-  };
+  modules.nixos.cli.tmux =
+    { pkgs, lib, ... }:
+    let
+      pkg = self.packages.${pkgs.stdenv.hostPlatform.system}.tmux;
+    in
+    {
+      environment.systemPackages = [ pkg ];
+
+      programs.fish.interactiveShellInit = ''
+        if not set -q TMUX
+          ${lib.getExe pkg}
+        end
+      '';
+    };
 }
