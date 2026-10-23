@@ -9,8 +9,6 @@
         (collect cli { })
         (collect system { })
 
-        secrets
-
         hardware.usb
         hardware.disk.nvme
         hardware.disk.sata

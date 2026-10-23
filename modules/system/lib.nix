@@ -23,7 +23,6 @@
       timeZone ? "Europe/Zurich",
       keyMap ? "de",
       user ? "linus",
-      scope ? "private",
       modules ? [ ],
     }:
     {
@@ -37,7 +36,6 @@
               timeZone
               keyMap
               user
-              scope
               ;
           };
         };
