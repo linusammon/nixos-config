@@ -7,7 +7,6 @@
   packages = self.lib.perSystem (pkgs: {
     tmux = inputs.nix-wrapper-modules.wrappers.tmux.wrap {
       inherit pkgs;
-      mouse = false;
       prefix = "C-space";
       modeKeys = "vi";
       statusKeys = "vi";
