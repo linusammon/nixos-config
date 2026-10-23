@@ -48,9 +48,21 @@
     {
       exclude ? [ ],
     }:
+    let
+      filterRecursive =
+        path: attrs:
+        lib.mapAttrs (name: value: if lib.isAttrs value then filterRecursive (path ++ [ name ]) value else value)
+          (
+            lib.filterAttrs (
+              name: _:
+              let
+                fullPath = lib.concatStringsSep "." (path ++ [ name ]);
+              in
+              !(lib.elem name exclude) && !(lib.elem fullPath exclude)
+            ) attrs
+          );
+    in
     {
-      imports = lib.collect lib.isFunction (
-        lib.filterAttrsRecursive (name: _: !lib.elem name exclude) subtree
-      );
+      imports = lib.collect lib.isFunction (filterRecursive [ ] subtree);
     };
 }
