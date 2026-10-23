@@ -1,7 +1,6 @@
 { self, ... }:
 {
-  nixosConfigurations = self.lib.mkNixos "school" {
-    scope = "school";
+  nixosConfigurations = self.lib.mkNixos "wsl" {
     modules =
       with self.modules.nixos;
       with self.lib;
@@ -11,11 +10,9 @@
           exclude = [
             "boot"
             "impermanence"
-            "openssh"
+            "ssh.server"
           ];
         })
-
-        secrets
 
         hardware.wsl
       ];
