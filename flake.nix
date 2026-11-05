@@ -30,6 +30,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-shop = {
+      url = "github:weegs710/nix-shop";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-darwin.follows = "";
+      };
+    };
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";

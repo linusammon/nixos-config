@@ -214,6 +214,27 @@
         "type": "github"
       }
     },
+    "nix-shop": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-darwin": []
+      },
+      "locked": {
+        "lastModified": 1793797307,
+        "narHash": "sha256-Cv7HojmOJ3Lkj37ugNhRlKMqC7sDnIqc6ANe/q3WsJU=",
+        "owner": "weegs710",
+        "repo": "nix-shop",
+        "rev": "fb81d714e0b72243b1e467ff59fa88511e16155e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "weegs710",
+        "repo": "nix-shop",
+        "type": "github"
+      }
+    },
     "nix-wrapper-modules": {
       "inputs": {
         "nixpkgs": [
@@ -327,6 +348,7 @@
         "monique": "monique",
         "nix-index-database": "nix-index-database",
         "nix-secrets": "nix-secrets",
+        "nix-shop": "nix-shop",
         "nix-wrapper-modules": "nix-wrapper-modules",
         "nixcord": "nixcord",
         "nixos-wsl": "nixos-wsl",
