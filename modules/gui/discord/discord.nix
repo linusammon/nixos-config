@@ -8,7 +8,6 @@
       inherit (args) user;
 
       discord = {
-        branches = [ "ptb" ];
         vencord.enable = false;
         equicord.enable = true;
       };
