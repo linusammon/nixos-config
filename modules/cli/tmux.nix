@@ -16,8 +16,9 @@
         unbind '"'
         unbind %
 
-        bind s split-window -h
-        bind v split-window -v
+        bind v split-window -h -c "#{pane_current_path}"
+        bind s split-window -v -c "#{pane_current_path}"
+        bind c new-window -c "#{pane_current_path}"
 
         bind h select-pane -L
         bind j select-pane -D
