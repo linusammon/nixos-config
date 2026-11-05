@@ -151,7 +151,7 @@
     button_borders = false;
     card_borders = false;
     corner_radius_scale = 0.0;
-    font_family = "Roboto";
+    font_family = fonts.sans;
     input_borders = false;
     launch_apps_as_systemd_services = true;
     niri_overview_type_to_launch_enabled = true;
