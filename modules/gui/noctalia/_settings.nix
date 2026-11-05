@@ -82,7 +82,7 @@
       };
       lock_and_suspend = {
         action = "lock_and_suspend";
-        enable = true; # NOTE: other entries use `enabled`
+        enable = true;
         timeout = 600;
       };
       screen-off = {
@@ -95,12 +95,6 @@
 
   location.auto_locate = true;
 
-  lockscreen = {
-    blur_intensity = 0.3;
-    blurred_desktop = true;
-    tint_intensity = 0.0;
-  };
-
   lockscreen_widgets = {
     enabled = true;
     schema_version = 2;
@@ -112,8 +106,6 @@
       visible = true;
     };
 
-    # Single compact login box (the customised DP-1 one), no `output` set
-    # so it applies to every display
     widget."lockscreen-login-box" = {
       box_height = 70.0;
       box_width = 400.0;
@@ -152,24 +144,7 @@
 
   osd = {
     border = false;
-    border_width = 0.5;
     offset_y = 38;
-  };
-
-  plugins = {
-    enabled = [ ];
-    source =
-      map
-        (name: {
-          enabled = false;
-          kind = "git";
-          location = "https://github.com/noctalia-dev/${name}-plugins";
-          inherit name;
-        })
-        [
-          "official"
-          "community"
-        ];
   };
 
   shell = {
@@ -214,15 +189,9 @@
   };
 
   theme = {
-    builtin = "Catppuccin";
     custom_palette = "palette";
     mode = "dark";
     source = "custom";
-    wallpaper_scheme = "m3-fruit-salad";
-    templates = {
-      enable_builtin_templates = false;
-      enable_community_templates = false;
-    };
   };
 
   wallpaper.enabled = false;
