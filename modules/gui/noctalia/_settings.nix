@@ -95,45 +95,69 @@
 
   location.auto_locate = true;
 
-  lockscreen_widgets = {
-    enabled = true;
-    schema_version = 2;
-    widget_order = [ "lockscreen-login-box" ];
+  lockscreen_widgets =
+    let
+      outputs = [
+        "DP-1"
+        "DP-2"
+        "HDMI-A-1"
+      ];
 
-    grid = {
-      cell_size = 16;
-      major_interval = 4;
-      visible = true;
-    };
+      widgetKinds = [
+        {
+          kind = "login-box";
+          build = output: {
+            box_height = 70.0;
+            box_width = 400.0;
+            cx = 960.0;
+            cy = 895.0;
+            placement_height = 1080.0;
+            placement_width = 1920.0;
+            rotation = 0.0;
+            type = "login_box";
+            inherit output;
+            settings = {
+              background_color = "surface";
+              background_opacity = 0.0;
+              background_radius = 0.0;
+              center_password_text = true;
+              input_opacity = 0.0;
+              input_radius = 0.0;
+              layout = "compact";
+              show_caps_lock = true;
+              show_keyboard_layout = false;
+              show_login_button = false;
+              show_media = false;
+              show_password_reveal = false;
+              show_session_buttons = false;
+              show_unlock_hint = false;
+              show_weather = false;
+            };
+          };
+        }
+      ];
 
-    widget."lockscreen-login-box" = {
-      box_height = 70.0;
-      box_width = 400.0;
-      cx = 960.0;
-      cy = 895.0;
-      placement_height = 1080.0;
-      placement_width = 1920.0;
-      rotation = 0.0;
-      type = "login_box";
-      settings = {
-        background_color = "surface";
-        background_opacity = 0.0;
-        background_radius = 0.0;
-        center_password_text = true;
-        input_opacity = 0.0;
-        input_radius = 0.0;
-        layout = "compact";
-        show_caps_lock = true;
-        show_keyboard_layout = false;
-        show_login_button = false;
-        show_media = false;
-        show_password_reveal = false;
-        show_session_buttons = false;
-        show_unlock_hint = false;
-        show_weather = false;
+      widgets = builtins.concatMap (
+        w:
+        map (output: {
+          name = "${w.kind}@${output}";
+          value = w.build output;
+        }) (w.on or outputs)
+      ) widgetKinds;
+    in
+    {
+      enabled = true;
+      schema_version = 2;
+
+      grid = {
+        cell_size = 16;
+        major_interval = 4;
+        visible = true;
       };
+
+      widget = builtins.listToAttrs widgets;
+      widget_order = map (w: w.name) widgets;
     };
-  };
 
   nightlight.enabled = true;
 
