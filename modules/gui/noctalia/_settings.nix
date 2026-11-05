@@ -145,11 +145,15 @@
 
   nightlight.enabled = true;
 
-  notification.border = false;
+  notification = {
+    border = false;
+    offset_y = 38;
+  };
 
   osd = {
     border = false;
     border_width = 0.5;
+    offset_y = 38;
   };
 
   plugins = {
@@ -193,7 +197,7 @@
     panel = {
       borders = false;
       control_center_placement = "floating";
-      floating_offset = 5;
+      floating_offset = 12;
       open_near_click_control_center = true;
       session_placement = "floating";
       session_position = "center";
