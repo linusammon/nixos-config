@@ -7,6 +7,7 @@
         add_newline = false;
         line_break.disabled = true;
         nix_shell.symbol = "❄  ";
+        command_timeout = 1000;
       };
     in
     {
