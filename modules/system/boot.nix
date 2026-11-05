@@ -11,8 +11,6 @@
 
         efi.canTouchEfiVariables = true;
       };
-
-      initrd.verbose = false;
     };
   };
 }

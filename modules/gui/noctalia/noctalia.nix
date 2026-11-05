@@ -8,12 +8,7 @@
   packages = self.lib.perSystem (pkgs: {
     noctalia = inputs.nix-wrapper-modules.lib.wrapPackage {
       inherit pkgs;
-      package = pkgs.noctalia.overrideAttrs (old: {
-        mesonFlags = old.masonFlags or [ ] ++ [ "-Dtests=disabled" ];
-        patches = (old.patches or [ ]) ++ [
-          ./patches/0001-bar-add-click-through-option.patch
-        ];
-      });
+      package = pkgs.noctalia;
       env.NOCTALIA_CONFIG_HOME = "${placeholder "out"}/";
       constructFiles = {
         settings = {
