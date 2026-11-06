@@ -2,7 +2,6 @@
   theme = "base16_transparent";
 
   editor = {
-    mouse = false;
     completion-timeout = 5;
     completion-trigger-len = 1;
     line-number = "relative";
