@@ -37,7 +37,7 @@
         set -g status-left ""
         set -g status-right ""
         set -g status-justify left
-        
+
         set -g window-status-separator ""
         set -g window-status-format " #I #W "
         set -g window-status-style "fg=${base04},bg=${base00}"
@@ -45,7 +45,7 @@
         set -g window-status-current-style "fg=${base07},bg=${base02},bold"
         set -g window-status-activity-style "fg=${base0A}"
         set -g window-status-bell-style "fg=${base08},bold"
-        
+
         set -g pane-border-style "fg=${base02}"
         set -g pane-active-border-style "fg=${base0D}"
         set -g display-panes-colour "${base03}"
@@ -64,18 +64,9 @@
     };
   });
 
-  modules.nixos.cli.tmux =
-    { pkgs, lib, ... }:
-    let
-      pkg = self.packages.${pkgs.stdenv.hostPlatform.system}.tmux;
-    in
-    {
-      environment.systemPackages = [ pkg ];
-
-      programs.fish.interactiveShellInit = ''
-        if not set -q TMUX
-          ${lib.getExe pkg}
-        end
-      '';
-    };
+  modules.nixos.cli.tmux = { pkgs, ... }: {
+    environment.systemPackages = [
+      self.packages.${pkgs.stdenv.hostPlatform.system}.tmux
+    ];
+  };
 }
