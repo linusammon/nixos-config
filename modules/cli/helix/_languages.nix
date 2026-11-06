@@ -30,6 +30,48 @@ in
       ];
     }
     {
+      name = "python";
+      formatter = {
+        command = "ruff";
+        args = [
+          "format"
+          "--stdin-filename"
+          "%{buffer_name}"
+          "-"
+        ];
+      };
+      language-servers = [
+        "pyright"
+        "ruff"
+      ];
+      debugger = {
+        name = "debugpy";
+        transport = "stdio";
+        command = "python";
+        args = [
+          "-m"
+          "debugpy.adapter"
+        ];
+        templates = [
+          {
+            name = "launch";
+            request = "launch";
+            completion = [
+              {
+                name = "entrypoint";
+                completion = "filename";
+                default = ".";
+              }
+            ];
+            args = {
+              mode = "debug";
+              program = "{0}";
+            };
+          }
+        ];
+      };
+    }
+    {
       name = "typescript";
       formatter = prettier "typescript";
       language-servers = [
@@ -118,6 +160,29 @@ in
     devenv-lsp = {
       command = "devenv";
       args = [ "lsp" ];
+    };
+    ruff = {
+      command = "ruff";
+      args = [ "server" ];
+    };
+    pyright = {
+      command = "pyright-langserver";
+      args = [ "--stdio" ];
+      config.python.analysis = {
+        typeCheckingMode = "standard";
+        autoSearchPaths = true;
+        useLibraryCodeForTypes = true;
+        autoImportCompletions = true;
+        completeFunctionParens = true;
+        indexing = true;
+        diagnosticMode = "openFilesOnly";
+        inlayHints = {
+          callArgumentNames = true;
+          functionReturnTypes = true;
+          variableTypes = true;
+          pytestParameters = true;
+        };
+      };
     };
     tailwindcss-language-server = {
       command = "tailwindcss-language-server";

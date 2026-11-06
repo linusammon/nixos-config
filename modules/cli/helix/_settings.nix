@@ -19,6 +19,11 @@
     lsp = {
       display-inlay-hints = true;
       display-color-swatches = true;
+      display-messages = true;
+      display-signature-help-docs = true;
+      auto-signature-help = true;
+      snippets = true;
+      goto-reference-include-declaration = true;
     };
     true-color = true;
   };
