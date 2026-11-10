@@ -9,5 +9,8 @@
     deadnix
     statix
     vulnix
+    steel
+    steel-language-server
+    schemat
   ];
 }

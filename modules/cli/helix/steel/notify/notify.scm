@@ -6,13 +6,12 @@
 
 (provide notify notify-focus-first notify-config)
 
-
 (define MIN-WIDTH 20)
 (define COMPONENT-NAME "notify.hx")
 
-(define ERROR-ICON   "")
+(define ERROR-ICON "")
 (define WARNING-ICON "")
-(define INFO-ICON    "")
+(define INFO-ICON "")
 
 ; Internal config state with default parameters
 (define *notify-config* (hash 'render 'default))
@@ -22,31 +21,31 @@
   (set! *notify-config* (hash-insert *notify-config* key value)))
 
 (define (notify-config-render)
-   (hash-ref *notify-config* 'render))
+  (hash-ref *notify-config* 'render))
 
 ; Component's local state
 ; All notifications are in *notifications-queue*
 (struct Notification
-        ; Ever-incrementing integer
-        (id
-        ; When the notification was enqueued, formatted string
-        time
-        ; User-provided heading for the notification, string
-        title
-        ; List of string lines
-        lines
-        ; 'info (default), 'warning or 'error
-        severity
-        ; Mutable box of 'down, 'clicked of #false. Only one notification can have non-false click
-        click
-        ; Mutable area, changes after every rendering
-        area
-        ; If rendering function decided the notification doesn't fit the screen - it will be hidden
-        hidden
-        ; A flag that the notification just has been yanked. Must be #true only for single render
-        blink
-        ; Layout render style (could be 'default or 'minimal)
-        render))
+  ; Ever-incrementing integer
+  (id
+    ; When the notification was enqueued, formatted string
+    time
+    ; User-provided heading for the notification, string
+    title
+    ; List of string lines
+    lines
+    ; 'info (default), 'warning or 'error
+    severity
+    ; Mutable box of 'down, 'clicked of #false. Only one notification can have non-false click
+    click
+    ; Mutable area, changes after every rendering
+    area
+    ; If rendering function decided the notification doesn't fit the screen - it will be hidden
+    hidden
+    ; A flag that the notification just has been yanked. Must be #true only for single render
+    blink
+    ; Layout render style (could be 'default or 'minimal)
+    render))
 
 (define (get-click notification)
   (unbox (Notification-click notification)))
@@ -54,7 +53,7 @@
 ; Update `state` in-place. Return #true if value has been updated
 (define (set-click! notification click)
   (let* ([old-value (set-box! (Notification-click notification) click)])
-         (not (equal? old-value click))))
+    (not (equal? old-value click))))
 
 (define (get-area notification)
   (unbox (Notification-area notification)))
@@ -73,13 +72,13 @@
 
 (define (bg-style notification)
   (if (unbox (Notification-blink notification))
-      (begin (set-box! (Notification-blink notification) #f) (theme-scope *helix.cx* "ui.selection"))
-      (theme-scope *helix.cx* "ui.text")))
+    (begin (set-box! (Notification-blink notification) #f) (theme-scope *helix.cx* "ui.selection"))
+    (theme-scope *helix.cx* "ui.text")))
 
 (define (find pred lst)
   (cond ((null? lst) #f)
-        ((pred (car lst)) (car lst))
-        (else (find pred (cdr lst)))))
+    ((pred (car lst)) (car lst))
+    (else (find pred (cdr lst)))))
 
 (define (repeat-string str n)
   (cond
@@ -93,22 +92,22 @@
          [title-width (string-length title)]
          [pad-width (if area (- (area-width area) title-width 14) 1)]
          [icon (get-icon notification)])
-        (string-append icon " " title (repeat-string " " pad-width) (Notification-time notification))))
+    (string-append icon " " title (repeat-string " " pad-width) (Notification-time notification))))
 
 (define (get-icon notification)
   (let ([severity (Notification-severity notification)])
-       (case severity
-             ((info) INFO-ICON)
-             ((warning) WARNING-ICON)
-             ((error) ERROR-ICON)
-             (else INFO-ICON))))
+    (case severity
+      ((info) INFO-ICON)
+      ((warning) WARNING-ICON)
+      ((error) ERROR-ICON)
+      (else INFO-ICON))))
 
 (define (get-style notification)
   (theme-scope *helix.cx* (case (Notification-severity notification)
-                                ((info) "info")
-                                ((warning) "warning")
-                                ((error) "error")
-                                (else "info"))))
+                           ((info) "info")
+                           ((warning) "warning")
+                           ((error) "error")
+                           (else "info"))))
 
 (define (Notification-height box)
   (let ([area (get-area box)]) (area-height area)))
@@ -132,14 +131,14 @@
              (prev '())
              (found #f))
     (cond ((null? remaining) found)
-          ((equal? (Notification-id (car remaining)) id)
-           (set! *notifications-queue*
-                 (append prev (cdr remaining)))
-           (car remaining))
-          (else
-           (loop (cdr remaining) 
-                 (append prev (list (car remaining)))
-                 found)))))
+      ((equal? (Notification-id (car remaining)) id)
+        (set! *notifications-queue*
+          (append prev (cdr remaining)))
+        (car remaining))
+      (else
+        (loop (cdr remaining)
+          (append prev (list (car remaining)))
+          found)))))
 
 ; Find a notification where `get-click` is not `#f` (could be both `'down` and `'clicked`)
 (define (get-clicked)
@@ -148,18 +147,19 @@
 (define (map-index func lst)
   (define index (box 0))
   (map (lambda (elem)
-               (define indexVal (unbox index))
-               (set-box! index (+ indexVal 1))
-               (func indexVal elem)) lst))
+        (define indexVal (unbox index))
+        (set-box! index (+ indexVal 1))
+        (func indexVal elem))
+    lst))
 
 (define (get-top-y id)
   (let loop ([lst *notifications-queue*] [acc 1])
     (if (null? lst)
-        acc
-        (let ([head (car lst)] [tail (cdr lst)])
-          (if (equal? (Notification-id head) id)
-              acc
-              (loop tail (+ acc (Notification-height head))))))))
+      acc
+      (let ([head (car lst)] [tail (cdr lst)])
+        (if (equal? (Notification-id head) id)
+          acc
+          (loop tail (+ acc (Notification-height head))))))))
 
 ; Aux mutable state
 (define *message-id* 1)
@@ -168,20 +168,18 @@
 
 ; Set 'clicked on a notification coming right after one with `after-id` id
 (define (notify-focus-next after-id)
-  (let loop ((previous #f)  (lst *notifications-queue*))
+  (let loop ((previous #f) (lst *notifications-queue*))
     (let ([head (car lst)]
           [tail (cdr lst)])
-         (cond
-           ((and (equal? (Notification-id head) after-id) (not previous) (pair? tail)) (set-click! head #f) (loop #t tail))
-           (previous (set-click! head 'clicked))
-           ((pair? tail) (loop #f tail))))))
-    
+      (cond
+        ((and (equal? (Notification-id head) after-id) (not previous) (pair? tail)) (set-click! head #f) (loop #t tail))
+        (previous (set-click! head 'clicked))
+        ((pair? tail) (loop #f tail))))))
 
 (define (notify-focus-first)
   (map-index
     (lambda (idx notification) (if (equal? idx 0) (set-click! notification 'clicked) (set-click! notification #f)))
     *notifications-queue*))
-
 
 (define (notify msg #:severity [severity 'info] #:title [title ""] #:duration [duration 5000] #:render [render (notify-config-render)])
   (define text (if (string? msg) msg (to-string msg)))
@@ -189,10 +187,10 @@
   (define notification (Notification (get-message-id) (local-time/now! "%H:%M:%S") title text-lines severity (box #f) (box #f) (box #f) (box #f) (box render)))
 
   (when (no-notifications?)
-        (push-component! (new-component! COMPONENT-NAME
-                                         *notifications-queue*
-                                         render-notifications-queue
-                                         (hash "handle_event" handle-notification-event "cursor" get-notification-cursor))))
+    (push-component! (new-component! COMPONENT-NAME
+                      *notifications-queue*
+                      render-notifications-queue
+                      (hash "handle_event" handle-notification-event "cursor" get-notification-cursor))))
 
   (enqueue notification)
   (schedule-drop notification duration))
@@ -203,39 +201,37 @@
 (define (get-notification-cursor _ _)
   (let* ([with-cursor (get-clicked)]
          [area (if with-cursor (get-area with-cursor) #f)])
-        (if area (position (+ 3 (area-y area)) (+ 2 (area-x area))))))
-
+    (if area (position (+ 3 (area-y area)) (+ 2 (area-x area))))))
 
 (define (handle-notification-event _ event)
   (define event-kind (event-mouse-kind event))
   (define click (cond ((equal? event-kind 0) 'down) ((equal? event-kind 3) 'up) (else #f)))
   (define char (key-event-char event))
 
-
   (define focused #f)
 
   (for-each
     (lambda (notification)
-            (let* ([area (get-area notification)]
-                   [prev-click (get-click notification)]
-                   ; Right after initialisation area ends up being #f, so need to check
-                   [within-area? (and area (mouse-event-within-area? event area))])
-                  (when (and within-area? (equal? click 'down))
-                        (unless (equal? prev-click 'clicked) (set-click! notification 'down)))
-                  (when (and within-area? (equal? click 'up) (equal? prev-click 'down))
-                        (set-click! notification 'clicked))
-                  (when (and (not within-area?) click)
-                        (set-click! notification #f))
+      (let* ([area (get-area notification)]
+             [prev-click (get-click notification)]
+             ; Right after initialisation area ends up being #f, so need to check
+             [within-area? (and area (mouse-event-within-area? event area))])
+        (when (and within-area? (equal? click 'down))
+          (unless (equal? prev-click 'clicked) (set-click! notification 'down)))
+        (when (and within-area? (equal? click 'up) (equal? prev-click 'down))
+          (set-click! notification 'clicked))
+        (when (and (not within-area?) click)
+          (set-click! notification #f))
 
-                  (when (and (get-click notification) (char? char))
-                        (when (equal? char #\y)
-                              (set-register! #\" (list (string-join (Notification-lines notification) "\n")))
-                              (set-box! (Notification-blink notification) #t)))
-                  (when (and (get-click notification) (key-event-escape? event))
-                        (set-click! notification #f))
-                  (when (and (get-click notification) (key-event-tab? event) (not focused))
-                        (set! focused #true)
-                        (notify-focus-next (Notification-id notification)))))
+        (when (and (get-click notification) (char? char))
+          (when (equal? char #\y)
+            (set-register! #\" (list (string-join (Notification-lines notification) "\n")))
+            (set-box! (Notification-blink notification) #t)))
+        (when (and (get-click notification) (key-event-escape? event))
+          (set-click! notification #f))
+        (when (and (get-click notification) (key-event-tab? event) (not focused))
+          (set! focused #true)
+          (notify-focus-next (Notification-id notification)))))
     *notifications-queue*)
 
   (if (get-clicked) event-result/consume event-result/ignore))
@@ -243,12 +239,12 @@
 (define (schedule-drop notification timeout)
   (enqueue-thread-local-callback-with-delay
     timeout
-    (lambda () (if (get-click notification) 
-                   (schedule-drop notification 1000)
-                   (begin
-                     (pop-by-id (Notification-id notification))
-                     (when (no-notifications?) (pop-last-component-by-name! COMPONENT-NAME)))))))
-  
+    (lambda () (if (get-click notification)
+                (schedule-drop notification 1000)
+                (begin
+                  (pop-by-id (Notification-id notification))
+                  (when (no-notifications?) (pop-last-component-by-name! COMPONENT-NAME)))))))
+
 (define (render-notification notification rect frame)
   (calculate-popup-geometry rect notification)
 
@@ -278,9 +274,9 @@
   (define normal-style (theme-scope *helix.cx* "ui.text"))
 
   (unless (minimal-render? notification)
-          (frame-set-string! frame start-x start-y (get-header notification) (get-style notification))
-          (frame-set-string! frame start-x (+ start-y 1) "" normal-style))
-  
+    (frame-set-string! frame start-x start-y (get-header notification) (get-style notification))
+    (frame-set-string! frame start-x (+ start-y 1) "" normal-style))
+
   (let loop ((lines (Notification-lines notification)) (y (if (minimal-render? notification) start-y (+ start-y 2))))
     (when (not (null? lines))
       (frame-set-string! frame start-x y (car lines) bg-style)
@@ -288,8 +284,8 @@
 
 (define (calculate-content-width lines)
   (if (null? lines)
-      0
-      (apply max (map string-length lines))))
+    0
+    (apply max (map string-length lines))))
 
 ;; `get-popup-geometry` is a pure stateless version of `calculate-popup-geometry`
 ;; It knows only about an area needed for the text
@@ -311,12 +307,12 @@
 
   (define popup-square (get-popup-geometry notification))
   (define final-width (min screen-width (car popup-square)))
-  (define final-height (min (- screen-height 3) (cadr popup-square)))  ; 3 is tabs+statusline+cmdline
+  (define final-height (min (- screen-height 3) (cadr popup-square))) ; 3 is tabs+statusline+cmdline
 
   ; Position at top right corner
   (define x-pos (- screen-width final-width))
   (define y-pos (get-top-y (Notification-id notification)))
-  
+
   (define geometry (area x-pos y-pos final-width final-height))
 
   (set-hidden! notification (< screen-height (+ y-pos final-height)))

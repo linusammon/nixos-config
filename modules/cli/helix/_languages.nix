@@ -154,9 +154,21 @@ in
       auto-format = true;
       language-servers = [ "rust-analyzer" ];
     }
+    {
+      name = "scheme";
+      formatter = {
+        command = "schemat";
+        args = [ ];
+      };
+      language-servers = [ "steel-language-server" ];
+    }
   ];
 
   language-server = {
+    steel-language-server = {
+      command = "steel-language-server";
+      args = [ ];
+    };
     devenv-lsp = {
       command = "devenv";
       args = [ "lsp" ];
