@@ -610,10 +610,11 @@
     (oil-error "no active oil buffer")))
 
 ;;@doc
-;; Set default visibility for dotfiles and git-ignored entries.
-(define (oil-configure! show-hidden show-git-ignored)
+;; Set default visibility for dotfiles, git-ignored entries, and metadata.
+(define (oil-configure! show-hidden show-git-ignored [show-metadata #false])
   (set! *oil-show-hidden* show-hidden)
-  (set! *oil-show-git-ignored* show-git-ignored))
+  (set! *oil-show-git-ignored* show-git-ignored)
+  (set! *oil-show-metadata* show-metadata))
 
 (define (build-save-summary renames to-delete to-create)
   (let* ([rename-lines (map (lambda (p) (string-append "Renamed " (car p) " -> " (cdr p))) renames)]

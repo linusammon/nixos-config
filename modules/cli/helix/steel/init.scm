@@ -1,22 +1,27 @@
 (require "oil/oil.scm")
+(require "notify/notify.scm")
 (require "helix/keymaps.scm")
+
+(notify-config 'render 'minimal)
+(oil-configure! #true #true #true)
 
 (keymap (global)
   (normal
     (space
-      (o
-        (o ":oil")
-        (e ":oil-enter")
-        (b ":oil-up")
-        (g ":oil-root")
-        (s ":oil-save")
-        (r ":oil-refresh")
-        (q ":oil-close")
-        (h ":oil-toggle-hidden")
-        (i ":oil-toggle-git-ignored")
-        (t ":oil-toggle-metadata")
-        (m
-          (y ":oil-yank")
-          (x ":oil-cut")
-          (p ":oil-paste")
-          (c ":oil-clipboard-clear"))))))
+      (o ":oil"))))
+
+(keymap (buffer OIL-BUFFER-NAME (inherit-from (deep-copy-global-keybindings)))
+  (normal
+    (- ":oil-up")
+    (ret ":oil-enter")
+    (q ":oil-close")
+    (C-r ":oil-root")
+    (C-l ":oil-refresh")
+    (C-s ":oil-save")
+    (C-h ":oil-toggle-hidden")
+    (C-g ":oil-toggle-git-ignored")
+    (C-t ":oil-toggle-metadata")
+    (C-y ":oil-yank")
+    (C-x ":oil-cut")
+    (C-p ":oil-paste")
+    (C-c ":oil-clipboard-clear")))
