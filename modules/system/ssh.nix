@@ -16,6 +16,8 @@
           end
         '';
       };
+
+      custom.persist.user.files = [ ".ssh/known_hosts" ];
     };
 
   modules.nixos.system.ssh.server =
