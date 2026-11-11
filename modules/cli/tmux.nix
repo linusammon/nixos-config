@@ -34,8 +34,8 @@
 
         set -g status-position top
         set -g status-style "bg=${base00},fg=${base04}"
-        set -g status-left ""
-        set -g status-right ""
+        set -g status-left "#[bg=${base0D} fg=${base00} bold] #S #[default] "
+        set -g status-right "#[bg=${base0D} fg=${base00} bold] %H:%M #[default]"
         set -g status-justify left
 
         set -g window-status-separator ""
@@ -50,7 +50,7 @@
         set -g pane-active-border-style "fg=${base0D}"
         set -g display-panes-colour "${base03}"
         set -g display-panes-active-colour "${base0D}"
-        set -g pane-scrollbars on
+        set -g pane-scrollbars modal
         set -g pane-scrollbars-position right
         set -g pane-scrollbars-style "fg=${base03},bg=${base00}"
 
