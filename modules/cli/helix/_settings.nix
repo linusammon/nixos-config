@@ -1,5 +1,5 @@
 { pkgs, lib, ... }: {
-  theme = "base16_transparent";
+  theme = "base16_terminal";
 
   editor = {
     completion-timeout = 5;
