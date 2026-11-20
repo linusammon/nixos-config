@@ -1,7 +1,27 @@
 { colors }: {
-  window_padding_width = 14;
+  window_padding_width = 0;
   hide_window_decorations = "yes";
   confirm_os_window_close = 0;
+
+  enabled_layouts = "splits,stack";
+  window_border_width = "1px";
+  draw_minimal_borders = "yes";
+  window_margin_width = 0;
+  single_window_margin_width = -1;
+  inactive_text_alpha = 1;
+  scrollback_lines = 50000;
+  allow_remote_control = "socket-only";
+  listen_on = "unix:@kitty-{kitty_pid}";
+  clipboard_control = "write-clipboard write-primary read-clipboard-ask read-primary-ask";
+  shell_integration = "enabled";
+
+  tab_bar_edge = "top";
+  tab_bar_style = "separator";
+  tab_separator = "\"\"";
+  tab_title_template = "\" {index} {title}{' Z' if layout_name == 'stack' else ''} \"";
+  active_tab_font_style = "bold";
+  tab_bar_min_tabs = 1;
+  tab_bar_background = colors.base00;
 
   cursor_shape = "beam";
   cursor_shape_unfocused = "beam";
@@ -15,11 +35,11 @@
   url_color = colors.base0D;
   cursor = colors.base0D;
   cursor_text_color = colors.base00;
-  active_border_color = colors.base03;
-  inactive_border_color = colors.base01;
-  active_tab_background = colors.base00;
-  active_tab_foreground = colors.base05;
-  inactive_tab_background = colors.base01;
+  active_border_color = colors.base0D;
+  inactive_border_color = colors.base02;
+  active_tab_background = colors.base02;
+  active_tab_foreground = colors.base07;
+  inactive_tab_background = colors.base00;
   inactive_tab_foreground = colors.base04;
 
   color0 = colors.base00;

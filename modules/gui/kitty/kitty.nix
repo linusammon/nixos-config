@@ -4,6 +4,7 @@
     kitty = inputs.nix-wrapper-modules.wrappers.kitty.wrap {
       inherit pkgs;
       settings = import ./_settings.nix { inherit (self.theme) colors; };
+      keybindings = import ./_keybindings.nix;
     };
   });
 
