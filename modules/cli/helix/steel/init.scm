@@ -1,5 +1,6 @@
 (require "oil/oil.scm")
 (require "notify/notify.scm")
+(require "scooter/scooter.scm")
 (require "helix/keymaps.scm")
 
 (notify-config 'render 'minimal)
@@ -8,7 +9,8 @@
 (keymap (global)
   (normal
     (space
-      (o ":oil"))))
+      (o ":oil")
+      (S ":scooter"))))
 
 (keymap (buffer OIL-BUFFER-NAME (inherit-from (deep-copy-global-keybindings)))
   (normal

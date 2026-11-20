@@ -14,6 +14,13 @@
       inputs.nix-wrapper-modules.wrappers.helix.wrap {
         inherit pkgs;
         package = pkgs.steelix;
+        runShell = [
+          ''
+            native="''${STEEL_HOME:-$HOME/.local/share/steel}/native"
+            mkdir -p "$native"
+            ln -sfn ${self.packages.${pkgs.stdenv.hostPlatform.system}.scooter-hx}/lib/libscooter_hx.so "$native/libscooter_hx.so"
+          ''
+        ];
         settings = import ./_settings.nix { inherit pkgs lib; };
         languages = import ./_languages.nix { inherit pkgs lib; };
         constructFiles = lib.listToAttrs (
